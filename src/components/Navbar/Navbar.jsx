@@ -1,19 +1,13 @@
-import { NavLink } from 'react-router-dom';
+import Friends from './Friends/Friends';
 import Menu from './Menu/Menu';
 import s from './Navbar.module.css';
 
-const Navbar = () => {
+const Navbar = (props) => {
+   let menuElements = props.state.menu.map(m => < Menu name={m.name} id={m.id} />);
    return (
       <nav className={s.nav}>
-         <Menu />
-         <div className={s.friends}>
-            <div className={s.title}>Friends</div>
-            <div className={s.items}>
-               <div className={s.item}>a</div>
-               <div className={s.item}>a</div>
-               <div className={s.item}>a</div>
-            </div>
-         </div>
+         {menuElements}
+         <Friends />
       </nav>
    )
 }

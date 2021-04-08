@@ -1,12 +1,21 @@
-import s from './Button.module.css';
+// import s from './Button.module.css';
+// import React from 'react';
 
-const Button = (props) => {
 
-   return (
-      <div>
-         <button className={s.button}>Add post</button>
-      </div>
-   )
-}
+// const Button = (props) => {
+//    let newPostElement = React.createRef();
+   
+//    let onAddPost = () => {
+//       let text = newPostElement.current.value;
+//       alert(text)
+//    }
 
-export default Button;
+
+//    return (
+//       <div>
+//          <button onClick={onAddPost} className={s.button}>Add post</button>
+//       </div>
+//    )
+// }
+
+// export default Button;

@@ -7,7 +7,7 @@ const Post = (props) => {
             <img src="https://www.w3schools.com/howto/img_avatar.png" className={s.logo} alt="logo" />
             {props.message} 
             <div>
-               <span>Like {props.likeCount}</span>
+               <span>Like {props.likesCount}</span>
             </div>
          </div>
       </div >

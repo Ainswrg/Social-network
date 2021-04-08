@@ -14,13 +14,15 @@ import { BrowserRouter, Route } from 'react-router-dom';
 const App = (props) => {
 
    return (
-      <BrowserRouter>
          <div className='app-wrapper'>
             <Header />
-            <Navbar />
+            <Navbar state={props.state.sideBar}/>
             <div className='app-wrapper-content'>
                <Route path='/profile' 
-                  render={() => < Profile state={props.state.profilePage}/>} />
+                  render={() => < Profile 
+                  profilePage={props.state.profilePage} 
+                  addPost={props.addPost} 
+                  updateNewPostText={props.updateNewPostText}/>} />
                <Route path='/dialogs' 
                   render={() => < Dialogs  state={props.state.dialogPage}/>} />
                <Route path='/news' render={() => < News/>}  />
@@ -28,7 +30,6 @@ const App = (props) => {
                <Route path='/settings' render={() => < Settings/>}  />
             </div>
          </div>
-      </BrowserRouter>
    );
 }
 

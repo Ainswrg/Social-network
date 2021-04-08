@@ -1,12 +1,13 @@
-import s from './Input.module.css';
+// import s from './Input.module.css';
 
-const Input = (props) => {
+// const Input = (props) => {
 
-   return (
-      <div>
-               <textarea className={s.input}></textarea>
-      </div>
-   )
-}
 
-export default Input;
+//    return (
+//       <div>
+//          <textarea ref={newPostElement} className={s.input}></textarea>
+//       </div>
+//    )
+// }
+
+// export default Input;

@@ -9,17 +9,47 @@
    margin: 25% 0px;
    /* grid-row: 3/4; */
    display: grid;
-   justify-content: center;
-   background-color: blueviolet;
+   grid-template-rows: 1fr 1fr;
+   /* justify-content: center; */
 }
 .title {
    font-size: 25px;
    font-weight: 500;
    line-height: 27px;
+   /* background-color: crimson; */
+   align-self: center;
+   justify-self: center;
 }
-.friendsOnline {
-
+.items {
+   display: flex;
+   justify-content: space-around;
 }
-.friend {
+.item  {
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+   /* background-color: black; */
+   /* display:flex; */
+}
+.item .imgs {
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+   /* background-color: black; */
+   /* display:flex; */
+}
 
+.userName a {
+   text-decoration: none;
+   color:rgb(133, 128, 128)
+}
+.userName a.active{
+   color: black;
+}
+
+.userName a:hover{
+   color: rgb(146, 90, 197)
+}
+.userName a:active{
+   color: orangered;
 }
