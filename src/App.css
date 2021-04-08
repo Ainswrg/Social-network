@@ -1,0 +1,48 @@
+body {
+  margin: 0px 0px 20px 0px;
+  background-color: #edf2f6;
+}
+
+.app-wrapper {
+  display: grid;
+  grid-template-areas: "header header header" "nav main main";
+  grid-template-columns: 20% 1fr 5%;
+  column-gap: 20px;
+  row-gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  grid-row: 1;
+  grid-column: 2 / 6;
+  grid-area: header;
+  background-color: #3f4257;
+  display: grid;
+  align-items: center;
+  padding: 15px 25px;
+  grid-template: 1fr/1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr;
+}
+
+.header img {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+}
+
+.nav {
+  grid-area: nav;
+  background-color: #f6f7f9;
+  max-width: 400px;
+}
+
+.content {
+  grid-area: main;
+  background-color: #f6f7f9;
+}
+.content .jumbotron {
+  height: 200px;
+  background-image: url(https://w.wallhaven.cc/full/0w/wallhaven-0wdekr.jpg);
+  background-position: center center;
+  background-size: cover;
+}
