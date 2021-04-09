@@ -1,0 +1,16 @@
+body {
+   background-color: #edf2f6;
+   font-family: "Roboto", sans-serif;
+   font-weight: normal;
+   font-style: normal;
+}
+
+.app-wrapper {
+   display: grid;
+   grid-template-areas: "header header header" "nav main main";
+   grid-template-columns: 20% 1fr 5%;
+   column-gap: 20px;
+   row-gap: 16px;
+   max-width: 1200px;
+   margin: 0 auto;
+}

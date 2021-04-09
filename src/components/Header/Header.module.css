@@ -1,0 +1,16 @@
+.header {
+   grid-row: 1;
+   grid-column: 2 / 6;
+   grid-area: header;
+   background-color: #3f4257;
+   display: grid;
+   align-items: center;
+   padding: 15px 25px;
+   grid-template: 1fr/1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr;
+}
+
+.header img {
+   height: 70px;
+   width: 70px;
+   border-radius: 50%;
+}

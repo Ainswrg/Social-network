@@ -1,0 +1,25 @@
+.jumbotron {
+   height: 200px;
+   background-image: url(https://www.freegreatpicture.com/files/199/1774-three-wide-screen-vlad.jpg);
+   background-position: center center;
+   background-size: cover;
+   grid-template-columns: max-content;
+}
+
+.content__info {
+   display: grid;
+   grid-template-columns: repeat(6,1fr);
+   grid-gap: 20px;
+   padding: 15px;
+}
+.logo {
+   width: 150px;
+   grid-column: 1/2;
+}
+
+.description {
+   margin: 0px auto;
+   line-height: 20px;
+   grid-column: 2 / 4;
+   color: gray;
+}
