@@ -1,11 +1,9 @@
-import { NavLink } from 'react-router-dom';
-import Menu from './Menu/Menu';
+// import Menu from './Menu/Menu';
 import s from './Navbar.module.css';
 
-const Navbar = () => {
+const Friends = () => {
    return (
       <nav className={s.nav}>
-         <Menu />
          <div className={s.friends}>
             <div className={s.title}>Friends</div>
             <div className={s.items}>
@@ -18,4 +16,4 @@ const Navbar = () => {
    )
 }
 
-export default Navbar;
+export default Friends;

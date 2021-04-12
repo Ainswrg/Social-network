@@ -1,0 +1,24 @@
+.items  {
+   /* grid-row: 1 / 2; */
+   display: grid;
+}
+
+.items div{
+   padding: 5px 0px;
+   border: 2px solid rgba(10, 7, 7, 0.2);
+}
+
+.items a {
+   text-decoration: none;
+   color: gray;
+   display: flex;
+   justify-content: center;
+}
+
+.items a.active {
+   color: black;
+}
+
+.items a:hover {
+   color: #800080;
+}

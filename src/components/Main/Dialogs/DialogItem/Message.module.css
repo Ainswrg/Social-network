@@ -1,0 +1,44 @@
+.messages {
+   display: flex;
+   flex-direction: column;
+   background-color: #EDEEF0;
+}
+
+.userYou {
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+   flex-direction: row;
+}
+
+
+.user {
+   display: flex;
+   align-items: center;
+   display: grid;
+   grid-template-columns: repeat(7, 1fr);
+   background-color: darkkhaki;
+}
+
+.userInfo {
+   display: flex;
+}
+.userName {
+   font-size: 15px;
+}
+.user .container  {
+   /* background-color: #FFFFFF; */
+   display: grid;
+   justify-content: start;
+   grid-column: 2/5;
+   display: flex;
+}
+.message  {
+   background-color: #FFFFFF;
+   flex-basis: content;
+}
+.avatar {
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+}

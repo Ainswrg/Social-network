@@ -1,20 +1,22 @@
 import s from './MyPost.module.css';
 import Post from './Post/Post';
+import Button from './PostInput/Button/Button';
+import Input from './PostInput/Input/Input';
 
 const MyPost = (props) => {
+
+   let postElement = props.posts.map(p => <Post message={p.message} likeCount={p.likeCount} />);
+
    return (
-      <div className={s.content}>
-         <div>
-            My post
+      <div className={s.postsBlock}>
+
+            <h3>My post</h3>
+
+         <div className={s.inputBlock}>
+            <Input />
+            <Button />
          </div>
-         <div className={s.input}>
-            <textarea></textarea>
-            <div>
-               <button className={s.button}>Add post</button>
-            </div>
-         </div>
-         <Post message="Hi" likeCount="25"/>
-         <Post message="How are you?" likeCount="2"/>
+         {postElement}
       </div>
    )
 }

@@ -1,0 +1,45 @@
+.item {
+   display: flex;
+   align-items: flex-start;
+}
+.avatar {
+   border-radius: 50%;
+   width: 50px;
+}
+
+.messagess {
+   margin-left: 10px;
+}
+.message {
+display: flex;
+align-items: center;
+margin-right: 10px;
+}
+.content {
+   border-radius: 5px;
+   padding: 7px;
+   background-color: #ccc;
+   display: inline-block;
+   margin-left: 5px;
+}
+
+.item__responder {
+   flex-direction: row-reverse;
+}
+.ava {
+   display: flex;
+   align-items: center;
+   justify-content: end;
+}
+.item__responder .ava {
+   flex-direction: row-reverse;
+}
+
+.item__responder .message {
+   flex-direction: row-reverse;
+}
+
+.item__responder .content {
+   margin-left: 0;
+   margin-right: 5px;
+}
