@@ -6,7 +6,6 @@ const Message = (props) => {
 
    return (
       <div className={s.chat}>
-         {/* <div className={s.chat__content}> */}
          <div className={s.item}>
             <div className={s.messagess}>
                <div className={s.ava}>
@@ -16,11 +15,6 @@ const Message = (props) => {
                         <div className={s.time}>5:47</div>
                         <div className={s.content}>{state.dialogPage.messages[0].message}</div>
                      </div>
-                     
-                     {/* <div className={s.message}>
-                        <div className={s.time}>5:48</div>
-                        <div className={s.content}>{state.dialogPage.messages[1].message}</div>
-                     </div> */}
                   </div>
                </div>
             </div>
@@ -43,7 +37,6 @@ const Message = (props) => {
                </div>
             </div>
          </div>
-         {/* </div> */}
       </div>
    )
 }
