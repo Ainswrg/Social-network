@@ -1,0 +1,33 @@
+.item__responder {
+   display: flex;
+   align-items: flex-start;
+   padding: 5px;
+}
+
+.messages {
+   margin-left: 10px;
+}
+.message__block {
+   display: flex;
+   align-items: center;
+   justify-content: end;
+}
+.avatar {
+   border-radius: 50%;
+   width: 50px;
+}
+.message {
+display: flex;
+align-items: center;
+margin-right: 10px;
+}
+.time {
+   margin-left: 10px;
+}
+.content {
+   border-radius: 5px;
+   padding: 7px;
+   display: inline-block;
+   margin-left: 5px;
+}
+

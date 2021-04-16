@@ -1,5 +1,7 @@
-import {rerenderEntireTree} from './../render.js';
 
+let rerenderEntireTree = () => {
+   console.log('State changed')
+}
 let state = {
    profilePage: {
       posts: [
@@ -19,11 +21,16 @@ let state = {
          { id: 6, name: 'Nastya' },
       ],
       messages: [
-         { id: 1, message: 'Hi' },
-         { id: 2, message: 'How are you?' },
-         { id: 3, message: 'Yo' },
-         { id: 4, message: 'Yo' },
+         { id: 1, message: 'Hello', time: '5:35'},
+         // { id: 2, message: 'How are you?' },
+         // { id: 3, message: 'Yo' },
+         // { id: 4, message: 'Yo' },
       ],
+      messageCurrentUser: [
+         { id: 1, message: 'Hi', time: '5:35'},
+         { id: 2, message: 'How a u?', time: '5:36'},
+      ],
+      newMessageText: 'Write message',
    },
    sideBar: {
       menu: [
@@ -43,7 +50,7 @@ let state = {
 
 window.state = state;
 
-export let addPost = () => {
+export const addPost = () => {
    
    let newPost = {
       id: 5,
@@ -55,8 +62,28 @@ export let addPost = () => {
    rerenderEntireTree(state);
 }
 
-export let updateNewPostText = (newText) => {
+export const updateNewPostText = (newText) => {
    state.profilePage.newPostText = newText;
+   rerenderEntireTree(state);
+}
+
+export const subscribe = (observer) => {
+   rerenderEntireTree = observer;
+}
+
+export const addMessage = () => {
+   
+   let newMessage = {
+      id: 3,
+      message: state.dialogPage.newMessageText,
+   };
+   state.dialogPage.messageCurrentUser.push(newMessage);
+   state.dialogPage.newMessageText = '';
+   rerenderEntireTree(state);
+}
+
+export const updateNewMessageText = (newText) => {
+   state.dialogPage.newMessageText = newText;
    rerenderEntireTree(state);
 }
 

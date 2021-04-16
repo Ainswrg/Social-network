@@ -1,16 +1,19 @@
 .dialogs {
    display: grid;
    grid-template-columns: 2fr 10fr;
-   /* justify-items: start; */
-   background-color: #f6f7f9;
    padding-top: 5px;
-   /* grid-gap: 10px; */
+   background-color: #f6f7f9;
+
+}
+.messages {
    
 }
 .input__block {
    margin-top: 20px;
    display: grid;
+   
 }
+
 .input {
    display:grid;
    align-self: center;
@@ -18,7 +21,7 @@
 }
 
 .button {
-   /* justify-self: flex-end; */
+
 }
 .btn {
 }

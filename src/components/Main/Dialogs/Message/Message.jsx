@@ -1,40 +1,34 @@
+import React from 'react';
 import s from './Message.module.css';
-import state from './../../../../Redux/state.js'
+import User from './User/User';
+import UserResponder from './UserResponder/UserResponder';
+
 
 const Message = (props) => {
+   let messageData = props.dialogPage.messages.map(m => <UserResponder  message={m.message} time={m.time} />);
+   let messageUserData = props.dialogPage.messageCurrentUser.map(m => <User message={m.message} time={m.time} />);
 
+   let newMessageElement = React.createRef();
 
+   let addMessage = () => {
+      props.addMessage();
+   }
+   let messageTextChange = () => {
+      let text = newMessageElement.current.value;
+      props.updateNewMessageText(text);
+   }
    return (
-      <div className={s.chat}>
-         <div className={s.item}>
-            <div className={s.messagess}>
-               <div className={s.ava}>
-                  <img src="https://ssl.gstatic.com/images/branding/product/1x/avatar_square_blue_512dp.png" alt="logo" className={s.avatar} />
-                  <div className={s.message__item}>
-                     <div className={s.message}>
-                        <div className={s.time}>5:47</div>
-                        <div className={s.content}>{state.dialogPage.messages[0].message}</div>
-                     </div>
-                  </div>
-               </div>
-            </div>
+      <div>
+         <div className={s.messages} >
+            
+            {messageData}
+            {messageUserData}
+            
          </div>
-
-         <div className={s.item} className={s.item__responder}>
-            <div className={s.messages}>
-               <div className={s.ava}>
-                  <img src="https://www.w3schools.com/howto/img_avatar.png" alt="logo" className={s.avatar} />
-                  <div className={s.message__item}>
-                     <div className={s.message}>
-                        <div className={s.time}>5:47</div>
-                        <div className={s.content}>{state.dialogPage.messages[0].message}</div>
-                     </div>
-                     <div className={s.message}>
-                        <div className={s.time}>5:48</div>
-                        <div className={s.content}>{state.dialogPage.messages[2].message}</div>
-                     </div>
-                  </div>
-               </div>
+         <div className={s.input__block}>
+            <textarea onChange={messageTextChange} ref={newMessageElement} value={props.newMessageText} className={s.input}></textarea>
+            <div className={s.button}>
+               <button onClick={addMessage} className={s.btn}>Send</button>
             </div>
          </div>
       </div>
