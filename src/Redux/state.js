@@ -20,6 +20,7 @@ let state = {
          { id: 5, name: 'Andrey' },
          { id: 6, name: 'Nastya' },
       ],
+      newMessageText: 'Write message',
       messages: [
          { id: 1, message: 'Hello', time: '5:35'},
          // { id: 2, message: 'How are you?' },
@@ -30,7 +31,7 @@ let state = {
          { id: 1, message: 'Hi', time: '5:35'},
          { id: 2, message: 'How a u?', time: '5:36'},
       ],
-      newMessageText: 'Write message',
+      
    },
    sideBar: {
       menu: [
@@ -76,6 +77,7 @@ export const addMessage = () => {
    let newMessage = {
       id: 3,
       message: state.dialogPage.newMessageText,
+      time: '5:48',
    };
    state.dialogPage.messageCurrentUser.push(newMessage);
    state.dialogPage.newMessageText = '';

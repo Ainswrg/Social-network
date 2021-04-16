@@ -1,0 +1,11 @@
+.input__block {
+   margin-top: 20px;
+   display: grid;
+   
+}
+
+.input {
+   display:grid;
+   align-self: center;
+   width: 90%;
+}

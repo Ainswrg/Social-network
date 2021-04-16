@@ -12,8 +12,10 @@ const Dialogs = (props) => {
             {dialogsElements}
          </div>
          <Message
-            dialogPage={props.dialogPage}
+            messageCurrentUser = {props.dialogPage.messageCurrentUser}
+            messages={props.dialogPage.messages}
             addMessage={props.addMessage}
+            newMessageText = {props.dialogPage.newMessageText}
             updateNewMessageText={props.updateNewMessageText} 
             />
       </div >
