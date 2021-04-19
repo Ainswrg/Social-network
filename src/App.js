@@ -7,12 +7,12 @@ import Profile from './components/Main/Profile/Profile';
 import News from './components/Main/News/News';
 import Navbar from './components/Navbar/Navbar';
 import { Route } from 'react-router-dom';
+import store from './Redux/state';
 
 
 
 
 const App = (props) => {
-
    return (
          <div className='app-wrapper'>
             <Header />

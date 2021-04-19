@@ -3,7 +3,6 @@ import s from './MessageInput.module.css';
 
 
 const MessageInput = (props) => {
-   
    let newMessageElement = React.createRef();
 
    let addMessage = () => {
