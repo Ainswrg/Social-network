@@ -13,10 +13,8 @@ let rerenderEntireTree = (state) => {
          <React.StrictMode>
             <App 
                state={state}
-               addPost={store.addPost.bind(store)}
-               updateNewPostText={store.updateNewPostText.bind(store)}
-               addMessage={store.addMessage.bind(store)}
-               updateNewMessageText={store.updateNewMessageText.bind(store)}/>
+               dispatch={store.dispatch.bind(store)}
+               store={store}/>
          </React.StrictMode>,
       </BrowserRouter>,
       document.getElementById('root')
@@ -31,3 +29,5 @@ store.subscribe(rerenderEntireTree);
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+// addMessage={store.addMessage.bind(store)}
+// updateNewMessageText={store.updateNewMessageText.bind(store)}

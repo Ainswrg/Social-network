@@ -6,19 +6,21 @@ import UserResponder from './UserResponder/UserResponder';
 
 
 const Message = (props) => {
-   let messageData = props.messages.map(m => <UserResponder message={m.message} time={m.time} />);
-   let messageUserData = props.messageCurrentUser.map(m => <User message={m.message} time={m.time} />);
+   let state = props.store.getState().dialogPage;
+
+   let incomingDataElement = state.incomingMessages.map(m => <UserResponder message={m.message} time={m.time} />);
+   
+   let outgoingDataElement = state.outgoingMessages.map(m => <User message={m.message} time={m.time} />);
 
    return (
       <div>
          <div className={s.messages} >
-            {messageData}
-            {messageUserData}
+            {incomingDataElement}
+            {outgoingDataElement}
          </div>
          <MessageInput
-            newMessageText = {props.newMessageText}
-            addMessage={props.addMessage}
-            updateNewMessageText={props.updateNewMessageText} />
+            store = {props.store}
+            dispatch={props.dispatch} />
       </div>
    )
 }
