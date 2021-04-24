@@ -30,6 +30,7 @@
    border-radius: 50%;
    /* background-color: black; */
    /* display:flex; */
+   cursor: pointer;
 }
 .item .imgs {
    width: 50px;

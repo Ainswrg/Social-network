@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './Message.module.css';
-import MessageInput from './MessageInput/MessageInput';
+import MessageInputContainer from './MessageInput/MessageInputContainer';
 import User from './User/User';
 import UserResponder from './UserResponder/UserResponder';
 
@@ -18,9 +18,8 @@ const Message = (props) => {
             {incomingDataElement}
             {outgoingDataElement}
          </div>
-         <MessageInput
-            store = {props.store}
-            dispatch={props.dispatch} />
+         <MessageInputContainer
+            store = {props.store} />
       </div>
    )
 }

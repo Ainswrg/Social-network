@@ -7,7 +7,7 @@ import Profile from './components/Main/Profile/Profile';
 import News from './components/Main/News/News';
 import Navbar from './components/Navbar/Navbar';
 import { Route } from 'react-router-dom';
-import store from './Redux/state';
+
 
 
 
@@ -20,8 +20,7 @@ const App = (props) => {
             <div className='app-wrapper-content'>
                <Route path='/profile' 
                   render={() => < Profile 
-                  profilePage={props.state.profilePage}
-                  dispatch={props.dispatch} />} />
+                  store={props.store} />} />
                <Route path='/dialogs' 
                   render={() => < Dialogs
                   store={props.store}/>} />
