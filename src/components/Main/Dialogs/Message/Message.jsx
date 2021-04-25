@@ -6,7 +6,7 @@ import UserResponder from './UserResponder/UserResponder';
 
 
 const Message = (props) => {
-   let state = props.store.getState().dialogPage;
+   let state = props.dialogPage;
 
    let incomingDataElement = state.incomingMessages.map(m => <UserResponder message={m.message} time={m.time} />);
 
@@ -19,7 +19,7 @@ const Message = (props) => {
             {outgoingDataElement}
          </div>
          <MessageInput
-            store={props.store}
+            dialogPage={props.dialogPage}
             sendMessage={props.sendMessage}
             updateNewMessageBody={props.updateNewMessageBody} />
       </div>
