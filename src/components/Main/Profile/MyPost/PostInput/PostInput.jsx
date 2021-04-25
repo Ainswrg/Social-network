@@ -3,7 +3,6 @@ import s from './PostInput.module.css';
 
 
 const PostInput = (props) => {
-
    let newPostElement = React.createRef();
 
    let onAddPost = () => {

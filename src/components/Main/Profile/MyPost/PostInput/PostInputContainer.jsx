@@ -1,25 +1,31 @@
-import React from 'react';
-import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../../../Redux/profile-reducer';
-import PostInput from './PostInput';
+// import React from 'react';
+// import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../../../Redux/profile-reducer';
+// import StoreContext from '../../../../../StoreContext';
+// import PostInput from './PostInput';
 
 
-const PostInputContainer = (props) => {
+// const PostInputContainer = (props) => {
 
-   let onAddPost = () => {
-      props.store.dispatch(addPostActionCreator());
-   }
 
-   let onPostChange = (newPost) => {
-      let action = updateNewPostTextActionCreator(newPost)
-      props.store.dispatch(action);
-   }
 
-   return (
-      <PostInput updateNewPostText={onPostChange} 
-      onAddPost={onAddPost} 
-      dispatch={props.store.dispatch} 
-      newPostText = {props.store.getState().profilePage.newPostText}/>
-   )
-}
+//    return <StoreContext.Consumer>
+//       {store => {
+//          let state = store.getState();
+//          let onAddPost = () => {
+//             store.dispatch(addPostActionCreator());
+//          }
+//          let onPostChange = (newPost) => {
+//             let action = updateNewPostTextActionCreator(newPost)
+//             store.dispatch(action);
+//          }
 
-export default PostInputContainer;
+//          return <PostInput updateNewPostText={onPostChange}
+//             onAddPost={onAddPost}
+//             dispatch={store.dispatch}
+//             newPostText={state.profilePage.newPostText} />
+//       }
+
+//       }
+//    </StoreContext.Consumer>
+// }
+
