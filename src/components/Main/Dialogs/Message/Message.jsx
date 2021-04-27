@@ -8,9 +8,9 @@ import UserResponder from './UserResponder/UserResponder';
 const Message = (props) => {
    let state = props.dialogPage;
 
-   let incomingDataElement = state.incomingMessages.map(m => <UserResponder message={m.message} time={m.time} />);
+   let incomingDataElement = state.incomingMessages.map(m => <UserResponder message={m.message} key={m.id} time={m.time} />);
 
-   let outgoingDataElement = state.outgoingMessages.map(m => <User message={m.message} time={m.time} />);
+   let outgoingDataElement = state.outgoingMessages.map(m => <User message={m.message} key={m.id} time={m.time} />);
 
    return (
       <div>
