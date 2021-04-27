@@ -4,33 +4,6 @@ import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../.
 import MyPost from './MyPost';
 
 
-// const MyPostContainer = (props) => {
-//    // let postsElement = state.profilePage.posts.map(p => <Post message={p.message} likesCount={p.likesCount} />);
-
-//    return <StoreContext.Consumer> 
-//       { store => {
-//          let state = store.getState();
-
-//          let onAddPost = () => {
-//             store.dispatch(addPostActionCreator());
-//          }
-//          let onPostChange = (newPost) => {
-//             let action = updateNewPostTextActionCreator(newPost)
-//             store.dispatch(action);
-//          }
-
-//          return <MyPost
-//             posts={store.getState().profilePage.posts} 
-//             updateNewPostText={onPostChange}
-//             onAddPost={onAddPost}
-//             dispatch={store.dispatch}
-//             newPostText={state.profilePage.newPostText}/>
-            
-//       }}
-      
-//    </StoreContext.Consumer>
-// }
-
 let mapStateToProps = (state) => {
    return {
       posts: state.profilePage.posts,
@@ -39,12 +12,12 @@ let mapStateToProps = (state) => {
 }
 let mapDispatchToProps = (dispatch) => {
    return {
-      newPostText: () => {
+      onPostChange: () => {
          dispatch(addPostActionCreator());
       },
       updateNewPostText: (newPost) => {
          let action = updateNewPostTextActionCreator(newPost)
-            dispatch(action);
+         dispatch(action);
       }
    }
 }

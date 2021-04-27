@@ -10,10 +10,8 @@ const MyPost = (props) => {
       <div className={s.postsBlock}>
          <h3>My post</h3>
          <PostInput
-            store={props.store}
             updateNewPostText={props.updateNewPostText}
-            onAddPost={props.onAddPost}
-            dispatch={props.dispatch}
+            onAddPost={props.onPostChange}
             newPostText={props.newPostText}/>
          {postsElement}
       </div>

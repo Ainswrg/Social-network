@@ -3,7 +3,7 @@ import s from './MessageInput.module.css';
 
 
 const MessageInput = (props) => {
-   let newMessageBody = props.newMessageBody;
+   let newMessageBody = props.dialogPage.newMessageBody;
 
    let onSendMessageClick = () => {
       props.sendMessage();
