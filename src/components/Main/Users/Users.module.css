@@ -1,3 +1,10 @@
 .userPhoto {
    width: 75px;
 }
+.selectedPage {
+   font-weight: bold;
+   display: flex;
+}
+.container {
+   display: flex;
+}

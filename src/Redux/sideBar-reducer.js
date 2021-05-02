@@ -2,9 +2,11 @@ let initialState = {
    menu: [
       { name: 'Profile', id: '/profile' },
       { name: 'Message', id: '/dialogs' },
+      { name: 'Users', id: '/users'},
       { name: 'News', id: '/news' },
       { name: 'Music', id: '/music' },
       { name: 'Settings', id: '/settings' },
+      
    ],
    img: [
       { src: "https://cdn2.iconfinder.com/data/icons/office-square-flat-vol-1/100/avatar__male__student__user_-512.png" },
