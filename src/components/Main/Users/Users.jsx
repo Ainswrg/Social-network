@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './Users.module.css';
-import userPhoto from '../../../img/avatar.png'
+import userPhoto from '../../../assets/img/avatar.png';
+
+
 
 
 let Users = (props) => {
@@ -19,10 +21,10 @@ let Users = (props) => {
          })}
       </div>
       {
-         props.users.map(u => <div u >
+         props.users.map(u => <div key={u.id} >
             <div>
                <div>
-                  <img src={u.photos.small !== null ? u.photos.small : u.photos.small = userPhoto} className={styles.userPhoto} />
+                  <img src={u.photos.small !== null ? u.photos.small :  userPhoto} className={styles.userPhoto} />
                </div>
                <div>
                   {u.followed
