@@ -1,24 +1,24 @@
 import './App.css';
-import Header from './components/Header/Header';
 import Music from './components/Main/Music/Music';
 import Settings from './components/Main/Settings/Settings';
-import Profile from './components/Main/Profile/Profile';
 import News from './components/Main/News/News';
 import { Route } from 'react-router-dom';
 import NavbarContainer from './components/Navbar/NavbarContainer';
 import DialogsContainer from './components/Main/Dialogs/DialogsContainer';
 import UsersContainer from './components/Main/Users/UsersContainer';
+import ProfileContainer from './components/Main/Profile/ProfileContainer';
+import HeaderContainer from './components/Header/HeaderContainer';
 
 
 
 const App = (props) => {
    return (
          <div className='app-wrapper'>
-            <Header />
+            <HeaderContainer />
             <NavbarContainer /> 
             <div className='app-wrapper-content'>
-               <Route path='/profile' 
-                  render={() => < Profile />} />
+               <Route path='/profile/:userId?' 
+                  render={() => < ProfileContainer />} />
                <Route path='/dialogs' 
                   render={() => < DialogsContainer />} />
                <Route path='/news' render={() => < News/>}  />

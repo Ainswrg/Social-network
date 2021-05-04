@@ -5,6 +5,7 @@ import User from './User/User';
 import UserResponder from './UserResponder/UserResponder';
 
 
+
 const Message = (props) => {
    let state = props.dialogPage;
 
