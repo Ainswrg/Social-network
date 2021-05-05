@@ -6,13 +6,11 @@ import {
    setAuthUserData,
    setUserProfile,
 } from "../../Redux/auth-reducer";
+import { authMeAPI, profileAPI } from "../../api/api";
 
 class HeaderContainer extends React.Component {
    componentDidMount() {
-      axios
-         .get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {
-            withCredentials: true,
-         })
+      authMeAPI.getAuthMe()
          .then((response) => {
             if (response.data.resultCode === 0) {
                let { id, email, login } = response.data.data;
@@ -21,8 +19,7 @@ class HeaderContainer extends React.Component {
             }
          });
 
-      axios
-         .get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
+         profileAPI.getProfile()
          .then((response) => {
             this.props.setUserProfile(response.data);
          });
