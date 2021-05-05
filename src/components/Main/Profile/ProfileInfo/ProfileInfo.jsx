@@ -3,9 +3,13 @@ import s from "./ProfileInfo.module.css";
 
 const ProfileInfo = (props) => {
    let contacts;
-   props.profile 
-      ? contacts = Object.entries(props.profile.contacts).map((value) => <li key={value}>{value[0]} : {value[1]}</li>)
-      : contacts = '';
+   props.profile
+      ? (contacts = Object.entries(props.profile.contacts).map((value) => (
+            <li key={value}>
+               {value[0]} : {value[1]}
+            </li>
+         )))
+      : (contacts = "");
    if (!props.profile) {
       return <Preloader />;
    } else {

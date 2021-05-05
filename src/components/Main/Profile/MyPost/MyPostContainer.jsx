@@ -1,4 +1,3 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import { onPostChange, updateNewPostText } from '../../../../Redux/profile-reducer';
 import MyPost from './MyPost';

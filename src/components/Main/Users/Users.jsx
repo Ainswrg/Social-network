@@ -38,7 +38,7 @@ let Users = (props) => {
                               u.photos.small != null
                                  ? u.photos.small
                                  : userPhoto
-                           }
+                           } alt="img"
                            className={styles.userPhoto}
                         />
                      </NavLink>
