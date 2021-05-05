@@ -10,17 +10,16 @@ const Header = (props) => {
          ></img>
          <div className={s.loginBlock}>
             <div className={s.ava}>
-               {props.profile ? (<img
-                  src={props.profile.photos.small}
-                  className={s.logo}
-                  alt="logo"
-               />) : "ava"}
+               {props.profile 
+                  ? <img
+                     src={props.profile.photos.small}
+                     className={s.logo}
+                     alt="logo"/> 
+                  : "ava"}
             </div>
-            {props.isAuth ? (
-               <NavLink to={"/profile"}>{props.login}</NavLink>
-            ) : (
-               <NavLink to={"/login"}>Login</NavLink>
-            )}
+            {props.isAuth 
+               ? <NavLink to={"/profile"}>{props.login}</NavLink>
+               : <NavLink to={"/login"}>Login</NavLink>}
          </div>
       </header>
    );
