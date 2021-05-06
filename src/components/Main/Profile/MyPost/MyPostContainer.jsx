@@ -21,8 +21,10 @@ let mapStateToProps = (state) => {
 //    }
 // }
 
-const MyPostContainer = connect(mapStateToProps, {
+// const MyPostContainer = connect(mapStateToProps, {
+//    onPostChange, updateNewPostText,
+// })(MyPost);
+
+export default connect(mapStateToProps, {
    onPostChange, updateNewPostText,
 })(MyPost);
-
-export default MyPostContainer;
