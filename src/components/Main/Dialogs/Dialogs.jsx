@@ -7,6 +7,8 @@ const Dialogs = (props) => {
    let state = props.dialogPage;
    let dialogsElements = state.dialogs.map(d => <DialogItem name={d.name} key={d.id} id={d.id} />);
 
+   // if(props.isAuth) return <Redirect to={'/login'}/>
+
    return (
       <div className={s.dialogs}>
          <div className={s.dialog + ' ' + s.active}>

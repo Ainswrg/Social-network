@@ -4,6 +4,10 @@ import {
    updateNewMessageBody,
 } from "../../../Redux/dialog-reducer";
 import { connect } from "react-redux";
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
+import { withRouter } from "react-router";
+
+let AuthRedirectComponent = withAuthRedirect(Dialogs);
 
 let mapStateToProps = (state) => {
    return {
@@ -11,9 +15,11 @@ let mapStateToProps = (state) => {
    };
 };
 
+let WithUrlDataContainerComponent = withRouter(AuthRedirectComponent);
+
 const DialogsContainer = connect(mapStateToProps, {
    updateNewMessageBody,
    sendMessage,
-})(Dialogs);
+})(WithUrlDataContainerComponent);
 
 export default DialogsContainer;

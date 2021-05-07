@@ -13,13 +13,10 @@ const Header = (props) => {
             <div className={s.ava}>
                {props.profile 
                   ? <img
-                     src={props.profile.photos.small}
+                     src={ avatar }
                      className={s.logo}
                      alt="logo"/> 
-                  : <img 
-                        src={avatar}
-                        className={s.logo}
-                        alt="logo" />}
+                  : ''}
             </div>
             {props.isAuth 
                ? <NavLink to={"/profile"}>{props.login}</NavLink>
