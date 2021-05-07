@@ -1,5 +1,6 @@
 import Preloader from "../../../common/Preloader/Preloader";
 import s from "./ProfileInfo.module.css";
+import avatar from '../../../../assets/img/avatar.png'
 
 const ProfileInfo = (props) => {
 
@@ -19,7 +20,7 @@ const ProfileInfo = (props) => {
             <div className={s.jumbotron}></div>
             <div className={s.content__info}>
                <img
-                  src={props.profile.data.photos.large}
+                  src={props.profile.data.photos.large ? props.profile.data.photos.large : avatar}
                   className={s.logo}
                   alt="logo"
                />

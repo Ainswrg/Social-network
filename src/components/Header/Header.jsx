@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import s from "./Header.module.css";
+import avatar from '../../assets/img/avatar.png';
 
 const Header = (props) => {
    return (
@@ -15,7 +16,10 @@ const Header = (props) => {
                      src={props.profile.photos.small}
                      className={s.logo}
                      alt="logo"/> 
-                  : "ava"}
+                  : <img 
+                        src={avatar}
+                        className={s.logo}
+                        alt="logo" />}
             </div>
             {props.isAuth 
                ? <NavLink to={"/profile"}>{props.login}</NavLink>

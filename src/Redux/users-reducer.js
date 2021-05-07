@@ -106,8 +106,8 @@ export const follow = (userId) => {
 
       dispatch(toggleFollowingInProgress(true, userId));
       usersAPI.follow(userId)
-         .then((data) => {
-            if (data.resultCode === 0) {
+         .then((response) => {
+            if (response.data.resultCode === 0) {
                dispatch(followSuccess(userId));
             }
             dispatch(toggleFollowingInProgress(false, userId));
@@ -120,8 +120,8 @@ export const unfollow = (userId) => {
 
       dispatch(toggleFollowingInProgress(true, userId));
       usersAPI.unfollow(userId)
-         .then((data) => {
-            if (data.resultCode === 0) {
+         .then((response) => {
+            if (response.data.resultCode === 0) {
                dispatch(unfollowSuccess(userId));
             }
             dispatch(toggleFollowingInProgress(false, userId));
