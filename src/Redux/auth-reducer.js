@@ -39,12 +39,13 @@ export const setProfileData = (profile) => ({
    profile,
 });
 export const getAuthUserData = () => (dispatch) => {
-   authAPI.getMe().then((response) => {
-      if (response.data.resultCode === 0) {
-         let { id, email, login } = response.data.data;
+   authAPI.getMe()
+      .then((response) => {
+         if (response.data.resultCode === 0) {
+            let { id, email, login } = response.data.data;
 
-         dispatch(setAuthUserData(id, email, login));
-      }
+            dispatch(setAuthUserData(id, email, login));
+         }
    });
 };
 

@@ -7,19 +7,26 @@
 }
 
 .content__info {
-   display: grid;
+   display: flex;
    grid-template-columns: repeat(6,1fr);
    grid-gap: 20px;
    padding: 15px;
+   flex-flow: row wrap;
+   box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
+   /* background-color: blueviolet; */
 }
 .logo {
    width: 150px;
-   grid-column: 1/2;
+   /* grid-column: 1/2; */
+   background-color: burlywood;
+   height: 150px;
+   border: 1px solid rgb(160, 160, 160);
 }
 
 .description {
    margin: 0px auto;
    line-height: 20px;
-   grid-column: 2 / 4;
-   color: gray;
+   width: 60%;
+   /* grid-column: 2 / 4; */
+   /* color: gray; */
 }

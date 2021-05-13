@@ -25,7 +25,7 @@ export default compose(
    connect(mapStateToProps, {
       setAuthUserData, getAuthUserData, setProfileData,
    }),
-)(HeaderContainer)
+)(HeaderContainer);
 
 // export default connect(mapStateToProps, {
 //    setAuthUserData, getAuthUserData, setProfileData,
