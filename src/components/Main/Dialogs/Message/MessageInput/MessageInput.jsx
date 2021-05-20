@@ -1,4 +1,5 @@
 import React from 'react';
+import AddMessageForm from './AddMessageForm';
 import s from './MessageInput.module.css';
 
 
@@ -15,19 +16,14 @@ const MessageInput = (props) => {
    }
    
    return (
-      <div className={s.inputBlock}>
-         <div>
-         <textarea 
-            placeholder="Write Message" 
-            onChange={onNewMessageChange} 
-            value={newMessageBody} 
-            className={s.input}></textarea>
-         </div>
-         <div className={s.button}>
-            <button onClick={onSendMessageClick} className={s.btn}>Send</button>
-         </div>
-      </div>
+      <AddMessageForm
+         newMessageBody={newMessageBody}
+         onSendMessageClick={onSendMessageClick}
+         onNewMessageChange={onNewMessageChange}
+      />
    )
 }
+
+
 
 export default MessageInput;

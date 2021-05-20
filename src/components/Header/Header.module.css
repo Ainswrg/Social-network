@@ -31,3 +31,28 @@
    border:2px solid black;
    border-radius: 20%;
 }
+.logout {
+   display: flex;
+   color:rgba(243, 224, 243, 0.3);
+   cursor: pointer;
+   font-size: 14px;
+   justify-content: center;
+   /* margin: 5px;
+   padding: 20px;
+   text-transform:uppercase;
+   background-color: #3eaa44;
+   border: none;
+   color: #fff;
+   font-size: 18px;
+   font-weight: 700;
+   border-radius: 4px;
+   cursor: pointer; */
+}
+
+.logout:disabled {
+   opacity: 0.4;
+}
+.logout:hover {
+   color: #800080;
+   /* background-color: #3bba44; */
+}
