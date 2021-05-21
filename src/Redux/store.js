@@ -26,8 +26,8 @@ let store = {
             { id: 1, message: 'Hello', time: '5:35' },
          ],
          outgoingMessages: [
-            { id: 1, message: 'Hi', time: '5:35' },
-            { id: 2, message: 'How a u?', time: '5:36' },
+            { id: 2, message: 'Hi', time: '5:35' },
+            { id: 3, message: 'How a u?', time: '5:36' },
          ],
       },
       sideBar: {

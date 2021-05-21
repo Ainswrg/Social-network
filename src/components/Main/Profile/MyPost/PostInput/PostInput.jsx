@@ -1,4 +1,5 @@
 import React from 'react';
+import AddPostForm from './AddPostForm';
 import s from './PostInput.module.css';
 
 
@@ -15,6 +16,7 @@ const PostInput = (props) => {
    }
 
    return (
+      // <AddPostForm />
       <div className={s.inputBlock}>
          <div>
             <textarea onChange={onPostChange} 

@@ -35,7 +35,6 @@ class ProfileStatus extends React.Component {
    }
 
    render() {
-      console.log('render')
       return (
          <div className={s.status_wrapper}>
             { !this.state.editMode && 

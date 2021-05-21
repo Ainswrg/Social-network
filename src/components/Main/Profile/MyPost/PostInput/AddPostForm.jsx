@@ -1,6 +1,6 @@
 import { Form, Formik, useField } from 'formik';
 import React from 'react';
-import s from './MessageInput.module.css';
+import s from './PostInput.module.css';
 
 
 const MySpecialField = (values) => {
@@ -15,11 +15,22 @@ const MySpecialField = (values) => {
          className={s.input}
       />
       </div>
-      
+   //    <div className={s.inputBlock}>
+   //    <div>
+   //       <textarea onChange={onPostChange} 
+   //       ref={newPostElement} 
+   //       value={props.newPostText}
+   //       placeholder={'Write Post'}
+   //       className={s.input} />
+   //    </div>
+   //    <div>
+   //       <button onClick={onAddPost} className={s.button}>Add post</button>
+   //    </div>
+   // </div>
    )
 };
 
-const AddMessageForm = (props) => {
+const AddPostForm = (props) => {
    const handleSubmit = (values) => {
       console.log(values);
    };
@@ -47,4 +58,4 @@ const AddMessageForm = (props) => {
    )
 }
 
-export default AddMessageForm
+export default AddPostForm
