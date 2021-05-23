@@ -8,9 +8,9 @@ body {
 .app-wrapper {
    display: grid;
    grid-template-areas: "header header header" "nav main main";
-   grid-template-columns: 20% 1fr 5%;
+   grid-template-columns: 10% 1fr 5px;
    column-gap: 20px;
    row-gap: 16px;
-   max-width: 1200px;
+   /* max-width: 1200px; */
    margin: 0 auto;
 }

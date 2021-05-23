@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyledInputContainer, StyledPostButton, StyledTextArea } from '../../../../Styles';
 // import AddMessageForm from './AddMessageForm';
 import s from './MessageInput.module.css';
 
@@ -16,18 +17,20 @@ const MessageInput = (props) => {
    }
    
    return (
-      <div className={s.inputBlock}>
+      <StyledInputContainer>
          <div>
-         <textarea 
-            placeholder="Write Message" 
-            onChange={onNewMessageChange} 
-            value={newMessageBody} 
-            className={s.input}></textarea>
+            <StyledTextArea
+               placeholder="Write Message" 
+               onChange={onNewMessageChange} 
+               value={newMessageBody} 
+               className={s.input}
+            >
+            </StyledTextArea>
          </div>
-         <div className={s.button}>
-            <button onClick={onSendMessageClick} className={s.btn}>Send</button>
+         <div>
+            <StyledPostButton onClick={onSendMessageClick} >Send</StyledPostButton>
          </div>
-      </div>
+      </StyledInputContainer>
       // <AddMessageForm
       //    newMessageBody={newMessageBody}
       //    onSendMessageClick={onSendMessageClick}

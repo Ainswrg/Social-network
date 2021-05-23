@@ -1,12 +1,13 @@
-.dialogs {
+/* .dialogs {
    display: grid;
    grid-template-columns: 2fr 10fr;
    padding-top: 5px;
    background-color: #f6f7f9;
    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
 
-}
-.input__block {
+} */
+/* className={s.dialog + ' ' + s.active} */
+/* .input__block {
    margin-top: 20px;
    display: grid;
    
@@ -16,4 +17,4 @@
    display:grid;
    align-self: center;
    width: 90%;
-}
+} */

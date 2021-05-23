@@ -11,11 +11,55 @@ let initialState = {
       { id: 6, name: "Nastya" },
    ],
    newMessageBody: "",
-   incomingMessages: [{ id: 1, message: "Hello", time: "5:35" }],
-   outgoingMessages: [
-      { id: 2, message: "Hi", time: "5:35" },
-      { id: 3, message: "How a u?", time: "5:36" },
-   ],
+   // incomingMessages: [{ id: 1, message: "Hello", time: "5:35" }],
+   // outgoingMessages: [
+   //    { id: 2, message: "Hi", time: "5:35" },
+   //    { id: 3, message: "How a u?", time: "5:36" },
+   // ],
+   messages: [
+      {
+         key:1, 
+         image: null,
+         type: "",
+         msg: "Hi Tim, How are you?",
+      },
+      {
+         key: 2,
+         image: null,
+         type: "other",
+         msg: "I am fine.",
+       },
+       {
+         key: 3,
+         image: null,
+         type: "other",
+         msg: "What about you?",
+       },
+       {
+         key: 4,
+         image: null,
+         type: "",
+         msg: "Awesome these days.",
+       },
+       {
+         key: 5,
+         image: null,
+         type: "other",
+         msg: "Finally. What's the plan?",
+       },
+       {
+         key: 6,
+         image: null,
+         type: "",
+         msg: "what plan mate?",
+       },
+       {
+         key: 7,
+         image: null,
+         type: "other",
+         msg: "I'm taliking about the tutorial",
+       },
+   ]
 };
 
 const dialogReducer = (state = initialState, action) => {
@@ -24,10 +68,11 @@ const dialogReducer = (state = initialState, action) => {
          let body = state.newMessageBody;
          return {
             ...state,
-            newMessageBody: "",
-            outgoingMessages: [
-               ...state.outgoingMessages,
-               { id: 6, message: body, time: "5:37" },
+            // newMessageBody: "",
+            // outgoingMessages: [
+               messages: [
+               ...state.messages,
+               { key: 8, msg: body, type: "" },
             ],
          };
       }

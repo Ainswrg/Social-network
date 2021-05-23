@@ -3,10 +3,10 @@ import { Formik, Form } from "formik";
 import s from "./Login.module.css";
 import FormikField from "../shared/FormikField/FormikField";
 import loginFormSchema from './FormValidation/LoginFormSchema';
-import {login} from '../../Redux/auth-reducer';
+import authReducer, { login, getAuthUserData } from '../../Redux/auth-reducer';
 import {useDispatch} from "react-redux";
 
-const Login = () => {
+const Login = (props) => {
    const dispatch = useDispatch();
    const loggingInThunk = (email, password, rememberMe) => dispatch(login(email, password, rememberMe));
 
@@ -22,6 +22,8 @@ const Login = () => {
    }
    
    const validationSchema = loginFormSchema;
+   
+   if(authReducer) console.log(1)
 
    return (
       <Formik
