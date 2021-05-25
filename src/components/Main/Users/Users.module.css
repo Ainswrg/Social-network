@@ -2,9 +2,27 @@
    width: 75px;
 }
 .selectedPage {
-   font-weight: bold;
+   font-weight:lighter;
    display: flex;
+   overflow: hidden;
+}
+.currentPage {
 }
 .container {
-   display: flex;
+   /* display: flex; */
+
+}
+.wrapper {
+   margin: 0 auto;
+}
+.asd{
+   background-color: brown;
+   color: burlywood;
+   
+}
+.cont {
+   display: grid;
+   flex-direction: row;
+   overflow: hidden;
+   border: 2 solid black;
 }

@@ -1,10 +1,10 @@
-label {
+/* label {
    font-weight: bold;
    display: flex;
    margin-bottom: 5px;
-}
+} */
 
-input[type='email'],
+/* input[type='email'],
 input[type='password'] {
    display: block;
    width: 400px;
@@ -16,13 +16,13 @@ input[type='password'] {
    background-image: none;
    border: 1px solid #ccc;
    border-radius: 4px;
-   /* margin-bottom: 20px; */
-}
+   margin-bottom: 20px;
+} */
 
-.formControl {
+/* .formControl {
    margin-bottom: 20px;
 }
 
 .error {
    color: red;
-}
+} */

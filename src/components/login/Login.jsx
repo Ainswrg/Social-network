@@ -5,6 +5,7 @@ import FormikField from "../shared/FormikField/FormikField";
 import loginFormSchema from './FormValidation/LoginFormSchema';
 import authReducer, { login, getAuthUserData } from '../../Redux/auth-reducer';
 import {useDispatch} from "react-redux";
+import { StyledLogin } from "../Styles";
 
 const Login = (props) => {
    const dispatch = useDispatch();
@@ -33,18 +34,17 @@ const Login = (props) => {
       >
          {(formik) => {
             return (
-               <Form>
-                  <div className={s.form}>
-                     <FormikField label="Email" name="email" type="email" />
-                     <FormikField label="Password" name="password" type="password" />
-                     <FormikField 
-                        label="Remember Me"
-                        name="rememberMe"
-                        type="checkbox"
-                     />
-                     <button style={{ display: "block" }}>submit</button>
-                  </div>
-               </Form>
+               <StyledLogin>
+                  <Form>
+                     {/* <div className={s.form}> */}
+                     
+                        <FormikField label="Email" name="email" type="email" />
+                        <FormikField label="Password" name="password" type="password" />
+                        <FormikField label="Remember Me" name="rememberMe" type="checkbox"
+                        />
+                        <button btn btn-green>Sign In</button>
+                  </Form>
+               </StyledLogin>
             )
          }}
       </Formik>

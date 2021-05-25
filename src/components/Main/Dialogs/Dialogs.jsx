@@ -14,19 +14,19 @@ const Dialogs = (props) => {
 
    return (
       <StyledDialogContainer>
-         <StyledDialogBody>
-            <StyledDialogContent >
-               {/* <div >
+            <div className="dialogBody">
+               <div className="dialogContent">
+                  {/* <div >
                   {dialogsElements}
-               </div> */}
-               <ChatList />
-               <ChatContent
-                  dialogPage={props.dialogPage}
-                  sendMessage={props.sendMessage}
-                  updateNewMessageBody={props.updateNewMessageBody} 
-               />
-            </StyledDialogContent>
-         </StyledDialogBody>
+                  </div> */}
+                  <ChatList />
+                  <ChatContent
+                     dialogPage={props.dialogPage}
+                     sendMessage={props.sendMessage}
+                     updateNewMessageBody={props.updateNewMessageBody} 
+                  />
+               </div>
+            </div>
       </StyledDialogContainer >
    )
 }

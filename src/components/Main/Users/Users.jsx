@@ -11,20 +11,24 @@ let Users = (props) => {
       pages.push(i);
    }
    return (
-      <div>
+      <div className={styles.wrapper}>
          <div className={styles.container}>
             {pages.map((p) => {
                return (
-                  <div
-                     key={p}
-                     style={{ cursor: "pointer" }}
-                     className={props.currentPage === p ? styles.selectedPage : undefined }
-                     onClick={(e) => {
-                        props.onPageChanged(p);
-                     }}
-                  >
+                  <div className={styles.cont}>
+                     <div
+                        className={styles.asd}
+                        key={p}
+                        style={{ cursor: "pointer" }}
+                        // className={props.currentPage === p ? styles.selectedPage : undefined }
+                        onClick={(e) => {
+                           props.onPageChanged(p);
+                        }}
+                     >
                      {p}
+                     </div>
                   </div>
+                  
                );
             })}
          </div>
