@@ -14,8 +14,6 @@ const Dialogs = (props) => {
 
    return (
       <StyledDialogContainer>
-            <div className="dialogBody">
-               <div className="dialogContent">
                   {/* <div >
                   {dialogsElements}
                   </div> */}
@@ -25,8 +23,6 @@ const Dialogs = (props) => {
                      sendMessage={props.sendMessage}
                      updateNewMessageBody={props.updateNewMessageBody} 
                   />
-               </div>
-            </div>
       </StyledDialogContainer >
    )
 }

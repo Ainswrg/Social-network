@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import tw from "twin.macro";
-import { FaCog } from "react-icons/fa";
+import { FaCog, FaPlus, FaPaperPlane} from "react-icons/fa";
 
 export const colors = {
    primary: "#fff",
@@ -17,80 +17,24 @@ export const colors = {
    blue2: "#ebe7fb",
 };
 
-// export const StyledDialogContainer = styled.div`
-//    min-height: 80vh;
-//    display: flex;
-//    flex-grow: 1;
-//    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
-//    padding: 20px 40px;
-//    max-width: 93%;
-//    border-radius: 10px;
-//    border-right: 1px solid #ebe7fb;
-// `;
 
 export const StyledDialogContainer = styled.div.attrs({
-   // className: "flex flex-grow min-h-screen max-w-full py-5 px-10 rounded-xl border-r-2 border-blue-100 shadow-xl"
 })`
-${tw`flex flex-grow min-h-screen max-w-full py-5 px-10 rounded-xl border-r-2  shadow-xl`}
-   &{
-      .dialogBody {
-         ${tw`flex flex-grow rounded-xl border-blue-200 shadow-lg `}
-      }
-      .dialogContent {
-         ${tw`flex flex-grow py-4 px-5 rounded-xl border-blue-200 shadow-lg 
-         bg-gray-100 `}
-      }
-   }
+${tw`flex flex-grow py-5 px-10 rounded-xl  shadow-xl`}
 `;
 
-// export const StyledDialogBody = styled.div`
-//    flex-grow: 1;
-//    border-radius: 10px;
-//    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
-//    display: flex;
-// `;
-
-// export const StyledDialogContent = styled.div`
-//    display: flex;
-//    flex-grow: 1;
-//    padding: 15px 20px;
-//    border-radius: 10px;
-//    background-color: ${colors.light};
-//    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
-// `;
-
-// export const StyledChatContent = styled.div`
-//    flex-grow: 1;
-//    padding: 20px 40px;
-//    max-width: 93%;
-// `;
-
-// export const StyledChatHeader = styled.div`
-//    display: flex;
-//    justify-content: space-between;
-//    align-items: center;
-//    padding-bottom: 15px;
-//    border-bottom: 1px solid #ebe7fb;
-// `;
-
-// export const StyledCurrentChattingUser = styled.div`
-//    display: flex;
-//    align-items: center;
-// `;
-
-// export const CurrentChattingUser = styled.p`
-//    margin: 0;
-//    font-weight: 600;
-// `;
 
 export const StyledChatContent = styled.div`
-${tw`flex-grow py-5 px-10 max-w-full`}
+${tw`flex-grow py-5 px-10 max-w-full bg-gray-100`}
    & {
-      .chatHeader {
-         ${tw`flex justify-between items-center pb-4 border-b border-solid border-gray-100`}
+      .chat__content__header {
+         ${tw`pb-4 flex justify-between items-center`}
+         border-bottom: 1px solid ${colors.blue2};
       }
-      .chatCurrentChattingUser {
+      .current__chatting__user {
          ${tw`flex items-center`}
+         
+
       }
       p {
          ${tw`font-semibold m-0`}
@@ -101,83 +45,82 @@ ${tw`flex-grow py-5 px-10 max-w-full`}
    }
 `;
 
-// export const StyledButtonSetting = styled.button`
-//    // color: black;
-//    background-color: transparent;
-//    cursor: pointer;
-//    margin: 0;
-//    border: none !important;
-//    justify-content: center;
-// `;
 
-export const StyledIcon = styled(FaCog)`
-   color: black;
-   font-size: 20px;
+export const StyledIconSetting = styled(FaCog)`
+   ${tw`text-base text-black`};
+`;
+export const StyledIconPlus = styled(FaPlus)`
+   ${tw`text-base `}
+`;
+export const StyledIconPaperPlane = styled(FaPaperPlane)`
+   ${tw`text-base `}
 `;
 
 export const StyledContentBody = styled.div`
    ${props => props.vh &&  `max-height: calc(100vh - calc(100vh / 2))`};
    overflow: auto;
 
-//    &{
-//       .chatItem {
-//          ${tw`justify-end items-end mb-4 transition-all transform scale-0 origin-right ease-in-out`}
-//       }
-//    }
-`;
-
-const showIn = keyframes`
-   0% {
-      transform: scale(0);
-   }
-   100% {
-      transform: scale(1);
+   &{
+      .chat__item {
+         ${tw`flex justify-end items-end mb-4 origin-right `}
+      }
    }
 `;
 
-export const StyledChatItem = styled.div`
-   // display: flex;
-   // justify-content: flex-end;
-   // align-items: flex-end;
-   // margin-bottom: 15px;
-   // transition: all 0.3s ease;
-   // transform: scale(0);
-   // transform-origin: right;
-   // animation: ${showIn};
-   // animation-duration: 0.2s;
-   // animation-iteration-count: 1;
-   // animation-direction: normal; 
-   // animation-timing-function: cubic-bezier(
-   // 0.88,
-   // 0.19,
-   // 0.37,
-   // 1.11
-   // ); 
-   // animation-fill-mode: both;
-   // animation-delay: 0.2s;
-
+export const StyledContentItems = styled.div`
+   &{
+      .chat__item .avatar {
+         ${tw`mr-0 ml-5 bg-white p-px`}
+      }
+      .chat__item__content {
+         ${tw`bg-blue-400 text-white p-4 rounded-xl`}
+         max-width: 50%;
+         min-width: 215px;
+      }
+      .chat__item__content .chat__meta {
+         ${tw`flex justify-between mt-2.5`}
+      }
+      .chat__item__content .chat__meta span {
+         ${tw`text-sm text-blue-100 select-none`}
+      }
+      .chat__msg {
+         ${tw`select-none`}
+      }
+      .chat__item.other {
+         ${tw`flex-row-reverse origin-left`}
+      }
+      .chat__item.other .chat__item__content {
+         ${tw`bg-white text-black rounded-xl`}
+         max-width: 50%;
+      }
+      .chat__item.other .avatar {
+         ${tw`mr-5 ml-0`}
+      }
+      .chat__item.other .chat__item__content .chat__meta span {
+         ${tw`text-gray-200`}
+      }
+   }
 `;
 
-export const StyledChatItemOther = styled(StyledChatItem)`
-   animation-delay: ${props => props.delay}s;
-   flex-direction: row-reverse;
-   transform-origin: left;
-   background-color: #fff;
-   color: #000;
-   border-radius: 10px 10px 10px 0;
-   max-width: 50%;
-   margin-right: 20px;
-   margin-left: 0px;
-   .chat__item__content .chat__meta span {
-      color: #d1d1d1;
+export const StyledContentFooter = styled.div`
+   ${tw`pt-7`}
+   &{
+      .sendNewMessage {
+         ${tw`flex justify-between p-2.5 bg-white rounded-lg`}
+      }
+      .sendNewMessage button {
+         ${tw`w-9 h-8 bg-gray-200 border-0 shadow-none outline-none cursor-pointer text-base text-blue-300 p-0 rounded leading-9 transition ease-out`}
+         &:hover {
+            ${tw`transform scale-125`}
+         }
+      }
+      .sendNewMessage input {
+         ${tw`flex-grow py-0 px-3.5 bg-transparent border-0 outline-none`}
+      }
+      #sendMsgBtn {
+         ${tw`bg-blue-400 text-white`}
+      }
    }
-   .chat__item__content {
-      background-color: #fff;
-      color: #000;
-      border-radius: 10px 10px 10px 0;
-      max-width: 50%;
-   }
-}
 `;
 
 export const StyledLogin = styled.main.attrs({

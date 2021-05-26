@@ -22,6 +22,7 @@
 .loginBlock a {
    color: white;
    text-decoration: none;
+   margin: 0 auto;
 }
 
 .ava .logo {
@@ -55,4 +56,8 @@
 .logout:hover {
    color: #800080;
    /* background-color: #3bba44; */
+}
+.auth {
+   display:flex;
+   flex-direction: column;
 }

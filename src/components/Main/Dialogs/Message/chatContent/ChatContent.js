@@ -4,13 +4,15 @@ import "./chatContent.css";
 import Avatar from "../chatList/Avatar";
 import ChatItem from "./ChatItem";
 import {
-   StyledIcon,
    StyledButtonSetting,
    StyledChatContent,
    StyledChatItem,
    StyledContentBody,
+   StyledContentFooter,
+   StyledIconPaperPlane,
+   StyledIconPlus,
+   StyledIconSetting,
 } from "../../../../Styles";
-import { FiSettings } from "react-icons/fi";
 
 export default class ChatContent extends Component {
    messagesEndRef = createRef(null);
@@ -64,74 +66,55 @@ export default class ChatContent extends Component {
    onStateChange = (e) => {
       this.setState({ msg: e.target.value });
    };
-   
+
    render() {
       return (
-             <StyledChatContent> 
-               <div className="chatHeader">
-                     <div className="chatCurrentChattingUser">
-                        <Avatar
-                              isOnline="active"
-                              image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTA78Na63ws7B7EAWYgTr9BxhX_Z8oLa1nvOA&usqp=CAU"
-                           />
-                        <p>Tim Hover</p>
-                     </div>
-                  <button >
-                     <StyledIcon></StyledIcon>
+         <StyledChatContent>
+            <div className="chat__content__header">
+               <div className="current__chatting__user">
+                  <Avatar
+                     isOnline="active"
+                     image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTA78Na63ws7B7EAWYgTr9BxhX_Z8oLa1nvOA&usqp=CAU"
+                  />
+                  <p>Tim Hover</p>
+               </div>
+               <button>
+                  <StyledIconSetting></StyledIconSetting>
+               </button>
+            </div>
+            <StyledContentBody vh={true}>
+               <div>
+                  {this.state.chat.map((itm, index) => {
+                     return (
+                        <ChatItem
+                           animationDelay={index + 2}
+                           key={itm.key}
+                           user={itm.type ? itm.type : "me"}
+                           msg={itm.msg}
+                           image={itm.image}
+                        />
+                     );
+                  })}
+                  <div ref={this.messagesEndRef} />
+               </div>
+            </StyledContentBody>
+            <StyledContentFooter>
+               <div className="sendNewMessage">
+                  <button>
+                     <StyledIconPlus></StyledIconPlus>
                   </button>
-                  {/* <div className="blocks">
-                     <div className="settings">
-                        <button className="btn-nobg">
-                           <i className="fa fa-cog"></i>
-                        </button>
-                     </div>
-                  </div> */}
-               {/* </StyledChatHeader> */}
+                  <input
+                     type="text"
+                     placeholder="Type a message here"
+                     onChange={this.onStateChange}
+                     value={this.state.msg}
+                  />
+                  <button onClick={this.onSendMessageClick} id="sendMsgBtn">
+                     <StyledIconPaperPlane></StyledIconPaperPlane>
+                  </button>
                </div>
-               <StyledContentBody vh={true}>
-               {/* <div className="content__body"> */}
-               {/* <div className="chat__items"> */}
-                  <div className="chatItem">
-                     {this.state.chat.map((itm, index) => {
-                        return (
-                           <ChatItem
-                              animationDelay={index + 2}
-                              key={itm.key}
-                              user={itm.type ? itm.type : "me"}
-                              msg={itm.msg}
-                              image={itm.image}
-                           />
-                        );
-                     })}
-                     <div ref={this.messagesEndRef} />
-                  </div>
-
-                  {/* </div> */}
-                  {/* </div> */}
-               </StyledContentBody>
-               
-               <div className="content__footer">
-                  <div className="sendNewMessage">
-                     <button className="addFiles">
-                        <i className="fa fa-plus"></i>
-                     </button>
-                     <input
-                        type="text"
-                        placeholder="Type a message here"
-                        onChange={this.onStateChange}
-                        value={this.state.msg}
-                     />
-                     <button
-                        onClick={this.onSendMessageClick}
-                        className="btnSendMsg"
-                        id="sendMsgBtn"
-                     >
-                        <i className="fa fa-paper-plane"></i>
-                     </button>
-                  </div>
-               </div>
-          </StyledChatContent>
-         
+            </StyledContentFooter>
+         </StyledChatContent>
       );
    }
 }
