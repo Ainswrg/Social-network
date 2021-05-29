@@ -5,7 +5,10 @@ import FormikField from "../shared/FormikField/FormikField";
 import loginFormSchema from './FormValidation/LoginFormSchema';
 import authReducer, { login, getAuthUserData } from '../../Redux/auth-reducer';
 import {useDispatch} from "react-redux";
-import { StyledLogin } from "../Styles";
+import { ButtonGroup, StyledLogin, colors } from "../Styles";
+import Loader from "react-loader-spinner";
+import { compose } from "redux";
+import { withAuthRedirectFromLogin } from "../../hoc/withAuthRedirectFromLogin";
 
 const Login = (props) => {
    const dispatch = useDispatch();
@@ -19,12 +22,12 @@ const Login = (props) => {
    
    const onSubmit = (values) => {
       console.log("form data", values)
-      loggingInThunk(values.email, values.password, values.rememberMe );
+      loggingInThunk(values.email, values.password, values.rememberMe);
    }
    
    const validationSchema = loginFormSchema;
    
-   if(authReducer) console.log(1)
+   // if(authReducer) console.log(1)
 
    return (
       <Formik
@@ -32,27 +35,43 @@ const Login = (props) => {
          onSubmit={onSubmit}
          validationSchema = {validationSchema}
       >
-         {(formik) => {
-            return (
+         {({ isSubmitting, isAuth }) => (
                <StyledLogin>
-                  <Form>
+                  
+                     <Form>
                      {/* <div className={s.form}> */}
                      
                         <FormikField label="Email" name="email" type="email" />
                         <FormikField label="Password" name="password" type="password" />
                         <FormikField label="Remember Me" name="rememberMe" type="checkbox"
                         />
-                        <button btn btn-green>Sign In</button>
+                        <ButtonGroup>
+                           {!isSubmitting && (
+                              <button btn btn-green>Sign In</button>
+                              
+                           )}
+                           {isSubmitting && (
+                              <Loader
+                              type="ThreeDots"
+                              color={colors.theme}
+                              height={49}
+                              width={100}
+                              />
+                           )}
+                        </ButtonGroup>
                   </Form>
                </StyledLogin>
             )
-         }}
+         }
       </Formik>
    )
 }
 
 
-export default Login;
+export default compose(
+   withAuthRedirectFromLogin,
+)(Login);
+
 
 
 

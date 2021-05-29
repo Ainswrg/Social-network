@@ -44,17 +44,17 @@ export const getAuthUserData = () => (dispatch) => {
          if (response.data.resultCode === 0) {
             let { id, email, login } = response.data.data;
 
-            dispatch(setAuthUserData(id, email, login, true));
+            dispatch(setAuthUserData(id, email, login, true,));
          }
    });
 };
 
-export const login = (email, password, rememberMe) => (dispatch) => {
+export const login = (email, password, rememberMe, isAuth) => (dispatch) => {
 
-      authAPI.login(email, password, rememberMe)
+      authAPI.login(email, password, rememberMe, isAuth)
          .then((response) => {
             if (response.data.resultCode === 0) {
-               dispatch(getAuthUserData())
+               dispatch(getAuthUserData(email, password, rememberMe, true))
             }
          });
 };

@@ -8,9 +8,11 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
     "formik": "^2.2.6",
+    "postcss": "^8.3.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
+    "react-loader-spinner": "^4.0.0",
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
@@ -23,8 +25,8 @@
   "scripts": {
     "build:css": "postcss src/assets/tailwind.css -o src/assets/styles.css",
     "watch:css": "postcss src/assets/tailwind.css -o src/assets/styles.css",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "npm run watch:css & react-scripts start",
+    "build": "npm run build:css react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

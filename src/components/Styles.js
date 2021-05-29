@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import tw from "twin.macro";
-import { FaCog, FaPlus, FaPaperPlane} from "react-icons/fa";
+import { FaCog, FaPlus, FaPaperPlane } from "react-icons/fa";
 
 export const colors = {
    primary: "#fff",
@@ -17,15 +17,12 @@ export const colors = {
    blue2: "#ebe7fb",
 };
 
-
-export const StyledDialogContainer = styled.div.attrs({
-})`
-${tw`flex flex-grow py-5 px-10 rounded-xl  shadow-xl`}
+export const StyledDialogContainer = styled.div.attrs({})`
+   ${tw`flex flex-grow py-5 px-10 rounded-xl  shadow-xl`}
 `;
 
-
 export const StyledChatContent = styled.div`
-${tw`flex-grow py-5 px-10 max-w-full bg-gray-100`}
+   ${tw`flex-grow py-5 px-10 max-w-full bg-gray-100`}
    & {
       .chat__content__header {
          ${tw`pb-4 flex justify-between items-center`}
@@ -33,8 +30,6 @@ ${tw`flex-grow py-5 px-10 max-w-full bg-gray-100`}
       }
       .current__chatting__user {
          ${tw`flex items-center`}
-         
-
       }
       p {
          ${tw`font-semibold m-0`}
@@ -44,7 +39,6 @@ ${tw`flex-grow py-5 px-10 max-w-full bg-gray-100`}
       }
    }
 `;
-
 
 export const StyledIconSetting = styled(FaCog)`
    ${tw`text-base text-black`};
@@ -57,10 +51,10 @@ export const StyledIconPaperPlane = styled(FaPaperPlane)`
 `;
 
 export const StyledContentBody = styled.div`
-   ${props => props.vh &&  `max-height: calc(100vh - calc(100vh / 2))`};
+   ${(props) => props.vh && `max-height: calc(100vh - calc(100vh / 2))`};
    overflow: auto;
 
-   &{
+   & {
       .chat__item {
          ${tw`flex justify-end items-end mb-4 origin-right `}
       }
@@ -68,7 +62,7 @@ export const StyledContentBody = styled.div`
 `;
 
 export const StyledContentItems = styled.div`
-   &{
+   & {
       .chat__item .avatar {
          ${tw`mr-0 ml-5 bg-white p-px`}
       }
@@ -104,7 +98,7 @@ export const StyledContentItems = styled.div`
 
 export const StyledContentFooter = styled.div`
    ${tw`pt-7`}
-   &{
+   & {
       .sendNewMessage {
          ${tw`flex justify-between p-2.5 bg-white rounded-lg`}
       }
@@ -123,31 +117,37 @@ export const StyledContentFooter = styled.div`
    }
 `;
 
-export const StyledLogin = styled.main.attrs({
-   
- })`
- ${tw`flex flex-grow flex-col px-10 justify-center items-center bg-gray-100`}
+export const StyledLogin = styled.div.attrs({})`
+   ${tw`flex flex-grow flex-col px-10 justify-center items-center bg-gray-100`}
    & {
-     form {
-       ${tw`bg-white text-center rounded py-8 px-16 justify-center shadow  max-w-xs`}
-     }
-     input {
-       ${tw`border-gray-300 mb-2 border-solid border rounded py-2 px-4`}
-     }
-     input[type="checkbox"] {
-       ${tw`border-gray-300 mb-2 w-3 border-solid border rounded py-2 px-4 space-x-5`}
-     }
-     button {
-       ${tw`bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-blue-700 rounded`}
-     }
-     .btn {
-      @apply py-2 px-4 font-semibold rounded-lg shadow-md;
-    }
-    .btn-green {
-      @apply text-white bg-green-500 hover:bg-green-700;
-    }
+      form {
+         ${tw`bg-white text-center rounded py-8 px-16 justify-center shadow  max-w-xs`}
+      }
+      input {
+         ${tw`border-gray-300 mb-2 border-solid border rounded py-2 px-4`}
+      }
+      input[type="checkbox"] {
+         ${tw`border-gray-300 mb-2 w-3 border-solid border rounded py-2 px-4 space-x-5`}
+      }
+      button {
+         ${tw`bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-blue-700 rounded`}
+      }
+      .btn {
+         @apply py-2 px-4 font-semibold rounded-lg shadow-md;
+      }
+      .btn-green {
+         @apply text-white bg-green-500 hover:bg-green-700;
+      }
    }
- `
+`;
+
+export const ButtonGroup = styled.div`
+  ${tw`flex justify-around flex-row mt-6`}
+//   display: flex;
+//   justify-content: space-around;
+//   flex-direction: row;
+//   margin-top: 25px;
+`;
 
 export const StyledInputContainer = styled.div`
    margin-top: 20px;
@@ -158,10 +158,9 @@ export const StyledTextArea = styled.textarea`
    resize: none;
    min-height: 35px;
    background-color: ${colors.primary};
-   margin: 10px 0 ;
+   margin: 10px 0;
    max-width: 1000px;
 `;
-
 
 export const StyledPostButton = styled.button`
    padding: 5px;
