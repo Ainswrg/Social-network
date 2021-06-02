@@ -145,8 +145,7 @@ export const StyledLogin = styled.div.attrs({})`
 `;
 
 export const ButtonGroup = styled.div`
-  ${tw`flex justify-around flex-row mt-6`}
-//   display: flex;
+   ${tw`flex justify-around flex-row mt-6`}//   display: flex;
 //   justify-content: space-around;
 //   flex-direction: row;
 //   margin-top: 25px;
