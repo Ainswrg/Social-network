@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './Message.module.css';
+// import s from './Message.module.css';
 import MessageInput from './MessageInput/MessageInput';
 import User from './User/User';
 import UserResponder from './UserResponder/UserResponder';

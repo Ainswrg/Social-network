@@ -6,17 +6,16 @@ import { getUserProfile, getStatus, updateStatus } from "../../../Redux/profile-
 import { withRouter } from "react-router";
 import { compose } from "redux";
 import { withAuthRedirect } from "../../../hoc/withAuthRedirect";
+import Preloader from "../../common/Preloader/Preloader";
 
 class ProfileContainer extends React.Component {
    
    componentDidMount() {
       let userId = this.props.match.params.userId;
-      if (!userId) userId = 15420;
-      
+      if (!userId) userId = this.props.authorizedUserId;
+      if(!this.props.profile ?? <Preloader />)
       this.props.getUserProfile(userId);
-      // setTimeout(() => {
          this.props.getStatus(userId);
-      // }, 1000)
    }
 
    render() {
@@ -29,10 +28,12 @@ class ProfileContainer extends React.Component {
 let mapStateToProps = (state) => ({
    profile: state.profilePage.profile,
    status: state.profilePage.status,
+   authorizedUserId: state.auth.userId,
+   isAuth: state.auth.isAuth
 });
 
 export default compose(
-   withAuthRedirect,
    connect(mapStateToProps, { getUserProfile, getStatus, updateStatus }),
-   withRouter
+   withRouter,
+   withAuthRedirect,
 )(ProfileContainer);

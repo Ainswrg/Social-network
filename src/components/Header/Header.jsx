@@ -20,9 +20,9 @@ const Header = (props) => {
                      {props.isAuth ? (
                         <NavLink to={"/profile"}>{props.login}</NavLink>
                      ) : null}
-                     <div className={s.logout} onClick={logOutThunk}>
-                        log out
-                     </div>
+                        <button className={s.logout} onClick={logOutThunk}>
+                           log out
+                        </button>                     
                   </div>
                ) : (
                   <div className={s.auth}>
@@ -30,14 +30,6 @@ const Header = (props) => {
                   </div>
                )}
             </div>
-            {/* {props.isAuth 
-               ? null
-               : <NavLink to={"/login"}>Log in</NavLink>
-            } */}
-            {/* {props.isAuth 
-               ? 
-               : null
-            } */}
          </div>
       </header>
    );

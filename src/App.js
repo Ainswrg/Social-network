@@ -11,8 +11,7 @@ import HeaderContainer from './components/Header/HeaderContainer';
 import Login from './components/login/Login';
 
 
-
-const App = (props) => {
+const App = () => {
    return (
          <div className='app-wrapper'>
             <HeaderContainer />
@@ -20,15 +19,19 @@ const App = (props) => {
             <div className='app-wrapper-content'>
                <Route path='/profile/:userId?' 
                   render={() => < ProfileContainer />} />
+               
                <Route path='/dialogs' 
                   render={() => < DialogsContainer />} />
+               
                <Route path='/news' render={() => < News/>}  />
                <Route path='/music' render={() => < Music/>}  />
                <Route path='/settings' render={() => < Settings/>}  />
+
                <Route path='/users' 
                   render={() => <UsersContainer /> } />
+
                <Route path='/login' 
-                  render={() => < Login /> } />
+                  render={() => <Login /> } />
             </div>
          </div>
    );

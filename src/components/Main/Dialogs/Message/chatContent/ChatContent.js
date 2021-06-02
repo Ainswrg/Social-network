@@ -1,12 +1,10 @@
-import React, { Component, useState, createRef, useEffect } from "react";
+import React, { Component, createRef } from "react";
 
 import "./chatContent.css";
 import Avatar from "../chatList/Avatar";
 import ChatItem from "./ChatItem";
 import {
-   StyledButtonSetting,
    StyledChatContent,
-   StyledChatItem,
    StyledContentBody,
    StyledContentFooter,
    StyledIconPaperPlane,
@@ -31,8 +29,8 @@ export default class ChatContent extends Component {
 
    componentDidMount() {
       window.addEventListener("keydown", (e) => {
-         if (e.keyCode == 13) {
-            if (this.state.msg != "") {
+         if (e.keyCode === 13) {
+            if (this.state.msg !== "") {
                this.props.dialogPage.messages.push({
                   key: 8,
                   type: "",
@@ -70,8 +68,8 @@ export default class ChatContent extends Component {
    render() {
       return (
          <StyledChatContent>
-            <div className="chat__content__header">
-               <div className="current__chatting__user">
+            <div className="content-header">
+               <div className="chatting-user">
                   <Avatar
                      isOnline="active"
                      image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTA78Na63ws7B7EAWYgTr9BxhX_Z8oLa1nvOA&usqp=CAU"

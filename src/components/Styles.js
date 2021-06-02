@@ -24,11 +24,11 @@ export const StyledDialogContainer = styled.div.attrs({})`
 export const StyledChatContent = styled.div`
    ${tw`flex-grow py-5 px-10 max-w-full bg-gray-100`}
    & {
-      .chat__content__header {
+      .content-header {
          ${tw`pb-4 flex justify-between items-center`}
          border-bottom: 1px solid ${colors.blue2};
       }
-      .current__chatting__user {
+      .chatting-user {
          ${tw`flex items-center`}
       }
       p {
@@ -67,8 +67,8 @@ export const StyledContentItems = styled.div`
          ${tw`mr-0 ml-5 bg-white p-px`}
       }
       .chat__item__content {
-         ${tw`bg-blue-400 text-white p-4 rounded-xl`}
-         max-width: 50%;
+         ${tw`bg-blue-400 text-white p-4 rounded-xl max-w-1/2 `}
+         // max-width: 50%;
          min-width: 215px;
       }
       .chat__item__content .chat__meta {
@@ -121,7 +121,7 @@ export const StyledLogin = styled.div.attrs({})`
    ${tw`flex flex-grow flex-col px-10 justify-center items-center bg-gray-100`}
    & {
       form {
-         ${tw`bg-white text-center rounded py-8 px-16 justify-center shadow  max-w-xs`}
+         ${tw`bg-white text-center rounded py-8 px-16 justify-center shadow  max-w-full`}
       }
       input {
          ${tw`border-gray-300 mb-2 border-solid border rounded py-2 px-4`}
@@ -137,6 +137,9 @@ export const StyledLogin = styled.div.attrs({})`
       }
       .btn-green {
          @apply text-white bg-green-500 hover:bg-green-700;
+      }
+      .errorStatus {
+         ${tw`text-red-500 font-light`}
       }
    }
 `;

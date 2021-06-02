@@ -3,13 +3,15 @@ import { Field } from "formik";
 import FormikErrorMessage from "../FormikErrorMessage/FormikErrorMessage";
 import s from './FormikField.module.css';
 
-const FormikField = ({ name, type, label }) => {
+const FormikField = ({ name, type, label}) => {
+
    return (
       <Field name={name}>
          {(formikField) => {
             return (
                <div className={s.formControl}>
                   <label htmlFor={name} style={{ display: "block" }}>
+                     
                      {label}
                   </label>
                   <input

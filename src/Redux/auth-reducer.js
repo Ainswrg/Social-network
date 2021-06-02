@@ -39,34 +39,43 @@ export const setProfileData = (profile) => ({
    profile,
 });
 export const getAuthUserData = () => (dispatch) => {
-   authAPI.me()
-      .then((response) => {
-         if (response.data.resultCode === 0) {
-            let { id, email, login } = response.data.data;
+   authAPI.me().then((response) => {
+      if (response.data.resultCode === 0) {
+         let { id, email, login } = response.data.data;
 
-            dispatch(setAuthUserData(id, email, login, true,));
-         }
+         dispatch(setAuthUserData(id, email, login, true));
+      }
    });
 };
 
-export const login = (email, password, rememberMe, isAuth) => (dispatch) => {
-
-      authAPI.login(email, password, rememberMe, isAuth)
+export const login = (email, password, rememberMe, actions) => {
+   return (dispatch) => {
+      authAPI
+         .login(email, password, rememberMe, actions)
          .then((response) => {
             if (response.data.resultCode === 0) {
-               dispatch(getAuthUserData(email, password, rememberMe, true))
+               dispatch(getAuthUserData(email, password, rememberMe, true));
+            } else {
+               let message =
+                  response.data.messages.length > 0
+                     ? response.data.messages[0]
+                     : "Some Error";
+               console.log(message);
+               actions.setStatus(message);
             }
+            actions.setSubmitting(false);
          });
+   };
 };
 
-export const logout = () => (dispatch) => {
-
-      authAPI.logout()
-         .then((response) => {
-            if (response.data.resultCode === 0) {
-               dispatch(setAuthUserData(null, null, null, false));
-            }
-         });
+export const logout = () => {
+   return (dispatch) => {
+      authAPI.logout().then((response) => {
+         if (response.data.resultCode === 0) {
+            dispatch(setAuthUserData(null, null, null, false));
+         }
+      });
+   };
 };
 
 export default authReducer;

@@ -8,7 +8,7 @@ const Navbar = (props) => {
    return (
       <nav className={s.nav}>
          {menuElements}
-         <Friends />
+         {/* <Friends /> */}
       </nav>
    )
 }
