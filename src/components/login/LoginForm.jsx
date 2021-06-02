@@ -1,10 +1,9 @@
-import { Form, Formik } from 'formik';
-import React from 'react';
-import Loader from 'react-loader-spinner';
-import FormikField from '../shared/FormikField/FormikField';
-import { ButtonGroup, colors, StyledLogin } from '../Styles';
-import loginFormSchema from './FormValidation/LoginFormSchema';
-
+import { Form, Formik } from "formik";
+import React from "react";
+import Loader from "react-loader-spinner";
+import FormikField from "../shared/FormikField/FormikField";
+import { ButtonGroup, colors, StyledLogin } from "../Styles";
+import loginFormSchema from "./FormValidation/LoginFormSchema";
 
 const LoginForm = (props) => {
    return (
@@ -13,7 +12,7 @@ const LoginForm = (props) => {
          onSubmit={props.onSubmit}
          validationSchema={loginFormSchema}
       >
-         {({status, isSubmitting}) => (
+         {({ status, isSubmitting }) => (
             <StyledLogin>
                <Form>
                   <FormikField label="Email" name="email" type="email" />

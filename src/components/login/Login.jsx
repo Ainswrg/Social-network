@@ -12,20 +12,18 @@ const Login = () => {
 
    const { isAuth } = state.auth;
    if (isAuth) {
-      return <Redirect push to="/profile" />;
+      return <Redirect to="/profile" />;
    }
+
+   const onSubmit = (values, actions) => {
+      actions.setStatus(undefined);
+      loggingInThunk(values.email, values.password, values.rememberMe, actions);
+   };
 
    const initialValues = {
       email: "",
       password: "",
       rememberMe: false,
-   };
-
-
-   const onSubmit = (values, actions) => {
-      actions.setStatus(undefined);
-      console.log("onSubmitProps", actions);
-      loggingInThunk(values.email, values.password, values.rememberMe, actions);
    };
 
    return <LoginForm initialValues={initialValues} onSubmit={onSubmit} />;

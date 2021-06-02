@@ -2,13 +2,8 @@ import { NavLink } from "react-router-dom";
 import s from "./Header.module.css";
 import avatar from "../../assets/img/avatar.png";
 import logo from "../../assets/img/logo.png";
-import { useDispatch } from "react-redux";
-import { logout } from "../../Redux/auth-reducer";
 
 const Header = (props) => {
-   const dispatch = useDispatch();
-   const logOutThunk = () => dispatch(logout());
-
    return (
       <header className={s.header}>
          <img src={logo} alt="logo"></img>
@@ -20,9 +15,9 @@ const Header = (props) => {
                      {props.isAuth ? (
                         <NavLink to={"/profile"}>{props.login}</NavLink>
                      ) : null}
-                        <button className={s.logout} onClick={logOutThunk}>
-                           log out
-                        </button>                     
+                     <button className={s.logout} onClick={props.logout}>
+                        log out
+                     </button>
                   </div>
                ) : (
                   <div className={s.auth}>
