@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledTextArea } from '../../../../Styles';
+import { StyledPostButton, StyledTextArea } from '../../../../Styles';
 import AddPostForm from './AddPostForm';
 import s from './PostInput.module.css';
 
@@ -17,7 +17,10 @@ const PostInput = (props) => {
    }
 
    return (
-      // <AddPostForm />
+      // <AddPostForm 
+      //    onPostChange={onPostChange} 
+      //    onAddPost={onAddPost}
+      //    newPostElement={newPostElement}/>
       <div className={s.inputBlock}>
          <div>
             <StyledTextArea 
@@ -30,7 +33,7 @@ const PostInput = (props) => {
             </StyledTextArea>
          </div>
          <div>
-            <button onClick={onAddPost} className={s.button}>Add post</button>
+            <StyledPostButton onClick={onAddPost} >Add post</StyledPostButton>
          </div>
       </div>
    )

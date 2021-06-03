@@ -1,5 +1,6 @@
 import { Form, Formik, useField } from 'formik';
 import React from 'react';
+import { StyledTextArea } from '../../../../Styles';
 import s from './PostInput.module.css';
 
 
@@ -7,13 +8,19 @@ const MySpecialField = (values) => {
    const [field] = useField("message");
 
    return (
+         // <StyledTextArea {...field} 
+               
+         //       placeholder={'Write Post'}
+         //       className={s.input}
+         //    >
+         // </StyledTextArea>
       <div>
          <textarea {...field} 
          placeholder="Write Message" 
          // onChange={values.onNewMessageChange} 
          // value={values.newMessageBody} 
          className={s.input}
-      />
+         />
       </div>
    //    <div className={s.inputBlock}>
    //    <div>
