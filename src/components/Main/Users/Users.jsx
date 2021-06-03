@@ -1,5 +1,6 @@
 import React from "react";
 import Paginator from "../../common/Paginator/Paginator";
+import { StyledWrapper } from "../../Styles";
 import User from "./User";
 
 let Users = ({
@@ -11,7 +12,7 @@ let Users = ({
    ...props
 }) => {
    return (
-      <>
+      <StyledWrapper>
          <Paginator
             currentPage={currentPage}
             onPageChanged={onPageChanged}
@@ -28,7 +29,7 @@ let Users = ({
                unfollow={props.unfollow}
             />
          ))}
-      </>
+      </StyledWrapper>
    );
 };
 

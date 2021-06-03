@@ -2,7 +2,7 @@ import React from 'react';
 // import s from './Dialogs.module.css';
 // import DialogItem from './DialogItem/DialogItem.jsx'
 // import Message from './Message/Message';
-import { StyledDialogContainer} from '../../Styles';
+import { StyledWrapper } from '../../Styles';
 import ChatContent from "./Message/chatContent/ChatContent";
 import ChatList from './Message/chatList/ChatList';
 
@@ -13,7 +13,7 @@ const Dialogs = (props) => {
    // if(props.isAuth) return <Redirect to={'/login'}/>
 
    return (
-      <StyledDialogContainer>
+      <StyledWrapper primary={true}>
                   {/* <div >
                   {dialogsElements}
                   </div> */}
@@ -23,7 +23,7 @@ const Dialogs = (props) => {
                      sendMessage={props.sendMessage}
                      updateNewMessageBody={props.updateNewMessageBody} 
                   />
-      </StyledDialogContainer >
+      </StyledWrapper >
    )
 }
 

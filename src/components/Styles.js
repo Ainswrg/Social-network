@@ -17,6 +17,13 @@ export const colors = {
    blue2: "#ebe7fb",
 };
 
+export const StyledWrapper = styled.div`
+   display: ${props => props.primary ? "flex" : ""};
+   &{
+      ${tw`flex-grow py-5 px-10 rounded-xl  shadow-cst `}
+   }
+`;
+
 export const StyledDialogContainer = styled.div.attrs({})`
    ${tw`flex flex-grow py-5 px-10 rounded-xl  shadow-xl`}
 `;
