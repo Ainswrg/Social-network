@@ -25,8 +25,7 @@ export const StyledChatContent = styled.div`
    ${tw`flex-grow py-5 px-10 max-w-full bg-gray-100`}
    & {
       .content-header {
-         ${tw`pb-4 flex justify-between items-center`}
-         border-bottom: 1px solid ${colors.blue2};
+         ${tw`flex pb-4 justify-between items-center border-b border-t-0 border-l-0 border-r-0 border-solid border-gray-300`}
       }
       .chatting-user {
          ${tw`flex items-center`}
@@ -43,6 +42,7 @@ export const StyledChatContent = styled.div`
 export const StyledIconSetting = styled(FaCog)`
    ${tw`text-base text-black`};
 `;
+
 export const StyledIconPlus = styled(FaPlus)`
    ${tw`text-base `}
 `;
@@ -67,9 +67,7 @@ export const StyledContentItems = styled.div`
          ${tw`mr-0 ml-5 bg-white p-px`}
       }
       .chat__item__content {
-         ${tw`bg-blue-400 text-white p-4 rounded-xl max-w-1/2 `}
-         // max-width: 50%;
-         min-width: 215px;
+         ${tw`bg-blue-400 text-white p-4 rounded-xl max-w-1/2 min-w-cst`}
       }
       .chat__item__content .chat__meta {
          ${tw`flex justify-between mt-2.5`}
@@ -84,8 +82,7 @@ export const StyledContentItems = styled.div`
          ${tw`flex-row-reverse origin-left`}
       }
       .chat__item.other .chat__item__content {
-         ${tw`bg-white text-black rounded-xl`}
-         max-width: 50%;
+         ${tw`bg-white text-black rounded-xl max-w-1/2`}
       }
       .chat__item.other .avatar {
          ${tw`mr-5 ml-0`}
@@ -145,39 +142,93 @@ export const StyledLogin = styled.div.attrs({})`
 `;
 
 export const ButtonGroup = styled.div`
-   ${tw`flex justify-around flex-row mt-6`}//   display: flex;
-//   justify-content: space-around;
-//   flex-direction: row;
-//   margin-top: 25px;
+   ${tw`flex justify-around flex-row mt-6`}
 `;
 
 export const StyledInputContainer = styled.div`
-   margin-top: 20px;
-   display: flex;
+   ${tw`flex mt-5`}
 `;
 
 export const StyledTextArea = styled.textarea`
-   resize: none;
-   min-height: 35px;
-   background-color: ${colors.primary};
-   margin: 10px 0;
-   max-width: 1000px;
+   ${tw`my-2.5 max-w-1000 bg-primary min-h-cst resize-none`}
 `;
 
 export const StyledPostButton = styled.button`
-   padding: 5px;
-   width: 90px;
-   background-color: transparent;
-   font-size: 16px;
-   border: 2px solid ${colors.blue1};
-   border-radius: 25px;
-   color: ${colors.blue1};
-   transition: ease-in-out 0.3s;
-   outline: 0;
+   ${tw`p-1 w-24 bg-transparent text-base border-2 border-solid border-blue1 rounded-3xl text-blue1 ease-in-out duration-300 outline-none`}
 
    &:hover {
-      background-color: ${colors.blue1};
-      color: ${colors.primary};
-      cursor: pointer;
+      ${tw`bg-blue1 text-primary cursor-pointer`}
    }
+`;
+
+export const StyledPaginator = styled.div.attrs({})`
+   ${tw`flex m-2.5 justify-center items-center`}
+   & {
+      button {
+         ${tw`bg-transparent hover:text-dark2 text-white py-1 px-3 border-none rounded cursor-pointer  text-4xl text-blue-300 leading-9 transition ease-out`}
+         &:hover {
+            ${tw`transform scale-105`}
+         }
+      }
+   }
+`;
+
+export const StyledPageNumber = styled.div`
+   & {
+      .pageNumber {
+         ${tw`flex justify-center items-center text-blue-500 cursor-pointer text-base rounded-full h-12 w-12 m-1 shadow-cst transition ease-out`}
+         &:active {
+            ${tw`bg-blue-600`}
+         }
+         &:hover {
+            ${tw`bg-blue-500 text-white transform scale-125`}
+         }
+      }
+      .pageNumber.selectedPage {
+         ${tw`font-bold border-black bg-blue-500 text-white`}
+      }
+   }
+`;
+
+
+
+
+export const StyledUser = styled.div`
+   ${tw`shadow-cst m-5 grid grid-cols-6 rounded`}
+`;
+export const Subscription = styled.div`
+   ${tw`col-span-1 flex flex-col justify-center items-center p-3`}
+`;
+export const Avatar = styled.img`
+   ${tw`rounded-full w-20 border border-solid border-gray1 transition ease-out`}
+   &:hover {
+      ${tw`transform scale-105 border-2 border-blue1`}
+`;
+export const Button = styled.div`
+   ${tw`flex p-1 w-16 bg-transparent text-base border-2 border-solid border-blue1 rounded-3xl text-blue1 ease-in-out duration-300 outline-none justify-center`}
+
+   &:hover {
+      ${tw`bg-blue1 text-primary cursor-pointer`}
+   }
+`;
+export const Description = styled.div`
+   ${tw`col-span-5 col-start-2 justify-between`}
+`;
+export const Username = styled.div`
+   ${tw`py-3`}
+   a{
+      ${tw`no-underline text-blue1`}
+      &:visited {
+         ${tw`text-purple-400`}
+      }
+      &:hover {
+         ${tw`text-blue-300`}
+      }
+   }
+`;
+export const Status = styled.div`
+   ${tw`text-dark3 h-5 text-sm`}
+`;
+export const UserLocation = styled.div`
+   ${tw`py-1 text-gray1 text-sm`}
 `;
