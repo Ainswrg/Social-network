@@ -2,6 +2,7 @@ import Preloader from "../../../common/Preloader/Preloader";
 import s from "./ProfileInfo.module.css";
 import avatar from '../../../../assets/img/avatar.png'
 import ProfileStatus from "./ProfileStatus/ProfileStatus";
+import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 
 const ProfileInfo = (props) => {
    let contacts;
@@ -25,7 +26,7 @@ const ProfileInfo = (props) => {
                   className={s.logo}
                   alt="logo"
                />
-               <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
+               <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
                </div>
                <div className={s.description}>
                   <h2>{props.profile.fullName}</h2>
