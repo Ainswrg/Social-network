@@ -1,8 +1,11 @@
 body {
-   background-color: #edf2f6;
-   font-family: "Roboto", sans-serif;
-   font-weight: normal;
-   font-style: normal;
+   /* background-color: #edf2f6; */
+   /* font-family: "Roboto", sans-serif; */
+   /* font-weight: normal; */
+   font-weight: 600;
+   line-height: 1.563;
+   /* font-style: normal; */
+   
 }
 
 .app-wrapper {
@@ -24,3 +27,25 @@ body {
    padding: 20px;
    padding-left: 1;
 }
+
+/* width */
+::-webkit-scrollbar {
+   width: 5px;
+ }
+ 
+ /* Track */
+ ::-webkit-scrollbar-track {
+   background: #f1f1f1;
+ }
+ 
+ /* Handle */
+ ::-webkit-scrollbar-thumb {
+   background: #6c84ff;
+   border-radius: 10px;
+ }
+ 
+ /* Handle on hover */
+ ::-webkit-scrollbar-thumb:hover {
+   background: #3b5bfe;
+ }
+ 

@@ -1,12 +1,13 @@
 import React from "react";
 import { ErrorMessage } from "formik";
-import s from "./FormikErrorMessage.module.css";
+// import s from "./FormikErrorMessage.module.css";
+import { StyledError } from "../../Styles";
 
 const FormikErrorMessage = ({ name }) => {
    return (
       <ErrorMessage name={name}>
          {(errMessage) => {
-            return <div className={s.error}>{errMessage}</div>;
+            return <StyledError>{errMessage}</StyledError>
          }}
       </ErrorMessage>
    );

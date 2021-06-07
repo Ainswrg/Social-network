@@ -18,8 +18,8 @@ export const colors = {
 };
 
 export const StyledWrapper = styled.div`
-   display: ${props => props.primary ? "flex" : ""};
-   &{
+   display: ${(props) => (props.primary ? "flex" : "")};
+   & {
       ${tw`flex-grow py-5 px-10 rounded-xl  shadow-cst `}
    }
 `;
@@ -28,26 +28,31 @@ export const StyledDialogContainer = styled.div.attrs({})`
    ${tw`flex flex-grow py-5 px-10 rounded-xl  shadow-xl`}
 `;
 
-export const StyledChatContent = styled.div`
-   ${tw`flex-grow py-5 px-10 max-w-full bg-gray-100`}
+export const StyledChatContainer = styled.div`
+   ${tw`flex-grow py-5 px-10 max-w-full min-w-cst bg-gray-100`}
    & {
-      .content-header {
-         ${tw`flex pb-4 justify-between items-center border-b border-t-0 border-l-0 border-r-0 border-solid border-gray-300`}
-      }
-      .chatting-user {
-         ${tw`flex items-center`}
-      }
       p {
          ${tw`font-semibold m-0`}
       }
-      button {
-         ${tw`bg-transparent m-0 justify-center border-0 cursor-pointer`}
-      }
+      // button {
+      //    ${tw`bg-gray-200 m-0 justify-center border-0 cursor-pointer`}
+      // }
    }
+`;
+
+export const ChatHeader = styled.div`
+   ${tw`flex pb-4 justify-between items-center border-b border-t-0 border-l-0 border-r-0 border-solid border-gray-300`}
+`;
+
+export const ChattingUser = styled.div`
+   ${tw`flex items-center`};
 `;
 
 export const StyledIconSetting = styled(FaCog)`
    ${tw`text-base text-black`};
+`;
+export const SettingButton = styled.button`
+   ${tw`bg-transparent m-0 justify-center border-0 cursor-pointer`}
 `;
 
 export const StyledIconPlus = styled(FaPlus)`
@@ -57,7 +62,7 @@ export const StyledIconPaperPlane = styled(FaPaperPlane)`
    ${tw`text-base `}
 `;
 
-export const StyledContentBody = styled.div`
+export const ChatBody = styled.div`
    ${(props) => props.vh && `max-height: calc(100vh - calc(100vh / 2))`};
    overflow: auto;
 
@@ -74,7 +79,7 @@ export const StyledContentItems = styled.div`
          ${tw`mr-0 ml-5 bg-white p-px`}
       }
       .chat__item__content {
-         ${tw`bg-blue-400 text-white p-4 rounded-xl max-w-1/2 min-w-cst`}
+         ${tw`bg-blue-500 text-white p-4 rounded-xl max-w-1/2 min-w-cst`}
       }
       .chat__item__content .chat__meta {
          ${tw`flex justify-between mt-2.5`}
@@ -100,52 +105,64 @@ export const StyledContentItems = styled.div`
    }
 `;
 
-export const StyledContentFooter = styled.div`
+export const ChatFooter = styled.div`
    ${tw`pt-7`}
    & {
       .sendNewMessage {
          ${tw`flex justify-between p-2.5 bg-white rounded-lg`}
       }
-      .sendNewMessage button {
-         ${tw`w-9 h-8 bg-gray-200 border-0 shadow-none outline-none cursor-pointer text-base text-blue-300 p-0 rounded leading-9 transition ease-out`}
-         &:hover {
-            ${tw`transform scale-125`}
-         }
-      }
       .sendNewMessage input {
-         ${tw`flex-grow py-0 px-3.5 bg-transparent border-0 outline-none`}
+      ${tw`text-gray-500  flex-grow py-0 px-3.5  border-0 outline-none`}
       }
+      // bg-transparent
       #sendMsgBtn {
-         ${tw`bg-blue-400 text-white`}
+         ${tw`bg-blue-500 text-white`}
       }
+   }
+`;
+// export const SettingButton = styled.button`
+//    ${tw`bg-transparent m-0 justify-center border-0 cursor-pointer`}
+// `;
+export const ChatButton = styled.button`
+   ${tw`w-9 h-8 bg-gray-200 border-0 shadow-none outline-none cursor-pointer text-base text-blue-500 p-0 rounded leading-9 transition ease-out m-1`}
+   &:hover {
+      ${tw`transform scale-125`}
    }
 `;
 
 export const StyledLogin = styled.div.attrs({})`
-   ${tw`flex flex-grow flex-col px-10 justify-center items-center bg-gray-100`}
+   ${tw`flex flex-grow flex-col px-10 justify-center items-center bg-gray-100 h-full`}
    & {
+      label {
+         ${tw`text-center justify-center `}
+      }
       form {
          ${tw`bg-white text-center rounded py-8 px-16 justify-center shadow  max-w-full`}
       }
-      input {
+      input[type="password"],
+      input[type="email"] {
          ${tw`border-gray-300 mb-2 border-solid border rounded py-2 px-4`}
       }
-      input[type="checkbox"] {
-         ${tw`border-gray-300 mb-2 w-3 border-solid border rounded py-2 px-4 space-x-5`}
-      }
+      // input[type="checkbox"] {
+      //    ${tw`border-gray-300 mb-2 w-3 border-solid border rounded py-2 px-4 space-x-5`}
+      // }
       button {
          ${tw`bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-blue-700 rounded`}
       }
-      .btn {
-         @apply py-2 px-4 font-semibold rounded-lg shadow-md;
-      }
-      .btn-green {
-         @apply text-white bg-green-500 hover:bg-green-700;
-      }
-      .errorStatus {
-         ${tw`text-red-500 font-light`}
-      }
+      // .btn {
+      //    @apply py-2 px-4 font-semibold rounded-lg shadow-md;
+      // }
+      // .btn-green {
+      //    @apply text-white bg-green-500 hover:bg-green-700;
+      // }
+      // .errorStatus {
+      //    ${tw`text-red-500 font-light`}
+      // }
    }
+`;
+
+export const StyledError = styled.div`
+   ${tw`text-xs text-red-400 mt-1`}
 `;
 
 export const ButtonGroup = styled.div`
@@ -156,15 +173,32 @@ export const StyledInputContainer = styled.div`
    ${tw`flex mt-5`}
 `;
 
-export const StyledTextArea = styled.textarea`
-   ${tw`my-2.5 max-w-1000 bg-primary min-h-cst resize-none`}
+export const StyledTextArea = styled.div`
+   & {
+      .field {
+         ${tw` w-9/12 my-2.5 max-w-1000 bg-primary min-h-cst resize-none rounded-md`}
+      }
+      .error {
+         ${tw`flex mb-2 text-red1 text-sm`}
+      }
+      .input-error {
+         ${tw`border-red1`}
+      }
+   }
 `;
 
 export const StyledPostButton = styled.button`
-   ${tw`p-1 w-24 bg-transparent text-base border-2 border-solid border-blue1 rounded-3xl text-blue1 ease-in-out duration-300 outline-none`}
+   & {
+      ${tw`flex justify-center p-1 w-24 bg-transparent text-base border-2 border-solid border-blue1 rounded-3xl text-blue1 ease-in-out duration-300 outline-none mb-5`}
 
-   &:hover {
-      ${tw`bg-blue1 text-primary cursor-pointer`}
+      &:hover {
+         ${tw`bg-blue1 text-primary cursor-pointer`}
+      }
+   }
+
+   .disabled-btn {
+      cursor: not-allowed;
+      background: rgba($primary-color, 0.8);
    }
 `;
 
@@ -197,9 +231,6 @@ export const StyledPageNumber = styled.div`
    }
 `;
 
-
-
-
 export const StyledUser = styled.div`
    ${tw`shadow-cst m-5 grid grid-cols-6 rounded`}
 `;
@@ -223,7 +254,7 @@ export const Description = styled.div`
 `;
 export const Username = styled.div`
    ${tw`py-3`}
-   a{
+   a {
       ${tw`no-underline text-blue1`}
       &:visited {
          ${tw`text-purple-400`}

@@ -1,18 +1,16 @@
 import Preloader from "../../../common/Preloader/Preloader";
 import s from "./ProfileInfo.module.css";
 import avatar from '../../../../assets/img/avatar.png'
-import ProfileStatus from "./ProfileStatus/ProfileStatus";
 import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 
 const ProfileInfo = (props) => {
    let contacts;
    props.profile
-      ? (contacts = Object.entries(props.profile.contacts).map((value) => (
+      && (contacts = Object.entries(props.profile.contacts).map((value) => (
             <li key={value}>
                {value[0]} : {value[1]}
             </li>
-         )))
-      : (contacts = "");
+         )));
    if (!props.profile) {
       return <Preloader />;
    } else {

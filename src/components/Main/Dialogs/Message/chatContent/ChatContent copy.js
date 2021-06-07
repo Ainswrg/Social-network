@@ -4,16 +4,12 @@ import "./chatContent.css";
 import Avatar from "../chatList/Avatar";
 import ChatItem from "./ChatItem";
 import {
-   ChatButton,
-   StyledChatContainer,
-   ChattingUser,
-   ChatBody,
-   ChatFooter,
-   ChatHeader,
+   StyledChatContent,
+   StyledContentBody,
+   StyledContentFooter,
    StyledIconPaperPlane,
    StyledIconPlus,
    StyledIconSetting,
-   SettingButton,
 } from "../../../../Styles";
 
 export default class ChatContent extends Component {
@@ -71,21 +67,21 @@ export default class ChatContent extends Component {
 
    render() {
       return (
-         <StyledChatContainer>
-            <ChatHeader>
-               <ChattingUser>
+         <StyledChatContent>
+            <div className="content-header">
+               <div className="chatting-user">
                   <Avatar
                      isOnline="active"
                      image="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTA78Na63ws7B7EAWYgTr9BxhX_Z8oLa1nvOA&usqp=CAU"
                   />
                   <p>Tim Hover</p>
-               </ChattingUser>
-               <ChatButton primary={true}>
-                  <StyledIconSetting/>
-               </ChatButton>
-            </ChatHeader>
-            <ChatBody vh={true}>
-               <>
+               </div>
+               <button>
+                  <StyledIconSetting></StyledIconSetting>
+               </button>
+            </div>
+            <StyledContentBody vh={true}>
+               <div>
                   {this.state.chat.map((itm, index) => {
                      return (
                         <ChatItem
@@ -98,25 +94,25 @@ export default class ChatContent extends Component {
                      );
                   })}
                   <div ref={this.messagesEndRef} />
-               </>
-            </ChatBody>
-            <ChatFooter>
+               </div>
+            </StyledContentBody>
+            <StyledContentFooter>
                <div className="sendNewMessage">
-                  <ChatButton >
-                     <StyledIconPlus/>
-                  </ChatButton>
+                  <button>
+                     <StyledIconPlus></StyledIconPlus>
+                  </button>
                   <input
                      type="text"
                      placeholder="Type a message here"
                      onChange={this.onStateChange}
                      value={this.state.msg}
                   />
-                  <ChatButton blue1 onClick={this.onSendMessageClick} id="sendMsgBtn">
-                     <StyledIconPaperPlane/>
-                  </ChatButton>
+                  <button onClick={this.onSendMessageClick} id="sendMsgBtn">
+                     <StyledIconPaperPlane></StyledIconPaperPlane>
+                  </button>
                </div>
-            </ChatFooter>
-         </StyledChatContainer>
+            </StyledContentFooter>
+         </StyledChatContent>
       );
    }
 }

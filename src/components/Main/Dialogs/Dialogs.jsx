@@ -19,9 +19,10 @@ const Dialogs = (props) => {
                   </div> */}
                   <ChatList />
                   <ChatContent
-                     dialogPage={props.dialogPage}
                      sendMessage={props.sendMessage}
-                     updateNewMessageBody={props.updateNewMessageBody} 
+                     dialogPage={props.dialogPage}
+                     // sendMessage={props.sendMessage}
+                     // updateNewMessageBody={props.updateNewMessageBody} 
                   />
       </StyledWrapper >
    )
