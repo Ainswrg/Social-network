@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import tw from "twin.macro";
 import { FaCog, FaPlus, FaPaperPlane } from "react-icons/fa";
 
@@ -17,12 +17,34 @@ export const colors = {
    blue2: "#ebe7fb",
 };
 
+
+//?Icons
+
+export const StyledIconSetting = styled(FaCog)`
+   ${tw`text-base text-black`};
+`;
+export const SettingButton = styled.button`
+   ${tw`bg-transparent m-0 justify-center border-0 cursor-pointer`}
+`;
+export const StyledIconPlus = styled(FaPlus)`
+   ${tw`text-base `}
+`;
+export const StyledIconPaperPlane = styled(FaPaperPlane)`
+   ${tw`text-base `}
+`;
+
+
+//?WrapperAPP
+
 export const StyledWrapper = styled.div`
    display: ${(props) => (props.primary ? "flex" : "")};
    & {
       ${tw`flex-grow py-5 px-10 rounded-xl  shadow-cst `}
    }
 `;
+
+
+//?DialogPage
 
 export const StyledDialogContainer = styled.div.attrs({})`
    ${tw`flex flex-grow py-5 px-10 rounded-xl  shadow-xl`}
@@ -46,20 +68,6 @@ export const ChatHeader = styled.div`
 
 export const ChattingUser = styled.div`
    ${tw`flex items-center`};
-`;
-
-export const StyledIconSetting = styled(FaCog)`
-   ${tw`text-base text-black`};
-`;
-export const SettingButton = styled.button`
-   ${tw`bg-transparent m-0 justify-center border-0 cursor-pointer`}
-`;
-
-export const StyledIconPlus = styled(FaPlus)`
-   ${tw`text-base `}
-`;
-export const StyledIconPaperPlane = styled(FaPaperPlane)`
-   ${tw`text-base `}
 `;
 
 export const ChatBody = styled.div`
@@ -106,29 +114,37 @@ export const StyledContentItems = styled.div`
 `;
 
 export const ChatFooter = styled.div`
-   ${tw`pt-7`}
-   & {
-      .sendNewMessage {
-         ${tw`flex justify-between p-2.5 bg-white rounded-lg`}
-      }
-      .sendNewMessage input {
-      ${tw`text-gray-500  flex-grow py-0 px-3.5  border-0 outline-none`}
-      }
-      // bg-transparent
+   ${tw`pt-5 flex flex-col justify-around`}
+`;
+export const ChatFormContainer = styled.div`
+   ${tw`flex w-full p-2.5`}
+      &{
       #sendMsgBtn {
          ${tw`bg-blue-500 text-white`}
       }
    }
 `;
-// export const SettingButton = styled.button`
-//    ${tw`bg-transparent m-0 justify-center border-0 cursor-pointer`}
-// `;
+export const StyledField = styled.div`
+   ${tw`flex w-full self-center`}
+   &{
+      textarea {
+         ${tw`text-gray-500 w-full py-0 px-2.5 border-0 outline-none`}
+      }
+   }
+`
+
 export const ChatButton = styled.button`
-   ${tw`w-9 h-8 bg-gray-200 border-0 shadow-none outline-none cursor-pointer text-base text-blue-500 p-0 rounded leading-9 transition ease-out m-1`}
+   ${tw`w-9 h-8 bg-gray-200 border-0 shadow-none outline-none cursor-pointer text-base text-blue-500 p-0 rounded leading-9 transition ease-out m-2 items-center`}
    &:hover {
       ${tw`transform scale-125`}
    }
 `;
+export const StyledFlex = styled.div`
+   ${tw`flex flex-col self-start w-full m-0`}
+`;
+
+
+//?LoginPage
 
 export const StyledLogin = styled.div.attrs({})`
    ${tw`flex flex-grow flex-col px-10 justify-center items-center bg-gray-100 h-full`}
@@ -161,8 +177,11 @@ export const StyledLogin = styled.div.attrs({})`
    }
 `;
 
+
+//?Formik
+
 export const StyledError = styled.div`
-   ${tw`text-xs text-red-400 mt-1`}
+   ${tw`text-xs text-red-400 mt-0`}
 `;
 
 export const ButtonGroup = styled.div`
@@ -187,6 +206,9 @@ export const StyledTextArea = styled.div`
    }
 `;
 
+
+//? ProfilePage   
+
 export const StyledPostButton = styled.button`
    & {
       ${tw`flex justify-center p-1 w-24 bg-transparent text-base border-2 border-solid border-blue1 rounded-3xl text-blue1 ease-in-out duration-300 outline-none mb-5`}
@@ -202,6 +224,9 @@ export const StyledPostButton = styled.button`
    }
 `;
 
+
+//?Paginator
+
 export const StyledPaginator = styled.div.attrs({})`
    ${tw`flex m-2.5 justify-center items-center`}
    & {
@@ -213,6 +238,9 @@ export const StyledPaginator = styled.div.attrs({})`
       }
    }
 `;
+
+
+//?UserPage
 
 export const StyledPageNumber = styled.div`
    & {
@@ -243,7 +271,7 @@ export const Avatar = styled.img`
       ${tw`transform scale-105 border-2 border-blue1`}
 `;
 export const Button = styled.div`
-   ${tw`flex p-1 w-16 bg-transparent text-base border-2 border-solid border-blue1 rounded-3xl text-blue1 ease-in-out duration-300 outline-none justify-center`}
+   ${tw`flex p-1 w-20 bg-transparent text-base border-2 border-solid border-blue1 rounded-3xl text-blue1 ease-in-out duration-300 outline-none justify-center`}
 
    &:hover {
       ${tw`bg-blue1 text-primary cursor-pointer`}

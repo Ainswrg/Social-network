@@ -1,8 +1,8 @@
 import React, { Component, createRef } from "react";
 
 import "./chatContent.css";
-import Avatar from "../chatList/Avatar";
-import ChatItem from "./ChatItem";
+import Avatar from "../../chatList/Avatar";
+import ChatItem from "../ChatItem";
 import {
    StyledChatContent,
    StyledContentBody,
@@ -10,7 +10,7 @@ import {
    StyledIconPaperPlane,
    StyledIconPlus,
    StyledIconSetting,
-} from "../../../../Styles";
+} from "../../../../../Styles";
 
 export default class ChatContent extends Component {
    messagesEndRef = createRef(null);
