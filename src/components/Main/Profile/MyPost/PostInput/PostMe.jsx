@@ -2,7 +2,6 @@ import React from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 
-// import "./styles.css";
 import "./styles-custom.css";
 import FormikField from "../../../../shared/FormikField/FormikField";
 import { StyledPostButton } from "../../../../Styles";
@@ -20,9 +19,7 @@ const PostForm = (props) => {
          <h1>My Post</h1>
          <Formik
             enableReinitialize
-            initialValues={{
-               newPost: "",
-            }}
+            initialValues={props.initialValues}
             validationSchema={validationPost}
             onSubmit={props.handleSubmit}
          >

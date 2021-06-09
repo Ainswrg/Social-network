@@ -18,9 +18,9 @@ const MyPost = (props) => {
    return (
       <>
          <PostForm
-         handleSubmit={handleSubmit}
-         addPost={props.addPost}
-         initialValues={initialValues}/>
+            handleSubmit={handleSubmit}
+            initialValues={initialValues}
+            />
          {postsElement}
       </>
    )
