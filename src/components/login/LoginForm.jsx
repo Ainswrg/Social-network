@@ -5,11 +5,11 @@ import FormikField from "../shared/FormikField/FormikField";
 import { ButtonGroup, colors, StyledLogin } from "../Styles";
 import loginFormSchema from "./FormValidation/LoginFormSchema";
 
-const LoginForm = (props) => {
+const LoginForm = ({initialValues,onSubmit}) => {
    return (
       <Formik
-         initialValues={props.initialValues}
-         onSubmit={props.onSubmit}
+         initialValues={initialValues}
+         onSubmit={onSubmit}
          validationSchema={loginFormSchema}
       >
          {({ status, isSubmitting }) => (

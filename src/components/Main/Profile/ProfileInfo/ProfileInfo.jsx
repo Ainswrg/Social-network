@@ -3,15 +3,15 @@ import s from "./ProfileInfo.module.css";
 import avatar from '../../../../assets/img/avatar.png'
 import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 
-const ProfileInfo = (props) => {
+const ProfileInfo = ({profile, status, updateStatus}) => {
    let contacts;
-   props.profile
-      && (contacts = Object.entries(props.profile.contacts).map((value) => (
+   profile
+      && (contacts = Object.entries(profile.contacts).map((value) => (
             <li key={value}>
                {value[0]} : {value[1]}
             </li>
          )));
-   if (!props.profile) {
+   if (!profile) {
       return <Preloader />;
    } else {
       return (
@@ -20,17 +20,17 @@ const ProfileInfo = (props) => {
             <div className={s.content__info}>
                <div>
                <img
-                  src={props.profile.photos.large ? props.profile.photos.large : avatar}
+                  src={profile.photos.large ? profile.photos.large : avatar}
                   className={s.logo}
                   alt="logo"
                />
-               <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
+               <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
                </div>
                <div className={s.description}>
-                  <h2>{props.profile.fullName}</h2>
-                  <p>{props.profile.aboutMe}</p>
+                  <h2>{profile.fullName}</h2>
+                  <p>{profile.aboutMe}</p>
                   <ul>{contacts}</ul>
-                  <p>{props.profile.lookingForAJobDescription}</p>
+                  <p>{profile.lookingForAJobDescription}</p>
                </div>
             </div>
          </div>

@@ -10,11 +10,6 @@ import UsersContainer from "./components/Main/Users/UsersContainer";
 import ProfileContainer from "./components/Main/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/login/Login";
-// import {
-// setAuthUserData,
-// getAuthUserData,
-// setProfileData,
-// } from "./Redux/auth-reducer";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { initializeApp } from "./Redux/app-reducer";
@@ -22,8 +17,6 @@ import Preloader from "./components/common/Preloader/Preloader";
 
 class App extends Component {
    componentDidMount() {
-      // this.props.getAuthUserData();
-      // this.props.setProfileData();
       this.props.initializeApp();
    }
 
@@ -64,7 +57,5 @@ export default compose(
    withRouter,
    connect(mapStateToProps, {
       initializeApp,
-      // getAuthUserData,
-      // setProfileData,
    })
 )(App);

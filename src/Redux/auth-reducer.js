@@ -37,42 +37,38 @@ export const setProfileData = (profile) => ({
    type: SET_PROFILE_DATA,
    profile,
 });
-export const getAuthUserData = () => (dispatch) => {
-   return authAPI.me()
-      .then((response) => {
-         if (response.data.resultCode === 0) {
-            let { id, email, login } = response.data.data;
-            dispatch(setAuthUserData(id, email, login, true));
-         }
-   });
+export const getAuthUserData = () => async (dispatch) => {
+   let response = await authAPI.me();
+
+   if (response.data.resultCode === 0) {
+      let { id, email, login } = response.data.data;
+      dispatch(setAuthUserData(id, email, login, true));
+   }
 };
 
 export const login = (email, password, rememberMe, actions) => {
-   return (dispatch) => {
-      authAPI.login(email, password, rememberMe, actions)
-         .then((response) => {
-            if (response.data.resultCode === 0) {
-               dispatch(getAuthUserData());
-            } else {
-               let message =
-                  response.data.messages.length > 0
-                     ? response.data.messages[0]
-                     : "Some Error";
-               actions.setStatus(message);
-            }
-            actions.setSubmitting(false);
-         });
+   return async (dispatch) => {
+      let response = await authAPI.login(email, password, rememberMe, actions);
+
+      if (response.data.resultCode === 0) {
+         dispatch(getAuthUserData());
+      } else {
+         let message =
+            response.data.messages.length > 0
+               ? response.data.messages[0]
+               : "Some Error";
+         actions.setStatus(message);
+      }
+      actions.setSubmitting(false);
    };
 };
 
 export const logout = () => {
-   return (dispatch) => {
-      authAPI.logout()
-         .then((response) => {
-            if (response.data.resultCode === 0) {
-               dispatch(setAuthUserData(null, null, null, false));
-            }
-      });
+   return async (dispatch) => {
+      let response = await authAPI.logout();
+      if (response.data.resultCode === 0) {
+         dispatch(setAuthUserData(null, null, null, false));
+      }
    };
 };
 

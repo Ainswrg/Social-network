@@ -9,7 +9,9 @@ let Users = ({
    pageSize,
    onPageChanged,
    users,
-   ...props
+   followingInProgress,
+   follow,
+   unfollow
 }) => {
    return (
       <StyledWrapper>
@@ -24,9 +26,9 @@ let Users = ({
             <User
                user={u}
                key={u.id}
-               followingInProgress={props.followingInProgress}
-               follow={props.follow}
-               unfollow={props.unfollow}
+               followingInProgress={followingInProgress}
+               follow={follow}
+               unfollow={unfollow}
             />
          ))}
       </StyledWrapper>
