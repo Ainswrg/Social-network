@@ -3,17 +3,18 @@ import "./App.css";
 import Music from "./components/Main/Music/Music";
 import Settings from "./components/Main/Settings/Settings";
 import News from "./components/Main/News/News";
-import { Route, withRouter } from "react-router-dom";
+import { BrowserRouter, Route, withRouter } from "react-router-dom";
 import NavbarContainer from "./components/Navbar/NavbarContainer";
 import DialogsContainer from "./components/Main/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Main/Users/UsersContainer";
 import ProfileContainer from "./components/Main/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/login/Login";
-import { connect } from "react-redux";
+import { connect, Provider } from "react-redux";
 import { compose } from "redux";
 import { initializeApp } from "./Redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
+import store from "./Redux/redux-store";
 
 class App extends Component {
    componentDidMount() {
@@ -25,7 +26,7 @@ class App extends Component {
          return <Preloader />;
       }
       return (
-         <div className="app-wrapper">
+         <div className="app-wrapper" role={"main"}>
             <HeaderContainer />
             <NavbarContainer />
             <div className="app-wrapper-content">
@@ -53,9 +54,22 @@ const mapStateToProps = (state) => ({
    initialized: state.app.initialized,
 });
 
-export default compose(
+let AppContainer =  compose(
    withRouter,
    connect(mapStateToProps, {
       initializeApp,
    })
 )(App);
+
+const SocialApp = (props) => {
+   return <BrowserRouter>
+   <div>Hi</div>
+   <React.StrictMode>
+      <Provider store={store}>
+         <AppContainer />
+      </Provider>
+   </React.StrictMode>
+</BrowserRouter>
+} 
+
+export default SocialApp;
