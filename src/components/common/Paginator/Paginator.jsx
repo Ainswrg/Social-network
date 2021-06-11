@@ -44,7 +44,7 @@ let Paginator = ({
                         className={`pageNumber ${
                            currentPage === p ? "selectedPage" : ""
                         }`}
-                        key={p}
+                        key={p.id}
                         onClick={(e) => {
                            onPageChanged(p);
                         }}

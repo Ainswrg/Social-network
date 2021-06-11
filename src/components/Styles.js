@@ -227,7 +227,7 @@ export const StyledPostButton = styled.button`
 
 //?Paginator
 
-export const StyledPaginator = styled.div.attrs({})`
+export const StyledPaginator = styled.div`
    ${tw`flex m-2.5 justify-center items-center`}
    & {
       button {

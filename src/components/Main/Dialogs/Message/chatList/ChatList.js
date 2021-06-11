@@ -62,7 +62,7 @@ export default class ChatList extends Component {
     },
     {
       image:
-        "https://auraqatar.com/projects/Anakalabel/media//vesbrand/designer4.jpg",
+        null,
       id: 8,
       name: "Autumn Mckee",
       active: false,
