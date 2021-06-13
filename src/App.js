@@ -3,10 +3,11 @@ import "./App.css";
 import Music from "./components/Main/Music/Music";
 import Settings from "./components/Main/Settings/Settings";
 import News from "./components/Main/News/News";
-import { BrowserRouter, Route, withRouter } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route, withRouter } from "react-router-dom";
 import NavbarContainer from "./components/Navbar/NavbarContainer";
 import UsersContainer from "./components/Main/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
+// import "./assets/styles.css"
 import Login from "./components/login/Login";
 import { connect, Provider } from "react-redux";
 import { compose } from "redux";
@@ -66,13 +67,13 @@ let AppContainer =  compose(
 )(App);
 
 const SocialApp = () => {
-   return <BrowserRouter>
+   return <HashRouter>
    <React.StrictMode>
       <Provider store={store}>
          <AppContainer />
       </Provider>
    </React.StrictMode>
-</BrowserRouter>
+</HashRouter>
 } 
 
 export default SocialApp;
