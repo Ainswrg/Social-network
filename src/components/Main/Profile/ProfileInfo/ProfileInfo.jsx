@@ -3,7 +3,7 @@ import s from "./ProfileInfo.module.css";
 import avatar from '../../../../assets/img/avatar.png'
 import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 
-const ProfileInfo = ({profile, status, updateStatus}) => {
+const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
    let contacts;
    profile
       && (contacts = Object.entries(profile.contacts).map((value) => (
@@ -11,6 +11,12 @@ const ProfileInfo = ({profile, status, updateStatus}) => {
                {value[0]} : {value[1]}
             </li>
          )));
+   const mainPhotoSelected = (e) => {
+      if(e.target.files.length) {
+         savePhoto( e.target.files[0]);
+      }
+   } 
+
    if (!profile) {
       return <Preloader />;
    } else {
@@ -24,6 +30,7 @@ const ProfileInfo = ({profile, status, updateStatus}) => {
                   className={s.logo}
                   alt="logo"
                />
+               {isOwner && <input type={"file"} onChange={mainPhotoSelected}/>}
                <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
                </div>
                <div className={s.description}>

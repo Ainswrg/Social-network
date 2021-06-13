@@ -3,7 +3,7 @@ import "./App.css";
 import Music from "./components/Main/Music/Music";
 import Settings from "./components/Main/Settings/Settings";
 import News from "./components/Main/News/News";
-import { BrowserRouter, HashRouter, Route, withRouter } from "react-router-dom";
+import { HashRouter, Route, withRouter } from "react-router-dom";
 import NavbarContainer from "./components/Navbar/NavbarContainer";
 import UsersContainer from "./components/Main/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
@@ -39,7 +39,7 @@ class App extends Component {
                <Route path="/dialogs" 
                   render={withSuspense(DialogsContainer)}/>
                
-               <Route path="/profile" 
+               <Route path="/profile/:userId?" 
                   render={withSuspense(ProfileContainer)}/>
 
                <Route path="/news" render={() => <News />} />

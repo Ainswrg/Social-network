@@ -6,9 +6,11 @@ const Profile = (props) => {
    return (
       <StyledWrapper>
          <ProfileInfo
+            isOwner={props.isOwner}
             profile={props.profile}
             status={props.status}
             updateStatus={props.updateStatus}
+            savePhoto={props.savePhoto}
          />
          <MyPostContainer />
       </StyledWrapper>
