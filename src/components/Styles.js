@@ -298,3 +298,37 @@ export const Status = styled.div`
 export const UserLocation = styled.div`
    ${tw`py-1 text-gray1 text-sm`}
 `;
+
+
+//? AvatarProfile
+
+export const AvatarContent = styled.div`
+   ${tw`relative max-w-205 my-12 mx-auto`}
+`;
+export const AvatarPreview = styled.div`
+   ${tw`w-52 h-52 relative rounded-full border-4 border-solid border-dark4 shadow-cst`}
+`; 
+export const AvatarImg = styled.img.attrs(props => ({src: props.profile.photos.large || props.avatar}))`
+   ${tw`max-w-full h-auto rounded-full bg-transparent`}
+`;
+
+export const AvatarEdit = styled.div`
+   ${tw`absolute right-5 z-10 -top-1.5`}
+   &{
+      input {
+         ${tw`hidden`}
+      }
+      input + label {
+         ${tw`w-9 h-9 mb-0 rounded-full bg-white border border-solid border-transparent shadow-cst cursor-pointer font-normal transition-all ease-in-out duration-200`}
+
+         &:hover {
+      ${tw`bg-gray-200 border-gray-500`}
+         }
+         &:after {
+         content: "\f040";
+         font-family: 'FontAwesome';
+         ${tw`text-dark4 absolute bottom-1.5 left-3 text-center m-auto`}
+         }
+      }
+   }
+`;

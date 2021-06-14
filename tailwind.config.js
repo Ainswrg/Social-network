@@ -27,6 +27,7 @@ module.exports = {
             dark1: "#1F2937",
             dark2: "#4B5563",
             dark3: "#9CA3AF",
+            dark4: "#2D3748",
             red1: "#DC2626",
             blue1: "#4169E1",
             blue2: "#ebe7fb",
@@ -46,7 +47,8 @@ module.exports = {
             "1/2": "50%",
             "3/4": "75%",
             'cst': "93%",
-            '1000': '1000px'
+            '205': '205px',
+            '1000': '1000px',
          },
          minWidth: {
             '0': '0',

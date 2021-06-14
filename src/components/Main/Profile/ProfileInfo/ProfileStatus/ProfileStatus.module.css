@@ -1,8 +1,8 @@
 
 .status_wrapper {
-   background-color: rgb(243, 243, 250);
+   /* background-color: rgb(243, 243, 250); */
    align-self: center;
    padding:10px 0;
    text-align: center;
-   box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
+   box-shadow: 0 2px 15px 0 rgba(100, 0.1, 2.11, 0.061);
 }
