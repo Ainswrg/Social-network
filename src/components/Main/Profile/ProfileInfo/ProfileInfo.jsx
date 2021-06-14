@@ -2,7 +2,6 @@ import Preloader from "../../../common/Preloader/Preloader";
 import s from "./ProfileInfo.module.css";
 import Photo from "./Photo";
 import { ProfileContent, ProfileDescription } from "../../../Styles";
-import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 
 const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
    let contacts;

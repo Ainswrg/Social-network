@@ -3,19 +3,19 @@ import s from "./Header.module.css";
 import avatar from "../../assets/img/avatar.png";
 import logo from "../../assets/img/logo.png";
 
-const Header = (props) => {
+const Header = ({isAuth, login, logout, profile}) => {
    return (
       <header className={s.header}>
          <img src={logo} alt="logo"></img>
          <div className={s.loginBlock}>
             <div className={s.ava}>
-               {props.isAuth ? (
+               {isAuth ? (
                   <div className={s.auth}>
-                     <img src={avatar} className={s.logo} alt="logo" />
-                     {props.isAuth ? (
-                        <NavLink to={"/profile"}>{props.login}</NavLink>
+                     <img src={profile ? profile.photos.small : avatar} className={s.logo} alt="logo" />
+                     {isAuth ? (
+                        <NavLink to={"/profile"}>{login}</NavLink>
                      ) : null}
-                     <button className={s.logout} onClick={props.logout}>
+                     <button className={s.logout} onClick={logout}>
                         log out
                      </button>
                   </div>
