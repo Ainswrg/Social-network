@@ -300,6 +300,15 @@ export const UserLocation = styled.div`
 `;
 
 
+//? ProfileInfo
+
+export const ProfileContent = styled.div`
+   ${tw`flex p-3.5 flex-row flex-wrap shadow-cst`}
+`;
+export const ProfileDescription = styled.div`
+   ${tw`my-0 mx-auto leading-5 w-3/5`}
+`
+
 //? AvatarProfile
 
 export const AvatarContent = styled.div`
@@ -331,4 +340,13 @@ export const AvatarEdit = styled.div`
          }
       }
    }
+`;
+
+//?ProfileStatus
+
+export const ProfileStatus = styled.div`
+   ${tw` py-2.5 text-center text-dark3 shadow-xl`}
+      &:hover {
+         ${tw`text-dark4`}
+      }
 `;

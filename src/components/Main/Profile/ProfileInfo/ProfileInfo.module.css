@@ -6,21 +6,21 @@
    grid-template-columns: max-content;
 }
 
-.content__info {
+/* .content__info {
    display: flex;
    grid-template-columns: repeat(6,1fr);
    grid-gap: 20px;
    padding: 15px;
    flex-flow: row wrap;
    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
-   /* background-color: blueviolet; */
-}
+   background-color: blueviolet;
+} */
 
 
-.description {
+/* .description {
    margin: 0px auto;
    line-height: 20px;
    width: 60%;
-   /* grid-column: 2 / 4; */
-   /* color: gray; */
-}
+   grid-column: 2 / 4;
+   color: gray;
+} */
