@@ -156,21 +156,9 @@ export const StyledLogin = styled.div.attrs({})`
       input[type="email"] {
          ${tw`border-gray-300 mb-2 border-solid border rounded py-2 px-4`}
       }
-      // input[type="checkbox"] {
-      //    ${tw`border-gray-300 mb-2 w-3 border-solid border rounded py-2 px-4 space-x-5`}
-      // }
       button {
          ${tw`bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-blue-700 rounded`}
       }
-      // .btn {
-      //    @apply py-2 px-4 font-semibold rounded-lg shadow-md;
-      // }
-      // .btn-green {
-      //    @apply text-white bg-green-500 hover:bg-green-700;
-      // }
-      // .errorStatus {
-      //    ${tw`text-red-500 font-light`}
-      // }
    }
 `;
 

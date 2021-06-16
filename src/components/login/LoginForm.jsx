@@ -5,9 +5,10 @@ import FormikField from "../shared/FormikField/FormikField";
 import { ButtonGroup, colors, StyledLogin } from "../Styles";
 import loginFormSchema from "./FormValidation/LoginFormSchema";
 
-const LoginForm = ({initialValues,onSubmit}) => {
+const LoginForm = ({initialValues,onSubmit, captchaUrl}) => {
    return (
       <Formik
+         enableReinitialize
          initialValues={initialValues}
          onSubmit={onSubmit}
          validationSchema={loginFormSchema}
@@ -31,6 +32,11 @@ const LoginForm = ({initialValues,onSubmit}) => {
                      name="rememberMe"
                      type="checkbox"
                   />
+
+                  {captchaUrl && <img src={captchaUrl} />}
+                  {captchaUrl && <FormikField name="captcha" 
+                     type="text" placeholder="write symbols from image"/>}
+
                   <ButtonGroup>
                      {!isSubmitting && (
                         <button className="btn btn-green">Sign In</button>

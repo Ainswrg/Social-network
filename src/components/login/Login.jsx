@@ -7,8 +7,8 @@ import { Redirect } from "react-router";
 const Login = () => {
    const state = useSelector((state) => state);
    const dispatch = useDispatch();
-   const loggingInThunk = (email, password, rememberMe, actions) =>
-      dispatch(login(email, password, rememberMe, actions));
+   const loggingInThunk = (email, password, rememberMe,captcha, actions) =>
+      dispatch(login(email, password, rememberMe,captcha, actions));
 
    const { isAuth } = state.auth;
    if (isAuth) {
@@ -17,7 +17,8 @@ const Login = () => {
 
    const onSubmit = (values, actions) => {
       actions.setStatus(undefined);
-      loggingInThunk(values.email, values.password, values.rememberMe, actions);
+      loggingInThunk(values.email, values.password, values.rememberMe,values.captcha, actions);
+      state.auth.captchaUrl = false;
    };
 
    const initialValues = {
@@ -26,7 +27,7 @@ const Login = () => {
       rememberMe: false,
    };
 
-   return <LoginForm initialValues={initialValues} onSubmit={onSubmit} />;
+   return <LoginForm initialValues={initialValues} onSubmit={onSubmit} captchaUrl={state.auth.captchaUrl}/>;
 };
 
 export default Login;
