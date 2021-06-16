@@ -12,11 +12,11 @@ export const colors = {
    dark1: "#1F2937",
    dark2: "#4B5563",
    dark3: "#9CA3AF",
+   dark4: "#2D3748",
    red: "#DC2626",
    blue1: "#4169E1",
    blue2: "#ebe7fb",
 };
-
 
 //?Icons
 
@@ -33,7 +33,6 @@ export const StyledIconPaperPlane = styled(FaPaperPlane)`
    ${tw`text-base `}
 `;
 
-
 //?WrapperAPP
 
 export const StyledWrapper = styled.div`
@@ -42,7 +41,6 @@ export const StyledWrapper = styled.div`
       ${tw`flex-grow py-5 px-10 rounded-xl  shadow-cst `}
    }
 `;
-
 
 //?DialogPage
 
@@ -118,7 +116,7 @@ export const ChatFooter = styled.div`
 `;
 export const ChatFormContainer = styled.div`
    ${tw`flex w-full p-2.5`}
-      &{
+   & {
       #sendMsgBtn {
          ${tw`bg-blue-500 text-white`}
       }
@@ -126,12 +124,12 @@ export const ChatFormContainer = styled.div`
 `;
 export const StyledField = styled.div`
    ${tw`flex w-full self-center`}
-   &{
+   & {
       textarea {
          ${tw`text-gray-500 w-full py-0 px-2.5 border-0 outline-none`}
       }
    }
-`
+`;
 
 export const ChatButton = styled.button`
    ${tw`w-9 h-8 bg-gray-200 border-0 shadow-none outline-none cursor-pointer text-base text-blue-500 p-0 rounded leading-9 transition ease-out m-2 items-center`}
@@ -142,7 +140,6 @@ export const ChatButton = styled.button`
 export const StyledFlex = styled.div`
    ${tw`flex flex-col self-start w-full m-0`}
 `;
-
 
 //?LoginPage
 
@@ -177,7 +174,6 @@ export const StyledLogin = styled.div.attrs({})`
    }
 `;
 
-
 //?Formik
 
 export const StyledError = styled.div`
@@ -206,8 +202,7 @@ export const StyledTextArea = styled.div`
    }
 `;
 
-
-//? ProfilePage   
+//? ProfilePage
 
 export const StyledPostButton = styled.button`
    & {
@@ -224,7 +219,6 @@ export const StyledPostButton = styled.button`
    }
 `;
 
-
 //?Paginator
 
 export const StyledPaginator = styled.div`
@@ -238,7 +232,6 @@ export const StyledPaginator = styled.div`
       }
    }
 `;
-
 
 //?UserPage
 
@@ -299,7 +292,6 @@ export const UserLocation = styled.div`
    ${tw`py-1 text-gray1 text-sm`}
 `;
 
-
 //? ProfileInfo
 
 export const ProfileContent = styled.div`
@@ -307,7 +299,7 @@ export const ProfileContent = styled.div`
 `;
 export const ProfileDescription = styled.div`
    ${tw`my-0 mx-auto leading-5 w-3/5`}
-`
+`;
 
 //? AvatarProfile
 
@@ -316,14 +308,16 @@ export const AvatarContent = styled.div`
 `;
 export const AvatarPreview = styled.div`
    ${tw`w-52 h-52 relative rounded-full border-4 border-solid border-dark4 shadow-cst`}
-`; 
-export const AvatarImg = styled.img.attrs(props => ({src: props.profile.photos.large || props.avatar}))`
+`;
+export const AvatarImg = styled.img.attrs((props) => ({
+   src: props.profile.photos.large || props.avatar,
+}))`
    ${tw`max-w-full h-auto rounded-full bg-transparent`}
 `;
 
 export const AvatarEdit = styled.div`
    ${tw`absolute right-5 z-10 -top-1.5`}
-   &{
+   & {
       input {
          ${tw`hidden`}
       }
@@ -331,12 +325,12 @@ export const AvatarEdit = styled.div`
          ${tw`w-9 h-9 mb-0 rounded-full bg-white border border-solid border-transparent shadow-cst cursor-pointer font-normal transition-all ease-in-out duration-200`}
 
          &:hover {
-      ${tw`bg-gray-200 border-gray-500`}
+            ${tw`bg-gray-200 border-gray-500`}
          }
          &:after {
-         content: "\f040";
-         font-family: 'FontAwesome';
-         ${tw`text-dark4 absolute bottom-1.5 left-3 text-center m-auto`}
+            content: "\f040";
+            font-family: "FontAwesome";
+            ${tw`text-dark4 absolute bottom-1.5 left-3 text-center m-auto`}
          }
       }
    }
@@ -346,7 +340,7 @@ export const AvatarEdit = styled.div`
 
 export const ProfileStatus = styled.div`
    ${tw` py-2.5 text-center text-dark3 shadow-xl`}
-      &:hover {
-         ${tw`text-dark4`}
-      }
+   &:hover {
+      ${tw`text-dark4`}
+   }
 `;

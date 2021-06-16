@@ -5,7 +5,9 @@
    background-size: cover;
    grid-template-columns: max-content;
 }
-
+.errorStatus {
+   color:red;
+}
 /* .content__info {
    display: flex;
    grid-template-columns: repeat(6,1fr);

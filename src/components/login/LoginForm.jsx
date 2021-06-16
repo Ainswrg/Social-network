@@ -15,18 +15,22 @@ const LoginForm = ({initialValues,onSubmit}) => {
          {({ status, isSubmitting }) => (
             <StyledLogin>
                <Form>
-                  <FormikField label="Email" name="email" type="email" />
+                  <FormikField 
+                     label="Email" 
+                     name="email" 
+                     type="email"
+                     statusLogin={status} />
                   <FormikField
                      label="Password"
                      name="password"
                      type="password"
+                     statusLogin={status}
                   />
                   <FormikField
                      label="Remember Me"
                      name="rememberMe"
                      type="checkbox"
                   />
-                  <div className="errorStatus">{status}</div>
                   <ButtonGroup>
                      {!isSubmitting && (
                         <button className="btn btn-green">Sign In</button>
