@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyledPageNumber, StyledPaginator } from "../../Styles";
+import { SelectedPage, StyledPageNumber, StyledPaginator } from "../../Styles";
 
 let Paginator = ({
    totalItemsCount,
@@ -39,18 +39,15 @@ let Paginator = ({
             )
             .map((p) => {
                return (
-                  <StyledPageNumber>
-                     <div
-                        className={`pageNumber ${
-                           currentPage === p ? "selectedPage" : ""
-                        }`}
-                        key={p.id}
-                        onClick={(e) => {
-                           onPageChanged(p);
-                        }}
-                     >
-                        {p}
-                     </div>
+                  <StyledPageNumber
+                     key={p.id}
+                     onClick={(e) => {
+                        onPageChanged(p);
+                     }}
+                     currentPage={currentPage}
+                     p={p}
+                  >
+                     {p}
                   </StyledPageNumber>
                );
             })}

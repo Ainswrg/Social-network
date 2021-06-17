@@ -13,14 +13,6 @@ const ProfileInfo = ({
    savePhoto,
    saveProfile,
 }) => {
-   // let contacts;
-   // profile
-   //    && (contacts = Object.entries(profile.contacts).map((value) => (
-   //          <li key={value}>
-   //             {value[0]} : {value[1] || "none"}
-   //          </li>
-   //       )));
-
    let [editMode, setEditMode] = useState(false);
 
    if (!profile) {
@@ -32,7 +24,6 @@ const ProfileInfo = ({
       saveProfile(values, actions).then(() => {
          setEditMode(false);
       });
-      debugger;
    };
 
    const initialValues = {

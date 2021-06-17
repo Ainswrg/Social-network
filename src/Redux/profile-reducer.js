@@ -80,10 +80,15 @@ export const getStatus = (userId) => async (dispatch) => {
 };
 
 export const updateStatus = (status) => async (dispatch) => {
-   let response = await profileAPI.updateStatus(status);
-   if (response.data.resultCode === 0) {
-      dispatch(setStatus(status));
+   try {
+      let response = await profileAPI.updateStatus(status);
+      if (response.data.resultCode === 0) {
+         dispatch(setStatus(status));
+      }
+   } catch(error) {
+      
    }
+   
 };
 
 export const savePhoto = (file) => async (dispatch) => {
@@ -95,7 +100,6 @@ export const savePhoto = (file) => async (dispatch) => {
 };
 
 export const saveProfile = (profile, actions) => async (dispatch, getState) => {
-   debugger;
    const userId = getState().auth.userId;
    let response = await profileAPI.saveProfile(profile);
 

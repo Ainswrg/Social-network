@@ -3,7 +3,7 @@ import "./App.css";
 import Music from "./components/Main/Music/Music";
 import Settings from "./components/Main/Settings/Settings";
 import News from "./components/Main/News/News";
-import { HashRouter, Route, withRouter } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Switch, withRouter } from "react-router-dom";
 import NavbarContainer from "./components/Navbar/NavbarContainer";
 import UsersContainer from "./components/Main/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
@@ -22,8 +22,17 @@ const ProfileContainer = React.lazy(() => import('./components/Main/Profile/Prof
 
 
 class App extends Component {
+   catchAllUnhandleErrors = (reason, promise) => {
+      alert("some error occured");
+      // console.error(promiseRejectionEvent)
+   }
    componentDidMount() {
       this.props.initializeApp();
+      window.addEventListener("unhandledrejection", this.catchAllUnhandleErrors);
+   }
+
+   componentWillUnmount() {
+      window.removeEventListener("unhandledrejection", this.catchAllUnhandleErrors);
    }
 
    render() {
@@ -35,20 +44,26 @@ class App extends Component {
             <HeaderContainer />
             <NavbarContainer />
             <div className="app-wrapper-content">
-               
-               <Route path="/dialogs" 
-                  render={withSuspense(DialogsContainer)}/>
-               
-               <Route path="/profile/:userId?" 
-                  render={withSuspense(ProfileContainer)}/>
+               <Switch>
+                  
+                  <Route path="/dialogs" 
+                     render={withSuspense(DialogsContainer)}/>
+                  
+                  <Route path="/profile/:userId?" 
+                     render={withSuspense(ProfileContainer)}/>
 
-               <Route path="/news" render={() => <News />} />
-               <Route path="/music" render={() => <Music />} />
-               <Route path="/settings" render={() => <Settings />} />
+                  <Redirect exact from='/' to="/profile"/>
 
-               <Route path="/users" render={() => <UsersContainer />} />
+                  <Route path="/news" render={() => <News />} />
+                  <Route path="/music" render={() => <Music />} />
+                  <Route path="/settings" render={() => <Settings />} />
 
-               <Route path="/login" render={() => <Login />} />
+                  <Route path="/users" render={() => <UsersContainer />} />
+
+                  <Route path="/login" render={() => <Login />} />
+
+                  <Route path="*" render={() => <div>404 NOT FOUND</div>} />
+               </Switch>
             </div>
          </div>
       );
@@ -67,13 +82,13 @@ let AppContainer =  compose(
 )(App);
 
 const SocialApp = () => {
-   return <HashRouter>
+   return <BrowserRouter>
    <React.StrictMode>
       <Provider store={store}>
          <AppContainer />
       </Provider>
    </React.StrictMode>
-</HashRouter>
+</BrowserRouter>
 } 
 
 export default SocialApp;

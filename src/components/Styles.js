@@ -16,6 +16,7 @@ export const colors = {
    red: "#DC2626",
    blue1: "#4169E1",
    blue2: "#ebe7fb",
+   blue500: "rgba(59, 130, 246, 1)",
 };
 
 //?Icons
@@ -222,22 +223,22 @@ export const StyledPaginator = styled.div`
 `;
 
 //?UserPage
-
 export const StyledPageNumber = styled.div`
-   & {
-      .pageNumber {
-         ${tw`flex justify-center items-center text-blue-500 cursor-pointer text-base rounded-full h-12 w-12 m-1 shadow-cst transition ease-out`}
-         &:active {
-            ${tw`bg-blue-600`}
-         }
-         &:hover {
-            ${tw`bg-blue-500 text-white transform scale-125`}
-         }
-      }
-      .pageNumber.selectedPage {
-         ${tw`font-bold border-black bg-blue-500 text-white`}
-      }
+   ${tw`flex justify-center items-center text-blue-500 cursor-pointer text-base rounded-full h-12 w-12 m-1 shadow-cst transition ease-out bg-white`}
+   &:active {
+      ${tw`bg-blue-600`}
    }
+   &:hover {
+      ${tw`bg-blue-500 text-white transform scale-125`}
+   }
+   ${(props) =>
+      props.currentPage === props.p &&
+      `
+         border-color: black;
+         font-weight: 700;
+         background: ${colors.blue500};
+         color: ${colors.light1};
+      `}
 `;
 
 export const StyledUser = styled.div`
