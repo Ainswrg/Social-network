@@ -42,7 +42,7 @@ const ChatForm = (props) => {
                            />
                         </StyledField>
                         
-                        <ChatButton id="sendMsgBtn">
+                        <ChatButton primary>
                            <StyledIconPaperPlane />
                         </ChatButton>
                   </ChatFormContainer>

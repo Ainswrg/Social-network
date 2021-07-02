@@ -11,7 +11,7 @@ const Dialogs = (props) => {
    
    // if(props.isAuth) return <Redirect to={'/login'}/>
    return (
-      <StyledWrapper primary={true}>
+      <StyledWrapper flex={"flex"}>
                   {/* <div >
                   {dialogsElements}
                   </div> */}

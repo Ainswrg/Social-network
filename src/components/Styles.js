@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import tw from "twin.macro";
 import { FaCog, FaPlus, FaPaperPlane } from "react-icons/fa";
 
@@ -37,7 +37,7 @@ export const StyledIconPaperPlane = styled(FaPaperPlane)`
 //?WrapperAPP
 
 export const StyledWrapper = styled.div`
-   display: ${(props) => (props.primary ? "flex" : "")};
+   display: ${(props) => (props.flex || "block")};
    & {
       ${tw`flex-grow py-5 px-10 rounded-xl  shadow-cst `}
    }
@@ -45,7 +45,7 @@ export const StyledWrapper = styled.div`
 
 //?DialogPage
 
-export const StyledDialogContainer = styled.div.attrs({})`
+export const StyledDialogContainer = styled.div`
    ${tw`flex flex-grow py-5 px-10 rounded-xl  shadow-xl`}
 `;
 
@@ -117,11 +117,11 @@ export const ChatFooter = styled.div`
 `;
 export const ChatFormContainer = styled.div`
    ${tw`flex w-full p-2.5`}
-   & {
-      #sendMsgBtn {
-         ${tw`bg-blue-500 text-white`}
-      }
-   }
+   // &{
+   //    #sendMsgBtn {
+   //    ${tw`bg-blue-500 text-white`};
+   //    }
+   // }
 `;
 export const StyledField = styled.div`
    ${tw`flex w-full self-center`}
@@ -133,10 +133,15 @@ export const StyledField = styled.div`
 `;
 
 export const ChatButton = styled.button`
-   ${tw`w-9 h-8 bg-gray-200 border-0 shadow-none outline-none cursor-pointer text-base text-blue-500 p-0 rounded leading-9 transition ease-out m-2 items-center`}
+   
+   ${tw`w-9 h-8 bg-gray-200 border-0 shadow-none outline-none cursor-pointer text-base text-blue-500 p-0 rounded leading-9 transition ease-out m-2 items-center`};
+   
+   ${props => props.primary && css`
+      ${tw`bg-blue-500 text-white`}
+   `};
    &:hover {
-      ${tw`transform scale-125`}
-   }
+      ${tw`transform scale-125`};
+   };
 `;
 export const StyledFlex = styled.div`
    ${tw`flex flex-col self-start w-full m-0`}
@@ -144,7 +149,7 @@ export const StyledFlex = styled.div`
 
 //?LoginPage
 
-export const StyledLogin = styled.div.attrs({})`
+export const StyledLogin = styled.div`
    ${tw`flex flex-grow flex-col px-10 justify-center items-center bg-gray-100 h-full`}
    & {
       label {

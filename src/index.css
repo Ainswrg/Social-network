@@ -353,7 +353,7 @@ h1,
    input[type="button"]:hover,
    button:hover {
      cursor: pointer;
-     background-color: var(--gray-800);
+     /* background-color: var(--gray-800); */
    }
  }
  
@@ -363,7 +363,7 @@ h1,
    input[type="button"]:hover,
    button:hover {
      cursor: pointer;
-     background-color: var(--gray-300);
+     /* background-color: var(--gray-300); */
    }
  }
  
@@ -461,7 +461,7 @@ h1,
    }
  }
  
- button:disabled {
+ /* button:disabled {
    opacity: 0.5;
    cursor: not-allowed !important;
  }
@@ -480,5 +480,5 @@ h1,
  button.secondary:hover,
  button[type="reset"]:hover {
    background-color: var(--gray-400);
- }
+ } */
  
