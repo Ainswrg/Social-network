@@ -1,26 +1,30 @@
-
+import home from "../assets/sidebar/home-solid.svg"
+import Settings from "../assets/sidebar/settings.svg"
+import Social from "../assets/sidebar/social.svg"
+import Forum from "../assets/sidebar/Forum.svg"
+import Music from "../assets/sidebar/bx-music.svg"
+import News from "../assets/sidebar/bx-news.svg"
 
 type MenuType = {
    name: string
    id: string
+   src: any
 }
 type ImageType = {
-   src: string
+   src: any
 }
 let initialState = {
    menu: [
-      { name: 'Profile', id: '/profile' },
-      { name: 'Message', id: '/dialogs' },
-      { name: 'Users', id: '/users'},
-      { name: 'News', id: '/news' },
-      { name: 'Music', id: '/music' },
-      { name: 'Settings', id: '/settings' },
+      { name: 'Profile', id: '/profile', src: home },
+      { name: 'Message', id: '/dialogs', src: Forum },
+      { name: 'Users', id: '/users', src: Social },
+      { name: 'News', id: '/news', src: News },
+      { name: 'Music', id: '/music', src: Music },
+      { name: 'Settings', id: '/settings', src: Settings },
       
    ] as Array<MenuType>,
-   img: [
-      { src: "https://cdn2.iconfinder.com/data/icons/office-square-flat-vol-1/100/avatar__male__student__user_-512.png" },
-      { src: "https://ssl.gstatic.com/images/branding/product/1x/avatar_square_blue_512dp.png" },
-      { src: "https://cdn0.iconfinder.com/data/icons/human-diversity-avatars-color/64/human-avatar-user-ui-account-square-512.png" },
+   img: [ 
+      {},
    ] as Array<ImageType>,
 }
 

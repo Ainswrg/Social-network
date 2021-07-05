@@ -6,7 +6,7 @@ import logo from "../../assets/img/logo.png";
 const Header = ({isAuth, login, logout, profile}) => {
    return (
       <header className={s.header}>
-         <img src={logo} alt="logo"></img>
+         {/* <img src={logo} alt="logo"></img> */}
          <div className={s.loginBlock}>
             <div className={s.ava}>
                {isAuth ? (
@@ -16,12 +16,12 @@ const Header = ({isAuth, login, logout, profile}) => {
                         <NavLink to={"/profile"}>{login}</NavLink>
                      ) : null}
                      <button className={s.logout} onClick={logout}>
-                        log out
+                        log&nbsp;out
                      </button>
                   </div>
                ) : (
                   <div className={s.auth}>
-                     <NavLink to={"/login"}>Log in</NavLink>
+                     <NavLink to={"/login"}>Log&nbsp;in</NavLink>
                   </div>
                )}
             </div>

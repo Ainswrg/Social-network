@@ -253,7 +253,7 @@ export const Subscription = styled.div`
    ${tw`col-span-1 flex flex-col justify-center items-center p-3`}
 `;
 export const Avatar = styled.img`
-   ${tw`rounded-full w-20 border border-solid border-gray1 transition ease-out`}
+   ${tw`rounded-full w-20 border border-solid border-gray1 transition ease-out`};
    &:hover {
       ${tw`transform scale-105 border-2 border-blue1`}
 `;

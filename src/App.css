@@ -9,8 +9,8 @@ body {
 }
 
 .app-wrapper {
-   display: grid;
-   grid-template-areas: "header header header" "nav main main";
+   /* display: grid; */
+   /* grid-template-areas: "nav header header" "nav main main"; */
    grid-template-columns: 10% 1fr 5px;
    column-gap: 20px;
    row-gap: 16px;
@@ -20,7 +20,7 @@ body {
 .app-wrapper-content {
    max-width: 90%;
    margin: 0 auto;
-   background-color: #fff;
+   /* background-color: #fff; */
    min-height: 80vh;
    width: 100%;
    border-radius: 10px;
@@ -40,12 +40,12 @@ body {
  
  /* Handle */
  ::-webkit-scrollbar-thumb {
-   background: #6c84ff;
+   background: #313342;
    border-radius: 10px;
  }
  
  /* Handle on hover */
  ::-webkit-scrollbar-thumb:hover {
-   background: #3b5bfe;
+   background: #313452;
  }
  

@@ -77,7 +77,10 @@ export const ProfileData = ({ profile, isOwner, goToEditMode }) => {
                <button onClick={goToEditMode}>edit</button>
             </div>
          )}
-         <h2>{profile.fullName}</h2>
+         <h1>{profile.fullName}</h1>
+         <br/>
+         <hr/>
+         <br/>
          <div>Looking for a job: {profile.lookingForAJob ? "yes" : "no"}</div>
          {profile.lookingForAJob && (
             <div>
@@ -88,6 +91,7 @@ export const ProfileData = ({ profile, isOwner, goToEditMode }) => {
          <div>
             <p>About me: {profile.aboutMe}</p>
          </div>
+         <br/>
          <div>
             <b>Contacts</b>:
             {Object.keys(profile.contacts).map((key) => {

@@ -4,7 +4,7 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const Profile = (props) => {
    return (
-      <StyledWrapper>
+      <>
          <ProfileInfo
             isOwner={props.isOwner}
             profile={props.profile}
@@ -14,7 +14,7 @@ const Profile = (props) => {
             saveProfile={props.saveProfile}
          />
          <MyPostContainer />
-      </StyledWrapper>
+      </>
    );
 };
 
