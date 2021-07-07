@@ -13,6 +13,8 @@ module.exports = {
          '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
          inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
          cst:  '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)',
+         cst1: '0 15px 25px rgba(0,0,0,.6)',
+         cst2: '0 0 5px #03e9f4,0 0 25px #03e9f4,0 0 50px #03e9f4,0 0 100px #03e9f4',
          none: 'none',
       },
       
@@ -31,7 +33,12 @@ module.exports = {
             red1: "#DC2626",
             blue1: "#4169E1",
             blue2: "#ebe7fb",
+            blue3: "#03e9f4",
             gray1: "#656565",
+            gray2: "#a4b2bc",
+            black1: "#151728",
+            rgba: "rgba(0,0,0,.5)",
+            neon: "0 0 5px #03e9f4,0 0 25px #03e9f4,0 0 50px #03e9f4,0 0 100px #03e9f4"
          },
          animation: {
             custom: 'custom 1s cubic-bezier(0.88, 0.19,0.37, 1.11 ) 1; ',
@@ -66,6 +73,9 @@ module.exports = {
             'full': '100%',
             'cst': '35px',
          },
+         height: {
+            'cst': '80vh',
+         }
       },
 
       variants: {

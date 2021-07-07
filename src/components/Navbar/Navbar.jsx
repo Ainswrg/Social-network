@@ -4,77 +4,87 @@ import logo from "../../assets/sidebar/logo.svg";
 import LogOut from "../../assets/sidebar/bx-log-out.svg";
 import LogInIcon from "../../assets/sidebar/bx-log-in.svg";
 import {
-  Button,
-  Container,
-  Details,
-  Item,
-  Logo,
-  Logout,
-  Name,
-  Profile,
-  SidebarContainer,
-  SlickBar,
-  Text,
-} from "./styles/styles";
+   MenuButton,
+   Container,
+   Details,
+   Item,
+   Logo,
+   Logout,
+   Name,
+   Profile,
+   SidebarContainer,
+   SlickBar,
+   Text,
+} from "../Styles";
 import { NavLink } from "react-router-dom";
 import avatar from "../../assets/img/avatar.png";
 
-
 const Navbar = ({ login, sideBar, isAuth, profile, logout }) => {
-  debugger;
-  const [click, setClick] = useState(false);
-  const handleClick = () => setClick(!click);
+   const [click, setClick] = useState(false);
+   const handleClick = () => setClick(!click);
 
-  const [profileClick, setProfileClick] = useState(false);
-  const handleProfileClick = () => setProfileClick(!profileClick);
+   const [profileClick, setProfileClick] = useState(false);
+   const handleProfileClick = () => setProfileClick(!profileClick);
 
-  return (
+   return (
       <Container>
-        <Button clicked={click} onClick={() => handleClick()}></Button>
-        <SidebarContainer>
+         <MenuButton clicked={click} onClick={() => handleClick()}></MenuButton>
+         <SidebarContainer>
             <Logo>
-              <img src={logo} alt="logo" />
+               <img src={logo} alt="logo" />
             </Logo>
             <SlickBar clicked={click}>
-              {sideBar.menu.map((item) => (
+               {sideBar.menu.map((item) => (
                   <Item
-                    onClick={() => setClick(false)}
-                    exact
-                    activeClassName="active"
-                    to={item.id}
+                     onClick={() => setClick(false)}
+                     exact
+                     activeClassName="active"
+                     to={item.id}
                   >
-                    <img src={item.src} alt="home" />
-                    <Text clicked={click}>{item.name}</Text>
+                     <img src={item.src} alt="home" />
+                     <Text clicked={click}>{item.name}</Text>
                   </Item>
-              ))}
+               ))}
             </SlickBar>
 
             <Profile
-              onClick={() => handleProfileClick()}
-              clicked={profileClick}
+               onClick={() => handleProfileClick()}
+               clicked={profileClick}
             >
-              {isAuth 
-                ? 
-                  <div >
-                    <img className="ava" src={profile ? profile.photos.small : avatar}  alt="logo" onClick={() => handleProfileClick()} />
+               {isAuth ? (
+                  <div>
+                     <img
+                        className="ava"
+                        src={profile ? profile.photos.small : avatar}
+                        alt="logo"
+                        onClick={() => handleProfileClick()}
+                     />
                   </div>
-                : <NavLink style={{border: "none"}} to="/login">
-                      <img src={LogInIcon}  alt="login" onClick={() => handleProfileClick()} />
-                  </NavLink>}
-              
-                  <Details isAuth={isAuth} clicked={profileClick}>
-                    <Name>
-                      <h4>{login}</h4>
-                      <NavLink id="view" to="/profile">view&nbsp;profile</NavLink>
-                    </Name>
-                    <Logout onClick={logout}>
-                      <img id="logOut" src={LogOut} alt="logout" />
-                    </Logout>
-                  </Details>
+               ) : (
+                  <NavLink style={{ border: "none" }} to="/login">
+                     <img
+                        src={LogInIcon}
+                        alt="login"
+                        onClick={() => handleProfileClick()}
+                     />
+                  </NavLink>
+               )}
+
+               <Details isAuth={isAuth} clicked={profileClick}>
+                  <Name>
+                     <h4>{login}</h4>
+                     <NavLink id="view" to="/profile">
+                        view&nbsp;profile
+                     </NavLink>
+                  </Name>
+                  <Logout onClick={logout}>
+                     <img id="logOut" src={LogOut} alt="logout" />
+                  </Logout>
+               </Details>
             </Profile>
-        </SidebarContainer>
+         </SidebarContainer>
       </Container>
-  );
+   );
 };
 
 export default Navbar;

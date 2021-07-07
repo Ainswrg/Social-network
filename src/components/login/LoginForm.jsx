@@ -1,8 +1,7 @@
 import { Form, Formik } from "formik";
-import React from "react";
 import Loader from "react-loader-spinner";
 import FormikField from "../shared/FormikField/FormikField";
-import { ButtonGroup, colors, StyledLogin } from "../Styles";
+import { ButtonGroup, colors, StyledLogin, CheckBox } from "../Styles";
 import loginFormSchema from "./FormValidation/LoginFormSchema";
 
 const LoginForm = ({initialValues,onSubmit, captchaUrl}) => {
@@ -13,38 +12,58 @@ const LoginForm = ({initialValues,onSubmit, captchaUrl}) => {
          onSubmit={onSubmit}
          validationSchema={loginFormSchema}
       >
-         {({ status, isSubmitting }) => (
-            <StyledLogin>
+         {({ status, isSubmitting, touched, dirty, ...props }) => (
+            <StyledLogin 
+               touched={touched}
+               dirty={dirty}
+               formik={props}>
                <Form>
-                  <FormikField 
-                     label="Email" 
-                     name="email" 
-                     type="email"
-                     statusLogin={status} />
-                  <FormikField
-                     label="Password"
-                     name="password"
-                     type="password"
-                     statusLogin={status}
-                  />
-                  <FormikField
-                     label="Remember Me"
-                     name="rememberMe"
-                     type="checkbox"
-                  />
+                  <div className={"user_box"}>
+                     <FormikField
+                        label="Email" 
+                        name="email" 
+                        type="text"
+                        statusLogin={status}
+                        autocomplete="off"
+                        required
+                     />
+                  </div>
+                  <div className={"user_box"}>
+                     <FormikField
+                        label="Password"
+                        name="password"
+                        type="password"
+                        statusLogin={status}
+                        required
+                     />
+                  </div>
+                  <CheckBox>
+                     <FormikField
+                        label="Remember Me"
+                        name="rememberMe"
+                        type="checkbox"
+                        required
+                     />
+                  </CheckBox>
 
                   {captchaUrl && <img src={captchaUrl} />}
-                  {captchaUrl && <FormikField name="captcha" 
+                  {captchaUrl && <FormikField   name="captcha" 
                      type="text" placeholder="write symbols from image"/>}
 
                   <ButtonGroup>
                      {!isSubmitting && (
-                        <button className="btn btn-green">Sign In</button>
+                        <button>
+                           <span></span>
+                           <span></span>
+                           <span></span>
+                           <span></span>
+                           Sign In
+                        </button>
                      )}
                      {isSubmitting && (
                         <Loader
                            type="ThreeDots"
-                           color={colors.blue1}
+                           color={colors.blue3}
                            height={49}
                            width={100}
                         />
