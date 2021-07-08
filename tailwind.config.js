@@ -15,6 +15,8 @@ module.exports = {
          cst:  '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)',
          cst1: '0 15px 25px rgba(0,0,0,.6)',
          cst2: '0 0 5px #03e9f4,0 0 25px #03e9f4,0 0 50px #03e9f4,0 0 100px #03e9f4',
+         cstblue: '0 0 10px #1b86f9',
+         cstblue1: '0 0 20px #1b86f9',
          none: 'none',
       },
       
@@ -36,9 +38,11 @@ module.exports = {
             blue3: "#03e9f4",
             gray1: "#656565",
             gray2: "#a4b2bc",
+            gray3: "#9B9DAD",
             black1: "#151728",
             rgba: "rgba(0,0,0,.5)",
-            neon: "0 0 5px #03e9f4,0 0 25px #03e9f4,0 0 50px #03e9f4,0 0 100px #03e9f4"
+            neon: "0 0 5px #03e9f4,0 0 25px #03e9f4,0 0 50px #03e9f4,0 0 100px #03e9f4",
+            blue4: "#1b86f9",
          },
          animation: {
             custom: 'custom 1s cubic-bezier(0.88, 0.19,0.37, 1.11 ) 1; ',

@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import s from "./Header.module.css";
 import avatar from "../../assets/img/avatar.png";
-import logo from "../../assets/img/logo.png";
+import { Avatar } from "../Styles";
 
 const Header = ({isAuth, login, logout, profile}) => {
    return (
@@ -11,7 +11,7 @@ const Header = ({isAuth, login, logout, profile}) => {
             <div className={s.ava}>
                {isAuth ? (
                   <div className={s.auth}>
-                     <img src={profile ? profile.photos.small : avatar} className={s.logo} alt="logo" />
+                     <Avatar src={profile ? profile.photos.small : avatar}  alt="logo" width={"2.5rem"} margin={"0 auto"}/>
                      {isAuth ? (
                         <NavLink to={"/profile"}>{login}</NavLink>
                      ) : null}

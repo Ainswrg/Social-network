@@ -1,9 +1,7 @@
 import { Form, Formik } from "formik";
-import React from "react";
-import s from "./ProfileInfo.module.css";
 import Loader from "react-loader-spinner";
 import FormikField from "../../../shared/FormikField/FormikField";
-import { colors } from "../../../Styles";
+import { CheckBox, colors, ContainerItem, StyledButton } from "../../../Styles";
 
 const ProfileDataForm = ({ profile, handleSubmit }) => {
    return (
@@ -11,12 +9,14 @@ const ProfileDataForm = ({ profile, handleSubmit }) => {
          {({ status, isSubmitting }) => (
             <Form>
                {!isSubmitting && (
-                  <button className="btn btn-green">Save</button>
+                  <ContainerItem margin="20px 0">
+                     <StyledButton bgColor={colors.blue4}>Save</StyledButton>
+                  </ContainerItem>
                )}
                {isSubmitting && (
                   <Loader
                      type="ThreeDots"
-                     color={colors.dark4}
+                     color={colors.blue4}
                      height={49}
                      width={100}
                   />
@@ -30,14 +30,14 @@ const ProfileDataForm = ({ profile, handleSubmit }) => {
                   />
                </div>
 
-               <div>
+               <CheckBox shadow={`0 0 10px ${colors.blue4}`} color={colors.blue4}>
                   Looking for a job:{" "}
                   <FormikField
                      type="checkbox"
                      name="lookingForAJob"
                      placeholder="Looking..."
                   />
-               </div>
+               </CheckBox>
 
                <div>
                   <b>My professional skills</b>:
@@ -61,7 +61,7 @@ const ProfileDataForm = ({ profile, handleSubmit }) => {
                   <b>Contacts</b>:{" "}
                   {Object.keys(profile.contacts).map((key) => {
                      return (
-                        <div key={key} className={s.contact}>
+                        <div key={key} >
                            {key} :{" "}
                            <FormikField
                               statusProfile={status}

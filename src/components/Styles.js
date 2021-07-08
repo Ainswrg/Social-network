@@ -18,12 +18,16 @@ export const colors = {
    blue1: "#4169E1",
    blue2: "#ebe7fb",
    blue3: "#03e9f4",
+   blue4: "#1b86f9",
    blue500: "rgba(59, 130, 246, 1)",
    white: "#fff",
+   black1: "#151728",
+   rgba: "rgba(0,0,0,.5)",
 };
 
-//?Icons
 
+//?Icons
+//*===========================================================================
 export const StyledIconSetting = styled(FaCog)`
    ${tw`text-base text-black`};
 `;
@@ -38,7 +42,7 @@ export const StyledIconPaperPlane = styled(FaPaperPlane)`
 `;
 
 //?WrapperAPP
-
+//?===========================================================================
 export const StyledWrapper = styled.div`
    display: ${(props) => (props.flex || "block")};
    & {
@@ -46,8 +50,13 @@ export const StyledWrapper = styled.div`
    }
 `;
 
-//?DialogPage
+export const ContainerItem = styled.div`
+   padding: ${props => props.padding ? props.padding : '0'};
+   margin: ${props => props.margin ? props.margin : '0'};
+`
 
+//!DialogPage
+//?===========================================================================
 export const StyledDialogContainer = styled.div`
    ${tw`flex flex-grow py-5 px-10 rounded-xl  shadow-xl`}
 `;
@@ -144,7 +153,7 @@ export const StyledFlex = styled.div`
 `;
 
 //?LoginPage
-
+//?===========================================================================
 export const StyledLogin = styled.div`
    ${tw`absolute top-2/4 left-2/4 w-96 p-10 box-border transform -translate-x-2/4 -translate-y-2/4 shadow-cst1 rounded-xl bg-black1`}
    &{
@@ -152,7 +161,7 @@ export const StyledLogin = styled.div`
          ${tw`relative pb-5`}
 
          input {
-            ${tw`w-full pt-1 text-base text-white border-none outline-none bg-transparent border-white`}
+            ${tw`w-full pt-1 text-base text-white border-none outline-none bg-transparent border-white rounded-none pl-1`}
             border-bottom: 1px solid;
          }
          label {
@@ -237,8 +246,40 @@ export const StyledLogin = styled.div`
    }
 `;
 
-//?Formik
+export const CheckBox = styled.div`
+   input[type=checkbox]{
+      ${tw`relative top-0 mr-4 border-dark4 cursor-pointer`}
 
+      &:before {
+         ${tw`absolute left-0 z-10 w-4 h-4 border-2 border-solid border-dark2 transition-all duration-500 ease-in-out`}
+         content: "";
+      }
+      &:checked {
+         &:before {
+            ${tw`transform -rotate-45 h-2 border-blue3 `}
+            border-top-style: none; 
+            border-right-style: none;
+            border-color: ${props => props.color}
+         }
+         &::after{
+            ${tw`shadow-cst2 `}
+            box-shadow: ${props => props.shadow};
+            background: ${props => props.bg}
+         }
+      }
+
+      &:after {
+         ${tw`absolute bg-white top-0 left-0 w-4 h-4  cursor-pointer`}
+         content: "";
+      }
+   }
+   label {
+      ${tw`py-1 text-xs`}
+   }
+`;
+
+//?Formik
+//?===========================================================================
 export const StyledError = styled.div`
    ${tw`text-xs text-red-400 mt-0`}
 `;
@@ -265,50 +306,10 @@ export const StyledTextArea = styled.div`
    }
 `;
 
-export const CheckBox = styled.div`
-   input[type=checkbox]{
-      ${tw`relative top-0 mr-4 border-dark4 cursor-pointer`}
 
-      &:before {
-         ${tw`absolute left-0 z-10 w-4 h-4 border-2 border-solid border-dark2 transition-all duration-500 ease-in-out`}
-         content: "";
-      }
-      &:checked {
-         &:before {
-            ${tw`transform -rotate-45 h-2 border-blue3 `}
-            border-top-style: none; 
-            border-right-style: none;
-         }
-         &::after{
-            ${tw`shadow-cst2`}
-         }
-      }
 
-      &:after {
-         ${tw`absolute bg-white top-0 left-0 w-4 h-4  cursor-pointer`}
-         content: "";
-      }
-   }
-   label {
-      ${tw`py-1 text-xs`}
-   }
-`;
-//? ProfilePage
-
-export const StyledPostButton = styled.button`
-   & {
-      ${tw`flex justify-center p-1 w-24 bg-transparent text-base border-2 border-solid border-blue1 rounded-3xl text-blue1 ease-in-out duration-300 outline-none mb-5`}
-
-      &:hover {
-         ${tw`bg-blue1 text-primary cursor-pointer`}
-      }
-   }
-
-   .disabled-btn {
-      cursor: not-allowed;
-      background: rgba($primary-color, 0.8);
-   }
-`;
+//! ProfilePage
+//?===========================================================================
 export const TextArea = styled.div`
    &{
       textarea {
@@ -329,17 +330,53 @@ export const TextArea = styled.div`
    }
 `;
 
-//? ProfileInfo
 
+//? ProfileInfo
+//*===========================================================================
 export const ProfileContent = styled.div`
    ${tw`flex p-3.5 flex-row flex-wrap shadow-cst`}
 `;
 export const ProfileDescription = styled.div`
    ${tw`my-0 mx-auto leading-5 w-3/5`}
 `;
+export const StyledProfileData = styled.div`
+   ${tw`italic text-blue-300`}
+   &{
+      h1{
+         ${tw`text-4xl text-light`}
+      }
+      div{
+         ${tw`font-medium text-gray2`}
+      }
+      p{
+         span{
+            ${tw`italic text-blue-200`}
+         }
+      }
+      b{
+         ${tw`text-blue-300`}
+      }
+   }
+`;
+export const StyledContacts = styled.div`
+   ${tw`font-medium italic text-sm`}
+   &{
+      b{
+         ${tw`font-semibold text-gray3 `}
+      }
+      span{
+         ${tw`font-medium text-blue-300`}
+      }
+   }
+`;
+export const Jumbotron = styled.div`
+   ${tw`h-48 bg-center bg-cover rounded`}
+   background-image: url(https://www.freegreatpicture.com/files/199/1774-three-wide-screen-vlad.jpg);
+`;
+
 
 //? AvatarProfile
-
+//*===========================================================================
 export const AvatarContent = styled.div`
    ${tw`relative max-w-205 my-12 mx-auto`}
 `;
@@ -374,7 +411,7 @@ export const AvatarEdit = styled.div`
 `;
 
 //?ProfileStatus
-
+//*===========================================================================
 export const ProfileStatus = styled.div`
    ${tw` py-2.5 text-center text-dark3 shadow-xl`}
    &:hover {
@@ -382,10 +419,25 @@ export const ProfileStatus = styled.div`
    }
 `;
 
+//? Posts
+export const AvatarPost = styled.div`
+   ${tw`w-14 h-14 flex justify-center`}
+   &{
+      img{
+         ${tw`rounded w-14 h-auto`}
+      }
+   }
+`;
+export const MessagePost = styled.div`
+   ${tw`flex-grow  text-lg sm:pl-4`}
+`;
+export const LikePost = styled.div`
+   ${tw`w-20 flex text-sm items-end self-end font-medium`}
+`;
 
 
 //?Paginator
-
+//*============================================================================
 export const StyledPaginator = styled.div`
    ${tw`flex m-2.5 justify-center items-center`}
    & {
@@ -397,19 +449,44 @@ export const StyledPaginator = styled.div`
       }
    }
 `;
-//?Button 
-// export const StyledButton = styled.button`
 
-// `;
+//?Button 
+//*===========================================================================
+export const StyledButton = styled.button`
+   background-color: ${({bgColor}) => bgColor ? bgColor : colors.blue3};
+   border: ${({border}) => border ? border : 'none'};
+   color: ${({colorText}) => colorText ? colorText : colors.white};
+   border-radius: ${({radius}) => radius ? radius : "4px"};
+   padding: ${({padding}) => padding ? padding : "5px 20px"};
+   box-shadow: 0 0 10px ${colors.blue4};
+   cursor: pointer;
+   &:hover {
+      box-shadow: 0 0 20px ${colors.blue4};
+      transform: scale(1.05);
+   }
+`;
+
+export const StyledPostButton = styled.button`
+   & {
+      ${tw`flex justify-center p-1 w-24 bg-transparent text-base border-2 border-solid border-blue1 rounded-3xl text-blue1 ease-in-out duration-300 outline-none mb-5`}
+
+      &:hover {
+         ${tw`bg-blue1 text-primary cursor-pointer`}
+      }
+   }
+
+`;
+
 
 //?UserPage
+//?===========================================================================
 export const StyledPageNumber = styled.div`
    ${tw`flex justify-center items-center text-blue-500 cursor-pointer text-base rounded-full h-12 w-12 m-1 shadow-cst transition ease-out bg-white`}
    &:active {
       ${tw`bg-blue-600`}
    }
    &:hover {
-      ${tw`bg-blue-500 text-white transform scale-125`}
+      ${tw`bg-blue4 text-white transform scale-125 shadow-cstblue`}
    }
    ${(props) =>
       props.currentPage === props.p &&
@@ -417,41 +494,47 @@ export const StyledPageNumber = styled.div`
          border-color: black;
          font-weight: 700;
          background: ${colors.blue500};
+         box-shadow: 0 0 10px ${colors.blue4};
          color: ${colors.light1};
       `}
 `;
 
-export const StyledUser = styled.div`
-   ${tw`shadow-cst m-5 grid grid-cols-6 rounded`}
+export const StyledContainer = styled.div`
+   ${tw`my-5 flex flex-col rounded justify-around items-center  sm:flex-row md:justify-around lg:justify-start `}
+   box-shadow: 0 0 5px ${colors.blue3};
 `;
 export const Subscription = styled.div`
-   ${tw`col-span-1 flex flex-col justify-center items-center p-3`}
+   ${tw`flex flex-col justify-center items-center py-3 px-2 mr-7 sm: mr-0 px-5`}
 `;
 export const Avatar = styled.img`
-   ${tw`rounded-full w-20 border border-solid border-gray1 transition ease-out`};
+   ${tw`rounded-full border border-solid border-gray1 transition ease-out cursor-pointer`};
+   width: ${({width}) => width ? width : '5rem'};
+   margin: ${({margin}) => margin && margin};
    &:hover {
-      ${tw`transform scale-105 border-2 border-blue1`}
+      ${tw`transform scale-105 border-2 border-blue4 shadow-cstblue`}
+      border: 2px solid ${colors.dark3};
+      padding: 2px;
    }
 `;
 export const Button = styled.div`
-   ${tw`flex p-1 w-20 bg-transparent text-base border-2 border-solid border-blue1 rounded-3xl text-blue1 ease-in-out duration-300 outline-none justify-center`}
+   ${tw`flex p-1 w-20 bg-transparent text-base border-2 border-solid border-blue4 rounded-3xl text-blue1 ease-in-out duration-300 outline-none justify-center shadow-cstblue`}
 
    &:hover {
-      ${tw`bg-blue1 text-primary cursor-pointer`}
+      ${tw`bg-blue4 text-primary cursor-pointer shadow-cstblue1`}
    }
 `;
 export const Description = styled.div`
-   ${tw`col-span-5 col-start-2 justify-between`}
+   ${tw`flex flex-col justify-center items-center pb-2 px-3 sm:ml-10 sm:px-5`}
 `;
 export const Username = styled.div`
    ${tw`py-3`}
    a {
-      ${tw`no-underline text-blue1`}
+      ${tw`no-underline text-blue4`}
       &:visited {
          ${tw`text-purple-400`}
       }
       &:hover {
-         ${tw`text-blue-300`}
+         ${tw`text-blue3`}
       }
    }
 `;
@@ -463,9 +546,8 @@ export const UserLocation = styled.div`
 `;
 
 
-
 //? sideBar
-
+//?===========================================================================
 export const Container = styled.div`
    ${tw`fixed z-50`}
    .active {
@@ -555,14 +637,7 @@ export const Profile = styled.div`
    margin-left: ${(props) => (props.clicked ? "10rem" : "0")};
    transition: all 0.3s ease;
 
-   img {
-      ${tw`w-10 h-10 rounded-full cursor-pointer`}
-
-      &:hover {
-         border: 2px solid var(--grey);
-         padding: 2px;
-      }
-   }
+   
 `;
 
 export const Details = styled.div`

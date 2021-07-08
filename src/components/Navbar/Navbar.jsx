@@ -15,6 +15,7 @@ import {
    SidebarContainer,
    SlickBar,
    Text,
+   Avatar,
 } from "../Styles";
 import { NavLink } from "react-router-dom";
 import avatar from "../../assets/img/avatar.png";
@@ -53,7 +54,8 @@ const Navbar = ({ login, sideBar, isAuth, profile, logout }) => {
             >
                {isAuth ? (
                   <div>
-                     <img
+                     <Avatar
+                        width={"2.5rem"}
                         className="ava"
                         src={profile ? profile.photos.small : avatar}
                         alt="logo"

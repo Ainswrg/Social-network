@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import {
    Description,
    Username,
-   StyledUser,
+   StyledContainer,
    Status,
    UserLocation,
    Subscription,
@@ -16,7 +16,7 @@ import Loader from "react-loader-spinner";
 
 let User = ({ follow, unfollow, followingInProgress, user }) => {
    return (
-      <StyledUser>
+      <StyledContainer>
          <Subscription>
             <NavLink to={"/profile/" + user.id}>
                <Avatar
@@ -30,7 +30,7 @@ let User = ({ follow, unfollow, followingInProgress, user }) => {
             {followingInProgress.some((id) => id === user.id) ? (
                <Loader
                   type="ThreeDots"
-                  color={colors.blue1}
+                  color={colors.blue4}
                   height={42}
                   width={80}
                />
@@ -62,7 +62,7 @@ let User = ({ follow, unfollow, followingInProgress, user }) => {
                <div>{"user.location.city"}</div>
             </UserLocation>
          </Description>
-      </StyledUser>
+      </StyledContainer>
    );
 };
 

@@ -42,7 +42,6 @@ const LoginForm = ({initialValues,onSubmit, captchaUrl}) => {
                         label="Remember Me"
                         name="rememberMe"
                         type="checkbox"
-                        required
                      />
                   </CheckBox>
 

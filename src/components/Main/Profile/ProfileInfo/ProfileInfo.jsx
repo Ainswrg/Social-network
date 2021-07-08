@@ -1,7 +1,6 @@
 import Preloader from "../../../common/Preloader/Preloader";
-import s from "./ProfileInfo.module.css";
 import Photo from "./Photo";
-import { ProfileContent, ProfileDescription } from "../../../Styles";
+import { ProfileContent, ProfileDescription, StyledButton, ContainerItem, colors, StyledProfileData, StyledContacts, Jumbotron} from "../../../Styles";
 import { useState } from "react";
 import ProfileDataForm from "./ProfileDataForm";
 
@@ -36,7 +35,7 @@ const ProfileInfo = ({
 
    return (
       <>
-         <div className={s.jumbotron}></div>
+         <Jumbotron/>
          <ProfileContent>
             <Photo
                profile={profile}
@@ -71,17 +70,18 @@ const ProfileInfo = ({
 
 export const ProfileData = ({ profile, isOwner, goToEditMode }) => {
    return (
-      <div>
+      <StyledProfileData>
          {isOwner && (
-            <div>
-               <button onClick={goToEditMode}>edit</button>
-            </div>
+            <ContainerItem margin="20px 0">
+               <StyledButton bgColor={colors.blue4}
+                  onClick={goToEditMode}>edit</StyledButton>
+            </ContainerItem>
          )}
          <h1>{profile.fullName}</h1>
          <br/>
          <hr/>
          <br/>
-         <div>Looking for a job: {profile.lookingForAJob ? "yes" : "no"}</div>
+         <div><b>Looking for a job:</b> {profile.lookingForAJob ? "yes" : "no"}</div>
          {profile.lookingForAJob && (
             <div>
                <b>My professional skills</b>:{" "}
@@ -89,7 +89,7 @@ export const ProfileData = ({ profile, isOwner, goToEditMode }) => {
             </div>
          )}
          <div>
-            <p>About me: {profile.aboutMe}</p>
+            <p><span>About me:</span> {profile.aboutMe}</p>
          </div>
          <br/>
          <div>
@@ -104,15 +104,15 @@ export const ProfileData = ({ profile, isOwner, goToEditMode }) => {
                );
             })}
          </div>
-      </div>
+      </StyledProfileData>
    );
 };
 
 const Contact = ({ contactTitle, contactValue }) => {
    return (
-      <div className={s.contact}>
-         <b>{contactTitle}</b>: {contactValue}
-      </div>
+      <StyledContacts>
+         <b>{contactTitle}</b>: <span>{contactValue}</span>
+      </StyledContacts>
    );
 };
 

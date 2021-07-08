@@ -39,6 +39,8 @@
    --text-color2: var(--white1);
    --focus-ring-color: var(--blue-500);
    --background2: #24273B;
+   --blue3: #03e9f4;
+   --blue4: #1b86f9;
  }
  
  html {
@@ -77,7 +79,6 @@ input:-webkit-autofill {
 }
 textarea {
    box-sizing: border-box;
-   padding: 0.65rem 0.5rem;
    font-family: -apple-systemBlinkMacSystemFont, "aveninext", avenir,
    "helvetica neue", helveticaubuntu, roboto, noto, "segoui", arial,
    sans-serif;
@@ -86,35 +87,25 @@ textarea {
    appearance: none;
    border-radius: 10px;
    box-sizing: border-box;
+   /* padding: 0 0.2rem; */
    padding: 0.65rem 0.5rem;
    background-color: var(--gray-800);
    border-color: var(--gray-700);
    color: var(--white);
+   
 }
-/* @-webkit-keyframes autofill {
-   0%,100% {
-       color: #666;
-       background: transparent;
-   }
-}
-
-input:-webkit-autofill {
-   -webkit-animation-delay: 1s; 
-   -webkit-animation-name: autofill;
-   -webkit-animation-fill-mode: both;
-} */
 
 /* form */
 label {
-   /* font-weight: bold; */
+   font-weight: bold;
    display: flex;
- }
- 
- /* input[type="email"],
- input[type="text"],
- input[type="password"],
- input[type="number"]{
-   padding: 0.65rem 0.5rem;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="password"],
+input[type="number"]{
+   padding: 0.2rem 0.5rem;
    font-size: 1rem;
    border: 2px solid var(--gray-200);
    background-color: var(--gray-100);
@@ -123,81 +114,42 @@ label {
    -webkit-appearance: none;
    -moz-appearance: none;
    appearance: none;
- } */
- 
- /* 
- @media (prefers-color-scheme: dark) {
-   input[type="email"],
-   input[type="text"],
-   input[type="number"],
-   input[type="password"] {
-     background-color: var(--gray-800);
-     border-color: var(--gray-700);
-     color: white;
-   } 
-  */
-    /* input[type="email"]::placeholder,
-   input[type="text"]::placeholder,
-   input[type="number"]::placeholder,
-   input[type="password"]::placeholder,
-   select,
-   textarea {
-     color: var(--gray-900);
-   }
-} */
-
- 
- /* input[type="email"],
- input[type="text"],
- input[type="number"],
- input[type="password"],
- textarea,
- select {
+   background-color: var(--gray-800);
+   border-color: var(--gray-700);
+   color: white;
+}
+input[type="email"]::placeholder,
+input[type="text"]::placeholder,
+input[type="number"]::placeholder,
+input[type="password"]::placeholder,
+select,
+textarea {
+   color: var(--gray-500);
+}
+input[type="email"],
+input[type="text"],
+input[type="number"],
+input[type="password"],
+textarea,
+select {
    width: 400px;
- } */
-
- /* textarea {
-   -webkit-appearance: none;
-   -moz-appearance: none;
-   appearance: none;
-   font-size: 1rem;
-   border: 2px solid var(--gray-200);
-   color: var(--gray-700);
-   border-radius: 10px;
-   resize: vertical;
-   background-color: var(--gray-100);
-   box-sizing: border-box;
-   padding: 0.65rem 0.5rem;
-   font-family: -apple-system, BlinkMacSystemFont, "avenir next", avenir,
-     "helvetica neue", helvetica, ubuntu, roboto, noto, "segoe ui", arial,
-     sans-serif;
- } */
- 
- /* @media (prefers-color-scheme: dark) {
-   textarea {
-     background-color: var(--gray-800);
-     border-color: var(--gray-700);
-     color: white;
-   }
- } */
- 
- /* input:focus,
- select:focus,
- textarea:focus {
+}
+input:focus,
+select:focus,
+textarea:focus {
    outline: none;
-   border: 2px solid var(--focus-ring-color);
- }
- 
- input:invalid,
- select:invalid,
- textarea:invalid {
+   border: 2px solid var(--blue4);
+}
+
+input:invalid,
+select:invalid,
+textarea:invalid {
    border: 2px solid #ff7d87;
    box-shadow: none;
- } */
- 
+}
  /* ?checkbox */
- /* 
- input[type="checkbox"] {
+ 
+ /* input[type="checkbox"] {
    display: inline-block;
    height: 1rem;
    font-size: 1rem;

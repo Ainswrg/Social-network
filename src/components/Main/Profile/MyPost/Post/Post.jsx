@@ -1,25 +1,23 @@
 import { useSelector } from 'react-redux';
-import s from './Post.module.css';
 import avatar from '../../../../../assets/img/avatar.png'
+import { StyledContainer, AvatarPost, MessagePost, LikePost } from '../../../../Styles';
 
 const Post = (props) => {
    const profile = useSelector(state => state.profilePage.profile)
    return (
-      // <div className={s.posts}>
-         <div className={s.item}>
-            <div className={s.img}>
-               <img src={profile ? profile.photos.large : avatar} className={s.logo} alt="logo" />
-            </div>
-            
-            <div className={s.msg}>
-               {props.message} 
-            </div>
-            
-            <div className={s.like}>
-               <span>Like {props.likesCount}</span>
-            </div>
-         </div>
-      // </div >
+      <StyledContainer>
+         <AvatarPost >
+            <img src={profile ? profile.photos.large : avatar} alt="logo" />
+         </AvatarPost>
+         
+         <MessagePost>
+            {props.message} 
+         </MessagePost>
+         
+         <LikePost>
+            <span>Like {props.likesCount}</span>
+         </LikePost>
+      </StyledContainer>
    )
 }
 

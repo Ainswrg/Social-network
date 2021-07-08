@@ -1,4 +1,3 @@
-import React from 'react';
 import avatar from '../../../../assets/img/avatar.png';
 import ProfileStatusWithHooks from './ProfileStatus/ProfileStatusWithHooks';
 import { AvatarContent, AvatarEdit, AvatarImg, AvatarPreview } from '../../../Styles';
