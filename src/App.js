@@ -40,7 +40,7 @@ class App extends Component {
          return <Preloader />;
       }
       return (
-         <div className="app-wrapper" role={"main"}>
+         <div role={"main"}>
             <HeaderContainer />
             <NavbarContainer />
             <div className="app-wrapper-content">

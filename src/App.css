@@ -1,14 +1,4 @@
 
-.app-wrapper {
-   /* display: grid; */
-   /* grid-template-areas: "nav header header" "nav main main"; */
-   /* grid-template-columns: 10% 1fr 5px;
-   column-gap: 20px; */
-   /* row-gap: 16px; */
-   /* max-width: 1200px; */
-   /* margin: 0 auto; */
-}
-
 
 .app-wrapper-content {
    max-width: 80%;

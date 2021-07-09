@@ -12,10 +12,11 @@ import {
    Logout,
    Name,
    Profile,
-   SidebarContainer,
+   StyledContainer,
    SlickBar,
    Text,
    Avatar,
+   colors,
 } from "../Styles";
 import { NavLink } from "react-router-dom";
 import avatar from "../../assets/img/avatar.png";
@@ -30,7 +31,13 @@ const Navbar = ({ login, sideBar, isAuth, profile, logout }) => {
    return (
       <Container>
          <MenuButton clicked={click} onClick={() => handleClick()}></MenuButton>
-         <SidebarContainer>
+         <StyledContainer bg={colors && colors.black1} 
+            width="3.5rem" 
+            height="80vh" margin="1rem 0 0 0" 
+            padding="1rem 0" display="flex" 
+            direction="column" items="center" 
+            justify="space-between" position="relative"
+            rounded="0 1rem 1rem 0">
             <Logo>
                <img src={logo} alt="logo" />
             </Logo>
@@ -84,7 +91,7 @@ const Navbar = ({ login, sideBar, isAuth, profile, logout }) => {
                   </Logout>
                </Details>
             </Profile>
-         </SidebarContainer>
+         </StyledContainer>
       </Container>
    );
 };

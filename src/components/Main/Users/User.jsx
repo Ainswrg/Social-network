@@ -16,7 +16,7 @@ import Loader from "react-loader-spinner";
 
 let User = ({ follow, unfollow, followingInProgress, user }) => {
    return (
-      <StyledContainer>
+      <StyledContainer primary margin={"1.25rem"} display={"flex"} direction={"column"} rounded={"0.25rem"} justify={"justify-around"} items={"center"} shadow={`0 0 5px ${colors.blue3}`}>
          <Subscription>
             <NavLink to={"/profile/" + user.id}>
                <Avatar

@@ -2,13 +2,14 @@ import React, { createRef } from "react";
 import Avatar from "../chatList/Avatar";
 import ChatItem from "./ChatItem";
 import {
-   StyledChatContainer,
+   StyledContainer,
    ChattingUser,
    ChatBody,
    ChatFooter,
    ChatHeader,
    StyledIconSetting,
    SettingButton,
+   colors,
 } from "../../../../Styles";
 import ChatForm from "./ChatForm";
 
@@ -26,7 +27,7 @@ const ChatContent = (props) => {
    const messagesEndRef = createRef(null);
 
    return (
-      <StyledChatContainer>
+      <StyledContainer grow="1" padding="1.25rem 2.5rem" minW="13.4rem" maxW="100%" bg={colors && colors.light2}>
       <ChatHeader>
          <ChattingUser>
             <Avatar
@@ -59,7 +60,7 @@ const ChatContent = (props) => {
          <ChatForm addNewMessage={handleSubmit}
          scrollToBottom={scrollToBottom}/>
       </ChatFooter>
-   </StyledChatContainer>
+   </StyledContainer>
 );
 }
 

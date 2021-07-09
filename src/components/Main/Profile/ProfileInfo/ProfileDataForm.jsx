@@ -1,7 +1,7 @@
 import { Form, Formik } from "formik";
 import Loader from "react-loader-spinner";
 import FormikField from "../../../shared/FormikField/FormikField";
-import { CheckBox, colors, ContainerItem, StyledButton } from "../../../Styles";
+import { CheckBox, colors, StyledContainer, StyledButton } from "../../../Styles";
 
 const ProfileDataForm = ({ profile, handleSubmit }) => {
    return (
@@ -9,9 +9,9 @@ const ProfileDataForm = ({ profile, handleSubmit }) => {
          {({ status, isSubmitting }) => (
             <Form>
                {!isSubmitting && (
-                  <ContainerItem margin="20px 0">
+                  <StyledContainer margin="20px 0">
                      <StyledButton bgColor={colors.blue4}>Save</StyledButton>
-                  </ContainerItem>
+                  </StyledContainer>
                )}
                {isSubmitting && (
                   <Loader

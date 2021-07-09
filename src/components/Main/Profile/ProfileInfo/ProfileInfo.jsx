@@ -1,6 +1,6 @@
 import Preloader from "../../../common/Preloader/Preloader";
 import Photo from "./Photo";
-import { ProfileContent, ProfileDescription, StyledButton, ContainerItem, colors, StyledProfileData, StyledContacts, Jumbotron} from "../../../Styles";
+import { ProfileContent, ProfileDescription, StyledButton, StyledContainer, colors, StyledProfileData, StyledContacts, Jumbotron} from "../../../Styles";
 import { useState } from "react";
 import ProfileDataForm from "./ProfileDataForm";
 
@@ -72,10 +72,10 @@ export const ProfileData = ({ profile, isOwner, goToEditMode }) => {
    return (
       <StyledProfileData>
          {isOwner && (
-            <ContainerItem margin="20px 0">
+            <StyledContainer margin="20px 0">
                <StyledButton bgColor={colors.blue4}
                   onClick={goToEditMode}>edit</StyledButton>
-            </ContainerItem>
+            </StyledContainer>
          )}
          <h1>{profile.fullName}</h1>
          <br/>

@@ -1,4 +1,3 @@
-import React from 'react';
 import { StyledWrapper } from '../../Styles';
 import ChatContent from "./Message/chatContent/ChatContent";
 import ChatList from './Message/chatList/ChatList';
