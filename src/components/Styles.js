@@ -20,7 +20,6 @@ export const colors = {
    blue3: "#03e9f4",
    blue4: "#1b86f9",
    blue500: "rgba(59, 130, 246, 1)",
-   white: "#fff",
    black1: "#151728",
    rgba: "rgba(0,0,0,.5)",
 };
@@ -50,107 +49,38 @@ export const StyledWrapper = styled.div`
    }
 `;
 
-export const ContainerItem = styled.div`
-   padding: ${props => props.padding ? props.padding : '0'};
-   margin: ${props => props.margin ? props.margin : '0'};
-`
 
-//!DialogPage
+//? Header
 //?===========================================================================
-export const StyledDialogContainer = styled.div`
-   ${tw`flex flex-grow py-5 px-10 rounded-xl  shadow-xl`}
-`;
-
-export const StyledChatContainer = styled.div`
-   ${tw`flex-grow py-5 px-10 max-w-full min-w-cst bg-gray-100`}
-   & {
-      p {
-         ${tw`font-semibold m-0`}
-      }
-   }
-`;
-
-export const ChatHeader = styled.div`
-   ${tw`flex pb-4 justify-between items-center border-b border-t-0 border-l-0 border-r-0 border-solid border-gray-300`}
-`;
-
-export const ChattingUser = styled.div`
-   ${tw`flex items-center`};
-`;
-
-export const ChatBody = styled.div`
-   ${(props) => props.vh && `max-height: calc(100vh - calc(100vh / 2))`};
-   overflow: auto;
-
-   & {
-      .chat__item {
-         ${tw`flex justify-end items-end mb-4 origin-right `}
-      }
-   }
-`;
-
-export const StyledContentItems = styled.div`
-   & {
-      .chat__item .avatar {
-         ${tw`mr-0 ml-5 bg-white p-px`}
-      }
-      .chat__item__content {
-         ${tw`bg-blue-500 text-white p-4 rounded-xl max-w-1/2 min-w-cst`}
-      }
-      .chat__item__content .chat__meta {
-         ${tw`flex justify-between mt-2.5`}
-      }
-      .chat__item__content .chat__meta span {
-         ${tw`text-sm text-blue-100 select-none`}
-      }
-      .chat__msg {
-         ${tw`select-none`}
-      }
-      .chat__item.other {
-         ${tw`flex-row-reverse origin-left`}
-      }
-      .chat__item.other .chat__item__content {
-         ${tw`bg-white text-black rounded-xl max-w-1/2`}
-      }
-      .chat__item.other .avatar {
-         ${tw`mr-5 ml-0`}
-      }
-      .chat__item.other .chat__item__content .chat__meta span {
-         ${tw`text-gray-200`}
-      }
-   }
-`;
-
-export const ChatFooter = styled.div`
-   ${tw`pt-5 flex flex-col justify-around`}
-`;
-export const ChatFormContainer = styled.div`
-   ${tw`flex w-full p-2.5`}
-`;
-export const StyledField = styled.div`
-   ${tw`flex w-full self-center`}
-   & {
-      textarea {
-         ${tw`text-gray-500 w-full py-0 px-2.5 border-0 outline-none`}
-      }
-   }
-`;
-
-export const ChatButton = styled.button`
-   
-   ${tw`w-9 h-8 bg-gray-200 border-0 shadow-none outline-none cursor-pointer text-base text-blue-500 p-0 rounded leading-9 transition ease-out m-2 items-center`};
-
+export const StyledContainer = styled.div`
+   background: ${({ bg}) => bg && bg };
+   height: ${({height}) => height && height };
+   width: ${({width}) => width && width};
+   margin: ${({margin}) => margin ? margin : "0"};
+   padding: ${({padding}) => padding ? padding : "0"};
+   display: ${({display}) => display && display};
+   flex-direction: ${({direction}) => direction && direction};
+   max-width: ${({maxW}) => maxW && maxW};
+   min-width: ${({mixW}) => mixW && mixW};
+   flex-grow: ${({grow}) => grow && grow};
+   justify-content: ${({justify}) => justify && justify};
+   align-items: ${({items}) => items && items};
+   position: ${({position}) => position && position};
+   border-radius: ${({rounded}) => rounded && rounded};
+   box-shadow: ${({shadow}) => shadow && shadow};
+   z-index: ${({z}) => z && z};
    ${props => props.primary && css`
-      ${tw`bg-blue-500 text-white`}
-   `};
-   &:hover {
-      ${tw`transform scale-125`};
-   };
+      ${tw`sm:flex-row md:justify-around lg:justify-start`}
+   `}
+   ${props => props.active && css`
+      ${tw`sm:flex-row md:justify-around lg:justify-start`}
+   `}
+`
+export const StyledNavlink = styled(NavLink)`
+   ${tw`text-white m-auto no-underline`}
 `;
-export const StyledFlex = styled.div`
-   /* ${tw`flex flex-col self-start w-full m-0`} */
 
-`;
+
 
 //?LoginPage
 //?===========================================================================
@@ -288,24 +218,6 @@ export const ButtonGroup = styled.div`
    ${tw`flex justify-around flex-row mt-1`}
 `;
 
-export const StyledInputContainer = styled.div`
-   ${tw`flex mt-5`}
-`;
-
-export const StyledTextArea = styled.div`
-   & {
-      .field {
-         ${tw` w-9/12 my-2.5 max-w-1000 bg-primary min-h-cst resize-none rounded-md`}
-      }
-      .error {
-         ${tw`flex mb-2 text-red1 text-sm`}
-      }
-      .input-error {
-         ${tw`border-red1`}
-      }
-   }
-`;
-
 
 
 //! ProfilePage
@@ -370,8 +282,8 @@ export const StyledContacts = styled.div`
    }
 `;
 export const Jumbotron = styled.div`
-   ${tw`h-48 bg-center bg-cover rounded`}
-   background-image: url(https://www.freegreatpicture.com/files/199/1774-three-wide-screen-vlad.jpg);
+   ${tw`h-48 bg-center bg-cover rounded`};
+   background-image: url('https://www.freegreatpicture.com/files/199/1774-three-wide-screen-vlad.jpg');
 `;
 
 
@@ -453,9 +365,9 @@ export const StyledPaginator = styled.div`
 //?Button 
 //*===========================================================================
 export const StyledButton = styled.button`
-   background-color: ${({bgColor}) => bgColor ? bgColor : colors.blue3};
+   background: ${({bgColor}) => bgColor ? bgColor : colors.blue3};
    border: ${({border}) => border ? border : 'none'};
-   color: ${({colorText}) => colorText ? colorText : colors.white};
+   color: ${({colorText}) => colorText ? colorText : colors.primary};
    border-radius: ${({radius}) => radius ? radius : "4px"};
    padding: ${({padding}) => padding ? padding : "5px 20px"};
    box-shadow: 0 0 10px ${colors.blue4};
@@ -466,16 +378,101 @@ export const StyledButton = styled.button`
    }
 `;
 
-export const StyledPostButton = styled.button`
-   & {
-      ${tw`flex justify-center p-1 w-24 bg-transparent text-base border-2 border-solid border-blue1 rounded-3xl text-blue1 ease-in-out duration-300 outline-none mb-5`}
 
-      &:hover {
-         ${tw`bg-blue1 text-primary cursor-pointer`}
+//!DialogPage
+//?===========================================================================
+
+export const StyledChatContainer = styled.div`
+   ${tw`flex-grow py-5 px-10 max-w-full min-w-cst bg-gray-100`}
+   & {
+      p {
+         ${tw`font-semibold m-0`}
       }
    }
+`;
+
+export const ChatHeader = styled.div`
+   ${tw`flex pb-4 justify-between items-center border-b border-t-0 border-l-0 border-r-0 border-solid border-gray-300`}
+`;
+
+export const ChattingUser = styled.div`
+   ${tw`flex items-center`};
+`;
+
+export const ChatBody = styled.div`
+   ${(props) => props.vh && `max-height: calc(100vh - calc(100vh / 2))`};
+   overflow: auto;
+
+   & {
+      .chat__item {
+         ${tw`flex justify-end items-end mb-4 origin-right `}
+      }
+   }
+`;
+
+export const StyledContentItems = styled.div`
+   & {
+      .chat__item .avatar {
+         ${tw`mr-0 ml-5 bg-white p-px`}
+      }
+      .chat__item__content {
+         ${tw`bg-blue-500 text-white p-4 rounded-xl max-w-1/2 min-w-cst`}
+      }
+      .chat__item__content .chat__meta {
+         ${tw`flex justify-between mt-2.5`}
+      }
+      .chat__item__content .chat__meta span {
+         ${tw`text-sm text-blue-100 select-none`}
+      }
+      .chat__msg {
+         ${tw`select-none`}
+      }
+      .chat__item.other {
+         ${tw`flex-row-reverse origin-left`}
+      }
+      .chat__item.other .chat__item__content {
+         ${tw`bg-white text-black rounded-xl max-w-1/2`}
+      }
+      .chat__item.other .avatar {
+         ${tw`mr-5 ml-0`}
+      }
+      .chat__item.other .chat__item__content .chat__meta span {
+         ${tw`text-gray-200`}
+      }
+   }
+`;
+
+export const ChatFooter = styled.div`
+   ${tw`pt-5 flex flex-col justify-around`}
+`;
+export const ChatFormContainer = styled.div`
+   ${tw`flex w-full p-2.5`}
+`;
+export const StyledField = styled.div`
+   ${tw`flex w-full self-center`}
+   & {
+      textarea {
+         ${tw`text-gray-500 w-full py-0 px-2.5 border-0 outline-none`}
+      }
+   }
+`;
+
+export const ChatButton = styled.button`
+   
+   ${tw`w-9 h-8 bg-gray-200 border-0 shadow-none outline-none cursor-pointer text-base text-blue-500 p-0 rounded leading-9 transition ease-out m-2 items-center`};
+
+   ${props => props.primary && css`
+      ${tw`bg-blue-500 text-white`}
+   `};
+   &:hover {
+      ${tw`transform scale-125`};
+   };
+`;
+export const StyledFlex = styled.div`
+   /* ${tw`flex flex-col self-start w-full m-0`} */
 
 `;
+
 
 
 //?UserPage
@@ -499,10 +496,6 @@ export const StyledPageNumber = styled.div`
       `}
 `;
 
-export const StyledContainer = styled.div`
-   ${tw`my-5 flex flex-col rounded justify-around items-center  sm:flex-row md:justify-around lg:justify-start `}
-   box-shadow: 0 0 5px ${colors.blue3};
-`;
 export const Subscription = styled.div`
    ${tw`flex flex-col justify-center items-center py-3 px-2 mr-7 sm: mr-0 px-5`}
 `;
@@ -551,7 +544,7 @@ export const UserLocation = styled.div`
 export const Container = styled.div`
    ${tw`fixed z-50`}
    .active {
-      border-right: 4px solid ${colors.white};
+      border-right: 4px solid ${colors.primary};
 
       img {
          filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg)
@@ -582,10 +575,6 @@ export const MenuButton = styled.button`
    }
 `;
 
-export const SidebarContainer = styled.div`
-   ${tw`bg-black1 w-14 h-cst mt-4 py-4 flex flex-col items-center justify-between relative rounded-br-3xl rounded-tr-3xl`}
-`;
-
 export const Logo = styled.div`
    width: 2rem;
 
@@ -607,7 +596,7 @@ export const Item = styled(NavLink)`
    ${tw`no-underline text-white w-full py-4 cursor-pointer flex pl-4`}
 
    &:hover {
-      border-right: 4px solid var(--white);
+      border-right: 4px solid ${colors.primary};
 
       img {
          filter: invert(100%) sepia(25%) saturate(1%) hue-rotate(40deg)
