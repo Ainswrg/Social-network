@@ -46,8 +46,11 @@ const LoginForm = ({initialValues,onSubmit, captchaUrl}) => {
                   </CheckBox>
 
                   {captchaUrl && <img src={captchaUrl} />}
-                  {captchaUrl && <FormikField   name="captcha" 
-                     type="text" placeholder="write symbols from image"/>}
+                  {captchaUrl && 
+                  <div className={"user_box"}>
+                     <FormikField   name="captcha" 
+                     type="text" placeholder="write symbols from image"/>
+                  </div>}
 
                   <ButtonGroup>
                      {!isSubmitting && (
