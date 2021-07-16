@@ -1,7 +1,15 @@
 import React, { useState } from "react";
-import { SelectedPage, StyledPageNumber, StyledPaginator } from "../../Styles";
+import { StyledPageNumber, StyledPaginator } from "../../Styles";
 
-let Paginator = ({
+type PropsType = {
+   totalItemsCount: number
+   pageSize: number
+   currentPage: number
+   onPageChanged: (pageNumber: number) => void
+   portionSize?: number
+}
+
+let Paginator: React.FC<PropsType> = ({
    totalItemsCount,
    pageSize,
    currentPage,
@@ -10,7 +18,7 @@ let Paginator = ({
 }) => {
    let pagesCount = Math.ceil(totalItemsCount / pageSize);
 
-   let pages = [];
+   let pages: Array<number> = [];
    for (let i = 1; i <= pagesCount; i++) {
       pages.push(i);
    }
@@ -40,8 +48,8 @@ let Paginator = ({
             .map((p) => {
                return (
                   <StyledPageNumber
-                     key={p.id}
-                     onClick={(e) => {
+                     key={p}
+                     onClick={() => {
                         onPageChanged(p);
                      }}
                      currentPage={currentPage}
