@@ -1,9 +1,22 @@
 import { Form, Formik } from "formik";
-import Loader from "react-loader-spinner";
+// import Loader from "react-loader-spinner";
 import FormikField from "../../../shared/FormikField/FormikField";
-import { CheckBox, colors, StyledContainer, StyledButton } from "../../../Styles";
+import { CheckBox, colors, StyledContainer, StyledButton, StyledPreloader } from "../Styles";
 
-const ProfileDataForm = ({ profile, handleSubmit }) => {
+type PropsType = {
+   profile: any
+   handleSubmit: () => void
+   name: string
+   label: string
+   statusProfile: any
+   statusLogin?: string
+   type?: string
+   id?: string
+   checkbox?: any
+   placeholder: string
+}
+
+const ProfileDataForm: React.FC<PropsType> = ({ profile, handleSubmit }) => {
    return (
       <Formik onSubmit={handleSubmit} initialValues={profile}>
          {({ status, isSubmitting }) => (
@@ -14,12 +27,9 @@ const ProfileDataForm = ({ profile, handleSubmit }) => {
                   </StyledContainer>
                )}
                {isSubmitting && (
-                  <Loader
-                     type="ThreeDots"
-                     color={colors.blue4}
-                     height={49}
-                     width={100}
-                  />
+                  <StyledPreloader>
+                     <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                  </StyledPreloader>
                )}
                <div>
                   Full name:

@@ -1,7 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { ProfileStatus } from "../../../../Styles";
+import React, { ChangeEvent, useEffect, useState } from "react";
+import { FC } from "react";
+import { StyledProfileStatus } from "../../Styles";
 
-const ProfileStatusWithHooks = ({updateStatus,...props}) => {
+
+type PropsType = {
+   status: string
+   updateStatus: (newStatus: string) => void
+}
+
+const ProfileStatusWithHooks: FC<PropsType> = ({updateStatus,...props}) => {
 
    let [editMode, setEditMode] = useState(false);
    let [status, setStatus] = useState(props.status);
@@ -19,12 +26,12 @@ const ProfileStatusWithHooks = ({updateStatus,...props}) => {
       updateStatus(status);
    }
 
-   const onStatusChange = (e) => {
+   const onStatusChange = (e: ChangeEvent<HTMLInputElement>) => {
       setStatus(e.currentTarget.value);
    }
 
    return (
-      <ProfileStatus>
+      <StyledProfileStatus>
          { !editMode &&
             <>
                <span onDoubleClick={activateEditMode}>
@@ -42,7 +49,7 @@ const ProfileStatusWithHooks = ({updateStatus,...props}) => {
                />
             </>
          }
-      </ProfileStatus>
+      </StyledProfileStatus>
    );
 };
 
