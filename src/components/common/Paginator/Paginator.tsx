@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { StyledPageNumber, StyledPaginator } from "../../Styles";
+import { StyledPageNumber, StyledPaginator } from "./Styles";
 
 type PropsType = {
    totalItemsCount: number
    pageSize: number
-   currentPage: number
-   onPageChanged: (pageNumber: number) => void
+   currentPage?: number
    portionSize?: number
+   onPageChanged: (pageNumber: number) => void
 }
 
 let Paginator: React.FC<PropsType> = ({
@@ -35,7 +35,6 @@ let Paginator: React.FC<PropsType> = ({
                onClick={() => {
                   setPortionNumber(portionNumber - 1);
                }}
-               className="btn btn-2"
             >
                <i className="fa fa-chevron-circle-left"></i>
             </button>
@@ -52,8 +51,7 @@ let Paginator: React.FC<PropsType> = ({
                      onClick={() => {
                         onPageChanged(p);
                      }}
-                     currentPage={currentPage}
-                     p={p}
+                     active={currentPage === p}
                   >
                      {p}
                   </StyledPageNumber>
@@ -61,7 +59,6 @@ let Paginator: React.FC<PropsType> = ({
             })}
          {portionCount > portionNumber && (
             <button
-               className="btn btn-green"
                onClick={() => {
                   setPortionNumber(portionNumber + 1);
                }}
