@@ -2,17 +2,26 @@ import React from "react";
 import { ErrorMessage } from "formik";
 import { StyledError } from "../../Styles";
 
-const FormikErrorMessage = ({ name, statusProfile, statusLogin }) => {
-   function findError() {
+type MyFormErrors = {
+   name: string
+   statusProfile: any
+   statusLogin: string
+}
+
+
+const FormikErrorMessage:React.FC<MyFormErrors> = ({ name, statusProfile, statusLogin }) => {
+   const findError = ()  => {
       let error = statusProfile;
-      let match = error.match(/Invalid url format \(Contacts->(.+)\)/);
-      if (match) {
-         let fieldName = match[1].toLowerCase();
+      let reg = new RegExp(/Invalid url format \(Contacts->(.+)\)/)
+      let matchError = error.match(reg) || '1';
+      if (matchError) {
+         let fieldName = matchError[1].toLowerCase();
          return fieldName;
       }
    }
 
-   return statusProfile ? (
+   return <React.Fragment>
+   {statusProfile ? (
       name === `contacts.${findError()}` && (
          <StyledError>{statusProfile}</StyledError>
       )
@@ -24,7 +33,9 @@ const FormikErrorMessage = ({ name, statusProfile, statusLogin }) => {
             return <StyledError>{errMessage}</StyledError>;
          }}
       </ErrorMessage>
-   );
+   )}
+   </React.Fragment>
+   
 };
 
 export default FormikErrorMessage;

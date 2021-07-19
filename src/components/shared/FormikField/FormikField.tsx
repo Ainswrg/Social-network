@@ -1,15 +1,26 @@
 import React from "react";
 import { useField } from "formik";
 import FormikErrorMessage from "../FormikErrorMessage/FormikErrorMessage";
-import { StyledFlex } from "../../Styles";
-const FormikField = ({ label, statusProfile, statusLogin, ...props }) => {
+// import { StyledFlex } from "../../Styles";
+
+interface MyFormValues {
+   label?: string
+   statusProfile?: any
+   statusLogin?: any
+   type: string
+   name: string
+   id?: string
+   checkbox?: any
+   placeholder: string
+}
+
+const FormikField: React.FC<MyFormValues> = ({ label, statusProfile, statusLogin, ...props }) => {
    const [field] = useField(props);
    return (
-      <StyledFlex >
+      <>
          {props.type !== "textarea" && <input   {...field} {...props} />}
          <label htmlFor={props.id || props.name}>{label}</label>
          {props.type === "textarea" && <textarea {...field} {...props} />}
-         {props.type === "checkbox" && <checkbox {...field} {...props} />}
          <div style={{height: '20px'}}>
             <FormikErrorMessage
                name={props.name}
@@ -18,7 +29,7 @@ const FormikField = ({ label, statusProfile, statusLogin, ...props }) => {
             />
          </div>
          
-      </StyledFlex>
+      </>
    );
 };
 
