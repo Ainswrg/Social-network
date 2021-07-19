@@ -1,4 +1,3 @@
-import { StyledWrapper } from "../../Styles";
 import MyPostContainer from "./MyPost/MyPostContainer";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 

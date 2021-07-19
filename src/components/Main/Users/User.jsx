@@ -1,4 +1,3 @@
-import React from "react";
 import userPhoto from "../../../assets/img/avatar.png";
 import { NavLink } from "react-router-dom";
 import {
