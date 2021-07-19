@@ -1,10 +1,11 @@
-import React from 'react';
-import preloader from '../../../assets/img/preloader.svg';
+import { StyledPreloader } from '../../Styles';
 
-let Preloader = (props) => {
-   return <div>
-      <img src={preloader} alt="preloader" />
-   </div>
+const Preloader = () => {
+   return (
+      <StyledPreloader center>
+         <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+      </StyledPreloader>
+   )
 }
 
 export default Preloader;

@@ -50,6 +50,61 @@ export const StyledWrapper = styled.div`
 `;
 
 
+//?Prealoader
+//?==============================================================================
+export const StyledPreloader = styled.div`
+   ${({center}) => center && css`
+      ${tw`flex justify-center items-center h-full`}
+   `}
+   .lds-ellipsis{
+      ${tw`inline-block relative h-20 w-20`}
+      div {
+         ${tw`absolute top-12 h-4 w-4 rounded-full bg-blue3 shadow-cstblue1`}
+         animation-timing-function: cubic-bezier(0, 1, 1, 0);
+      }
+      div:nth-child(1) {
+         left: 12px;
+         animation: lds-ellipsis1 0.6s infinite;
+      }
+      div:nth-child(2) {
+         left: 12px;
+         animation: lds-ellipsis2 0.6s infinite;
+      }
+      div:nth-child(3) {
+         left: 36px;
+         animation: lds-ellipsis2 0.6s infinite;
+      }
+      div:nth-child(4) {
+         left: 60px;
+         animation: lds-ellipsis3 0.6s infinite;
+      }
+      @keyframes lds-ellipsis1 {
+         0% {
+            transform: scale(0);
+         }
+         100% {
+            transform: scale(1);
+         }
+      }
+      @keyframes lds-ellipsis3 {
+         0% {
+            transform: scale(1);
+         }
+         100% {
+            transform: scale(0);
+         }
+      }
+      @keyframes lds-ellipsis2 {
+         0% {
+            transform: translate(0, 0);
+         }
+         100% {
+            transform: translate(24px, 0);
+         }
+      }
+   }
+`;
+
 //? Header
 //?===========================================================================
 export const StyledContainer = styled.div`
@@ -77,7 +132,7 @@ export const StyledContainer = styled.div`
    `}
 `
 export const StyledNavlink = styled(NavLink)`
-   ${tw`text-white m-auto no-underline`}
+   ${tw`text-white  no-underline`}
 `;
 
 

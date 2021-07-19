@@ -1,7 +1,7 @@
 import { Form, Formik } from "formik";
 import Loader from "react-loader-spinner";
 import FormikField from "../shared/FormikField/FormikField";
-import { ButtonGroup, colors, StyledLogin, CheckBox } from "../Styles";
+import { ButtonGroup, colors, StyledLogin, CheckBox, StyledPreloader } from "../Styles";
 import loginFormSchema from "./FormValidation/LoginFormSchema";
 
 const LoginForm = ({initialValues,onSubmit, captchaUrl}) => {
@@ -63,12 +63,9 @@ const LoginForm = ({initialValues,onSubmit, captchaUrl}) => {
                         </button>
                      )}
                      {isSubmitting && (
-                        <Loader
-                           type="ThreeDots"
-                           color={colors.blue3}
-                           height={49}
-                           width={100}
-                        />
+                        <StyledPreloader>
+                        <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                     </StyledPreloader>
                      )}
                   </ButtonGroup>
                </Form>

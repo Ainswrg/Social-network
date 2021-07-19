@@ -39,6 +39,7 @@
    --text-color2: var(--white1);
    --focus-ring-color: var(--blue-500);
    --background2: #24273B;
+   --blue500: rgba(59, 130, 246, 1);
    --blue3: #03e9f4;
    --blue4: #1b86f9;
  }

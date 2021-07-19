@@ -1,6 +1,6 @@
 import Preloader from "../../../common/Preloader/Preloader";
 import Photo from "./Photo";
-import { ProfileContent, ProfileDescription, StyledButton, StyledContainer, colors, StyledProfileData, StyledContacts, Jumbotron} from "../../../Styles";
+import { ProfileContent, ProfileDescription, StyledButton, StyledContainer, colors, StyledProfileData, StyledContacts, Jumbotron} from "../Styles";
 import { useState } from "react";
 import ProfileDataForm from "./ProfileDataForm";
 
@@ -15,7 +15,7 @@ const ProfileInfo = ({
    let [editMode, setEditMode] = useState(false);
 
    if (!profile) {
-      return <Preloader />;
+      return <Preloader/>;
    }
 
    const handleSubmit = (values, actions) => {
