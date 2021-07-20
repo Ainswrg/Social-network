@@ -1,4 +1,5 @@
 import { authAPI, securityAPI } from "../api/api";
+import { ProfileType } from "../types/Types";
 
 const SET_USER_DATA = "SET_USER_DATA";
 const SET_PROFILE_DATA = "SET_PROFILE_DATA";
@@ -9,7 +10,7 @@ export type InitialStateType2 = {
    email: string | null;
    login: string | null;
    isAuth: boolean
-   profile: object | null;
+   profile: ProfileType | null;
    captchaUrl: string | null;
 }
 
@@ -18,7 +19,7 @@ let initialState = {
    email: null as string | null,
    login: null as string | null,
    isAuth: false,
-   profile: null as object | null,
+   profile: null as ProfileType | null,
    captchaUrl: null as string | null,
 };
 
@@ -41,6 +42,8 @@ const authReducer = (state = initialState, action: any): InitialStateType => {
          return state;
    }
 };
+
+type ActionType = SetAuthUserDataActionType | getCaptchaUrlSuccessActionType | setProfileDataActionType
 
 type SetAuthUserDataActionPayloadType = {
    userId: number | null, 
@@ -70,10 +73,15 @@ export const getCaptchaUrlSuccess = (captchaUrl: string): getCaptchaUrlSuccessAc
    payload: { captchaUrl },
 });
 
-export const setProfileData = (profile: object) => ({
+export const setProfileData = (profile: ProfileType) => ({
    type: SET_PROFILE_DATA,
    profile,
 });
+
+type setProfileDataActionType = {
+   type: typeof SET_PROFILE_DATA,
+   profile: ProfileType
+}
 
 export const getAuthUserData = () => async (dispatch: any) => {
    let response = await authAPI.me();
