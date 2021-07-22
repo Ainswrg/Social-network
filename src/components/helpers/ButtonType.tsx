@@ -9,11 +9,12 @@ interface Props{
    padding?: string
    primary?: boolean
    clicked?: boolean
+   onClick?: () => void
 }
 
-export const ButtonType:React.FC <Props> = ({className, children}) => {
+export const ButtonType:React.FC <Props> = ({className, children, onClick}) => {
    return (
-      <button className={className}>{children}</button>
+      <button onClick={onClick} className={className}>{children}</button>
    )
 }
 export const UlType:React.FC <Props> = ({className, children}) => {
