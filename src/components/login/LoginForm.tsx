@@ -1,10 +1,24 @@
 import { Form, Formik } from "formik";
-import Loader from "react-loader-spinner";
 import FormikField from "../shared/FormikField/FormikField";
-import { ButtonGroup, colors, StyledLogin, CheckBox, StyledPreloader } from "../Styles";
+import { ButtonGroup,  StyledLogin, CheckBox, StyledPreloader } from "./Styles";
 import loginFormSchema from "./FormValidation/LoginFormSchema";
 
-const LoginForm = ({initialValues,onSubmit, captchaUrl}) => {
+
+interface InitialType {
+   email: string,
+   password: string,
+   rememberMe: boolean
+}
+interface PropsType {
+   initialValues: InitialType
+   onSubmit: any
+}
+interface OtherProps {
+   captchaUrl: string | null
+}
+
+
+const LoginForm:React.FC<PropsType & OtherProps> = ({initialValues,onSubmit, captchaUrl}) => {
    return (
       <Formik
          enableReinitialize
@@ -13,10 +27,7 @@ const LoginForm = ({initialValues,onSubmit, captchaUrl}) => {
          validationSchema={loginFormSchema}
       >
          {({ status, isSubmitting, touched, dirty, ...props }) => (
-            <StyledLogin 
-               touched={touched}
-               dirty={dirty}
-               formik={props}>
+            <StyledLogin>
                <Form>
                   <div className={"user_box"}>
                      <FormikField
@@ -64,8 +75,8 @@ const LoginForm = ({initialValues,onSubmit, captchaUrl}) => {
                      )}
                      {isSubmitting && (
                         <StyledPreloader>
-                        <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-                     </StyledPreloader>
+                           <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                        </StyledPreloader>
                      )}
                   </ButtonGroup>
                </Form>

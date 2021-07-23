@@ -11,7 +11,9 @@ interface MyFormValues {
    name: string
    id?: string
    checkbox?: any
-   placeholder: string
+   placeholder?: string
+   autocomplete?: string
+   required?: boolean
 }
 
 const FormikField: React.FC<MyFormValues> = ({ label, statusProfile, statusLogin, ...props }) => {
