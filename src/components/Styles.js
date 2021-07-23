@@ -704,7 +704,7 @@ export const Name = styled.div`
 `;
 
 export const Logout = styled.button`
-   ${tw`border-none w-8 h-8  bg-transparent flex justify-center items-center`}
+   ${tw`border-none w-8 h-8  bg-transparent flex justify-center items-center cursor-pointer`}
 
    #logOut {
       transition: all 0.3s ease;
