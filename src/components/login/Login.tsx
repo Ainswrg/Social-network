@@ -4,7 +4,12 @@ import LoginForm from "./LoginForm";
 import { Redirect } from "react-router";
 import { AppStateType } from "../../Redux/redux-store";
 
-
+export type InitialStateType = {
+   email: string 
+   password: string 
+   rememberMe: boolean 
+   captcha: string
+}
 
 
 const Login = () => {
@@ -13,13 +18,7 @@ const Login = () => {
    const loggingInThunk = (email: string, password: string, rememberMe: boolean, captcha: string, actions: boolean) =>
       dispatch(login(email, password, rememberMe,captcha, actions));
 
-   type InitialStateType = {
-      auth: any
-      email: string 
-      password: string 
-      rememberMe: boolean 
-      captcha: string
-   }
+   
 
    const { isAuth } = state.auth;
    if (isAuth) {

@@ -17,7 +17,6 @@ interface OtherProps {
    captchaUrl: string | null
 }
 
-
 const LoginForm:React.FC<PropsType & OtherProps> = ({initialValues,onSubmit, captchaUrl}) => {
    return (
       <Formik

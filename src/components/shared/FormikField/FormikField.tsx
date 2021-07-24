@@ -1,7 +1,6 @@
 import React from "react";
 import { useField } from "formik";
 import FormikErrorMessage from "../FormikErrorMessage/FormikErrorMessage";
-// import { StyledFlex } from "../../Styles";
 
 interface MyFormValues {
    label?: string
@@ -10,11 +9,32 @@ interface MyFormValues {
    type: string
    name: string
    id?: string
-   checkbox?: any
+   // checkbox?: any
    placeholder?: string
    autocomplete?: string
    required?: boolean
 }
+type InitialStateType = {
+   email: string 
+   password: string 
+   rememberMe: string 
+   captcha: string
+   fullName: string
+   lookingForAJob: string
+   lookingForAJobDescription: string
+   aboutMe: string
+   contacts: {
+      facebook: string
+      website: string
+      vk: string
+      twitter: string
+      instagram: string
+      youtube: string
+      github: string
+      mainLink: string
+   }
+}
+export type LoginFromValuesTypeKeys = keyof  InitialStateType
 
 const FormikField: React.FC<MyFormValues> = ({ label, statusProfile, statusLogin, ...props }) => {
    const [field] = useField(props);
