@@ -25,9 +25,6 @@ let initialState = {
 
 export type InitialStateType = typeof initialState;
 
-// type InitializedSuccessActionType = {
-//    type: typeof SET_USER_DATA
-// }
 
 const authReducer = (state = initialState, action: any): InitialStateType => {
    switch (action.type) {
