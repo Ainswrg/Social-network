@@ -1,7 +1,7 @@
 import { ThunkAction } from 'redux-thunk';
 import { Dispatch } from 'redux';
 import { AppStateType } from './redux-store';
-import { profileAPI } from "../api/api";
+import { profileAPI } from '../api/profiles-api'; 
 import { PhotosType, PostType, ProfileType } from "../types/Types";
 
 const ADD_POST = "ADD-POST";
@@ -131,25 +131,25 @@ type DispatchType = Dispatch<ActionTypes>
 type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionTypes>
 
 export const getStatus = (userId: number): ThunkType => async (dispatch: DispatchType) => {
-   let response = await profileAPI.getStatus(userId);
+   const data = await profileAPI.getStatus(userId);
 
-   dispatch(setStatus(response.data));
+   dispatch(setStatus(data));
 };
 
 export const updateStatus = (status: string): ThunkType => async (dispatch: DispatchType) => {
    try {
-      let response = await profileAPI.updateStatus(status);
-      if (response.data.resultCode === 0) {
+      const data = await profileAPI.updateStatus(status);
+      if (data.resultCode === 0) {
          dispatch(setStatus(status));
       }
    } catch (error) {}
 };
 
 export const savePhoto = (file: PhotosType) => async (dispatch: DispatchType) => {
-   let response = await profileAPI.savePhotos(file);
+   let data = await profileAPI.savePhotos(file);
 
-   if (response.data.resultCode === 0) {
-      dispatch(savePhotoSuccess(response.data.data.photos));
+   if (data.resultCode === 0) {
+      dispatch(savePhotoSuccess(data.data.photos));
    }
 };
 
@@ -157,25 +157,25 @@ export const saveProfile =
    (profile: ProfileType, actions: any) =>
    async (dispatch: any, getState: any) => {
       const userId = getState().auth.userId;
-      let response = await profileAPI.saveProfile(profile);
+      let data = await profileAPI.saveProfile(profile);
 
-      if (response.data.resultCode === 0) {
+      if (data.resultCode === 0) {
          dispatch(getUserProfile(userId));
       } else {
          let error =
-            response.data.messages.length > 0
-               ? response.data.messages[0]
+            data.messages.length > 0
+               ? data.messages[0]
                : "Some Error";
          actions.setStatus(error);
 
          actions.setSubmitting(false);
-         return Promise.reject(response.data.messages[0]);
+         return Promise.reject(data.messages[0]);
       }
    };
 
 export const getUserProfile = (userId: number) => async (dispatch: DispatchType) => {
-   let response = await profileAPI.getProfile(userId);
-   dispatch(setUserProfile(response.data));
+   const data = await profileAPI.getProfile(userId);
+   dispatch(setUserProfile(data));
 };
 
 export default profileReducer;

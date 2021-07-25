@@ -1,11 +1,13 @@
-import { authAPI, ResultCodeEnum, ResultCodeForCaptcha, securityAPI } from "../api/api";
+import { ResultCodeEnum, ResultCodeForCaptchaEnum } from "../api/api";
+import { authAPI } from "../api/auth-api";
+import { securityAPI } from "../api/security-api";
 import { ProfileType } from "../types/Types";
 
 const SET_USER_DATA = "SET_USER_DATA";
 const SET_PROFILE_DATA = "SET_PROFILE_DATA";
 const GET_CAPTCHA_URL_SUCCESS = 'samurai-network/auth/GET_CAPTCHA_URL_SUCCESS';
 
-export type InitialStateType2 = {
+export type InitialStateType2 = { 
    userId: number | null;
    email: string | null;
    login: string | null;
@@ -95,7 +97,7 @@ export const login = (email: string, password: string, rememberMe: boolean, capt
       if (data.resultCode === ResultCodeEnum.Success) {
          dispatch(getAuthUserData());
       } else {
-         if(data.resultCode === ResultCodeForCaptcha.CaptchaIsRequired) {
+         if(data.resultCode === ResultCodeForCaptchaEnum.CaptchaIsRequired) {
             dispatch(getCaptchaUrl())
          }
          let message = data.messages.length > 0
@@ -108,16 +110,16 @@ export const login = (email: string, password: string, rememberMe: boolean, capt
 };
 
 export const getCaptchaUrl = () => async (dispatch: any) => {
-   const response = await securityAPI.getCaptchaUrl();
-   const captchaUrl = response.data.url;
+   const data = await securityAPI.getCaptchaUrl();
+   const captchaUrl = data.url;
 
    dispatch(getCaptchaUrlSuccess(captchaUrl));
 };
 
 export const logout = () => {
    return async (dispatch: any) => {
-      let response = await authAPI.logout();
-      if (response.data.resultCode === ResultCodeEnum.Success) {
+      let data = await authAPI.logout();
+      if (data.resultCode === ResultCodeEnum.Success) {
          dispatch(setAuthUserData(null, null, null, false));
       }
    };
