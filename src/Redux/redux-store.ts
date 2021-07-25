@@ -1,10 +1,10 @@
-import {applyMiddleware, combineReducers, compose, createStore } from "redux"
+import {Action, applyMiddleware, combineReducers, compose, createStore } from "redux"
 import dialogReducer from "./dialog-reducer"
 import profileReducer from "./profile-reducer"
 import sideBarReducer from "./sideBar-reducer"
 import authReducer from "./auth-reducer"
 import usersReducer from "./users-reducer"
-import thunkMiddleWare from 'redux-thunk'
+import thunkMiddleWare, { ThunkAction } from 'redux-thunk'
 import appReducer from "./app-reducer"
 
 
@@ -17,12 +17,14 @@ let rootReducer = combineReducers({
    app: appReducer,
 });
 
-type RootReducerType = typeof rootReducer; //(globalstate: GLOBALSTATE) => GLOBALSTATE
+type RootReducerType = typeof rootReducer; //(globalstate: AppStateType) => AppStateType
 export type AppStateType = ReturnType<RootReducerType>
 
-type PropertiesTypes<T> = T extends {[key: string]: infer U} ? U : never
+// type PropertiesTypes<T> = T extends {[key: string]: infer U} ? U : never
+// export type InferActionsTypes<T extends {[key: string]: (...args: any[]) => any}> = ReturnType<PropertiesTypes<T>>
+export type InferActionsTypes<T> = T extends { [keys: string]: (...args: any[]) => infer U } ? U : never
 
-export type InferActionsTypes<T extends {[key: string]: (...args: any[]) => any}> = ReturnType<PropertiesTypes<T>>
+export type BaseThunkType<A extends Action = Action, R = Promise<void>> = ThunkAction<R, AppStateType, unknown, A>
 
 // @ts-ignore
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

@@ -1,4 +1,3 @@
-import { AxiosPromise } from "axios";
 import { GetItemsType, instance, APIResponseType } from "./api";
 
 export const usersAPI = {
