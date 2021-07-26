@@ -86,7 +86,7 @@ const dialogReducer = (
 };
 
 export const dialogActions = {
-  sendMessageCreator: (
+  sendMessage: (
     newMessageBody: string
   ) => ({ type: "SN/DIALOGS/SEND_MESSAGE", newMessageBody } as const),
 };

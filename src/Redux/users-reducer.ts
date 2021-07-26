@@ -16,7 +16,7 @@ let initialState = {
 
 const usersReducer = (
    state = initialState,
-   action: ActionTypes
+   action: ActionsTypes
 ): InitialStateAction => {
    switch (action.type) {
       case "FN/USERS/FOLLOW":
@@ -69,7 +69,7 @@ export const usersActions = {
 }
 
 export const requestUsers = (page: number, pageSize: number): ThunkType => {
-   return async (dispatch: DispatchType, getState: GetStateType) => {
+   return async (dispatch, getState) => {
       // getState()
       dispatch(usersActions.toggleIsFetching(true));
       dispatch(usersActions.setCurrentPage(page));
@@ -83,10 +83,10 @@ export const requestUsers = (page: number, pageSize: number): ThunkType => {
 };
 
 const _followUnfollowFlow = async (
-   dispatch: DispatchType,
+   dispatch: Dispatch<ActionsTypes>,
    userId: number,
    apiMethod: any,
-   actionCreator: (userId: number) => ActionTypes
+   actionCreator: (userId: number) => ActionsTypes
 ) => {
    dispatch(usersActions.toggleFollowingInProgress(true, userId));
    let response = await apiMethod(userId);
@@ -119,9 +119,7 @@ export const unfollow = (userId: number): ThunkType => {
 };
 
 type InitialStateAction = typeof initialState;
-type ActionTypes = InferActionsTypes<typeof usersActions>
-type GetStateType = () => AppStateType;
-type DispatchType = Dispatch<ActionTypes>;
-type ThunkType = BaseThunkType<ActionTypes>;
+type ActionsTypes = InferActionsTypes<typeof usersActions>
+type ThunkType = BaseThunkType<ActionsTypes>;
 
 export default usersReducer;
