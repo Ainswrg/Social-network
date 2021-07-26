@@ -68,9 +68,6 @@ let initialState = {
   ] as Array<MessageType>,
 };
 
-export type InitialStateType = typeof initialState;
-type ActionsType = InferActionsTypes<typeof dialogActions>;
-
 const dialogReducer = (
   state = initialState,
   action: ActionsType
@@ -95,3 +92,6 @@ export const dialogActions = {
 };
 
 export default dialogReducer;
+
+export type InitialStateType = typeof initialState;
+type ActionsType = InferActionsTypes<typeof dialogActions>;
