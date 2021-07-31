@@ -10,6 +10,7 @@ interface Props{
    primary?: boolean
    clicked?: boolean
    onClick?: () => void
+   user?: string | null;
 }
 
 export const ButtonType:React.FC <Props> = ({className, children, onClick}) => {

@@ -30,6 +30,7 @@ interface Props{
    onClick?: () => void
    portionSize?: number
    color?: string
+   user?: string | null
 }
 
 export const PageType:React.FC <Props> = ({className, children, onClick}) => {

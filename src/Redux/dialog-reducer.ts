@@ -5,11 +5,12 @@ type DialogType = {
   name: string;
 };
 
-type MessageType = {
+export type MessageType = {
   key: number;
   image?: string | null;
   type: string;
   msg: string;
+  id?: number;
 };
 
 let initialState = {
