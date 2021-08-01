@@ -31,6 +31,8 @@ interface Props{
    portionSize?: number
    color?: string
    user?: string | null
+   gridTemplate?: string
+   border?: string
 }
 
 export const PageType:React.FC <Props> = ({className, children, onClick}) => {

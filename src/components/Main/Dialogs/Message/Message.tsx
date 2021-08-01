@@ -1,5 +1,5 @@
 import React from "react";
-import Avatar from "../Message1/chatList/Avatar";
+
 import {
   ChatContainer,
   ChatContent,
@@ -14,7 +14,7 @@ type PropsType = {
   msg: string;
   image: any;
 };
-const Message: React.FC<PropsType> = ({ user, msg, image }) => {
+const Message: React.FC<PropsType> = ({ user, msg }) => {
   return (
     <ChatContainer user={user}>
       <ChatContent user={user}>
@@ -24,7 +24,7 @@ const Message: React.FC<PropsType> = ({ user, msg, image }) => {
           <ChatSpan user={user}>Seen 1.03PM</ChatSpan>
         </ChatMeta>
       </ChatContent>
-      <Avatar isOnline='active' image={image} />
+      
     </ChatContainer>
   );
 };

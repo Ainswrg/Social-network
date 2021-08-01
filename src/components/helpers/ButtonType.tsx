@@ -11,6 +11,7 @@ interface Props{
    clicked?: boolean
    onClick?: () => void
    user?: string | null;
+   rgba?: string
 }
 
 export const ButtonType:React.FC <Props> = ({className, children, onClick}) => {
