@@ -1,19 +1,10 @@
 import { Form, Formik } from "formik";
-// import Loader from "react-loader-spinner";
 import FormikField from "../../../shared/FormikField/FormikField";
 import { CheckBox, colors, StyledContainer, StyledButton, StyledPreloader } from "../Styles";
 
 type PropsType = {
    profile: any
    handleSubmit: () => void
-   name: string
-   label: string
-   statusProfile: any
-   statusLogin?: string
-   type?: string
-   id?: string
-   checkbox?: any
-   placeholder: string
 }
 
 const ProfileDataForm: React.FC<PropsType> = ({ profile, handleSubmit }) => {
@@ -42,7 +33,7 @@ const ProfileDataForm: React.FC<PropsType> = ({ profile, handleSubmit }) => {
 
                <CheckBox shadow={`0 0 10px ${colors.blue4}`} color={colors.blue4}>
                   Looking for a job:{" "}
-                  <FormikField
+                  <FormikField 
                      type="checkbox"
                      name="lookingForAJob"
                      placeholder="Looking..."
@@ -72,7 +63,7 @@ const ProfileDataForm: React.FC<PropsType> = ({ profile, handleSubmit }) => {
                   {Object.keys(profile.contacts).map((key) => {
                      return (
                         <div key={key} >
-                           {key} :{" "}
+                           {key}:
                            <FormikField
                               statusProfile={status}
                               type="text"
@@ -82,6 +73,19 @@ const ProfileDataForm: React.FC<PropsType> = ({ profile, handleSubmit }) => {
                         </div>
                      );
                   })}
+                  {/* {Object.keys(profile.contacts).map((key) => {
+                     return (
+                        <div key={key} >
+                           {key}:
+                           <FormikField
+                              statusProfile={status}
+                              type="text"
+                              name={"contacts." + key}
+                              placeholder="url"
+                           />
+                        </div>
+                     );
+                  })} */}
                </div>
             </Form>
          )}

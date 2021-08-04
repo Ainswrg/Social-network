@@ -13,16 +13,20 @@ import { connect, Provider } from "react-redux";
 import { compose } from "redux";
 import { initializeApp } from "./Redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
-import store from "./Redux/redux-store";
+import store, { AppStateType } from "./Redux/redux-store";
 import { withSuspense } from "./hoc/withSuspense";
 
 
 const DialogsContainer = React.lazy(() => import('./components/Main/Dialogs/DialogsContainer'));
 const ProfileContainer = React.lazy(() => import('./components/Main/Profile/ProfileContainer'));
 
+type MapPropsType = ReturnType<typeof mapStateToProps>
+type DispatchPropsType = {
+   initializeApp: () => void
+}
 
-class App extends Component {
-   catchAllUnhandleErrors = (reason, promise) => {
+class App extends Component<MapPropsType & DispatchPropsType> {
+   catchAllUnhandleErrors = (e: PromiseRejectionEvent) => {
       alert("some error occured");
       // console.error(promiseRejectionEvent)
    }
@@ -47,10 +51,10 @@ class App extends Component {
                <Switch>
                   
                   <Route path="/dialogs" 
-                     render={withSuspense(DialogsContainer)}/>
+                     render={() => withSuspense(DialogsContainer)}/>
                   
                   <Route path="/profile/:userId?" 
-                     render={withSuspense(ProfileContainer)}/>
+                     render={() =>  withSuspense(ProfileContainer)}/>
 
                   <Redirect exact from='/' to="/profile"/>
 
@@ -58,7 +62,7 @@ class App extends Component {
                   <Route path="/music" render={() => <Music />} />
                   <Route path="/settings" render={() => <Settings />} />
 
-                  <Route path="/users" render={() => <UsersContainer />} />
+                  <Route path="/users" render={() => <UsersContainer pageTitle={"Samurai"}/>} />
 
                   <Route path="/login" render={() => <Login />} />
 
@@ -70,18 +74,18 @@ class App extends Component {
    }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: AppStateType) => ({
    initialized: state.app.initialized,
 });
 
-let AppContainer =  compose(
+let AppContainer =  compose<React.ComponentType>(
    withRouter,
    connect(mapStateToProps, {
       initializeApp,
    })
 )(App);
 
-const SocialApp = () => {
+const SocialApp: React.FC<{}> = () => {
    return <BrowserRouter>
    <React.StrictMode>
       <Provider store={store}>
