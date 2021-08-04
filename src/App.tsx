@@ -25,6 +25,9 @@ type DispatchPropsType = {
    initializeApp: () => void
 }
 
+const SuspendedDialogs = withSuspense(DialogsContainer);
+const SuspendedProfile = withSuspense(ProfileContainer);
+
 class App extends Component<MapPropsType & DispatchPropsType> {
    catchAllUnhandleErrors = (e: PromiseRejectionEvent) => {
       alert("some error occured");
@@ -51,10 +54,10 @@ class App extends Component<MapPropsType & DispatchPropsType> {
                <Switch>
                   
                   <Route path="/dialogs" 
-                     render={() => withSuspense(DialogsContainer)}/>
+                     render={() => <SuspendedDialogs />}/>
                   
                   <Route path="/profile/:userId?" 
-                     render={() =>  withSuspense(ProfileContainer)}/>
+                     render={() =>  <SuspendedProfile />}/>
 
                   <Redirect exact from='/' to="/profile"/>
 
