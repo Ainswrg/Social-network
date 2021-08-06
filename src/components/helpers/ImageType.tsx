@@ -2,10 +2,10 @@ import React from 'react'
 import { PhotosType } from '../../types/Types'
 
 interface Props{
-   width: string
-   margin: string | null
+   width?: string
+   margin?: string | null
    className?: string
-   Avatar: string
+   Avatar?: string
    profile?: any
    src: any
    alt: any

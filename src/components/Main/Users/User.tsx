@@ -10,10 +10,19 @@ import {
    Button,
    colors,
    Avatar,
-} from "../../Styles";
+} from "./Styles";
 import Loader from "react-loader-spinner";
+import { UserType } from "../../../types/Types";
 
-let User = ({ follow, unfollow, followingInProgress, user }) => {
+
+interface PropsType {
+   user: UserType
+   followingInProgress: Array<number>
+   unfollow: (userId: number) => void
+   follow: (userId: number) => void
+}
+
+let User:React.FC<PropsType> = ({ follow, unfollow, followingInProgress, user }) => {
    return (
       <StyledContainer primary margin={"1.25rem"} display={"flex"} direction={"column"} rounded={"0.25rem"} justify={"justify-around"} items={"center"} shadow={`0 0 5px ${colors.blue3}`}>
          <Subscription>
