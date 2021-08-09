@@ -1,3 +1,4 @@
+import React from 'react';
 import { Form, Formik } from "formik";
 import FormikField from "../shared/FormikField/FormikField";
 import { ButtonGroup,  StyledLogin, CheckBox, StyledPreloader } from "./Styles";

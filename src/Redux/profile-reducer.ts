@@ -148,4 +148,4 @@ export type InitalStateType = typeof initialState;
 type ActionTypes = InferActionsTypes<typeof profileActions>
 
 type DispatchType = Dispatch<ActionTypes>
-type ThunkType = BaseThunkType<ActionTypes>
+export type ThunkType = BaseThunkType<ActionTypes>
