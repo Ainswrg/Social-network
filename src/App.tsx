@@ -31,7 +31,6 @@ const SuspendedProfile = withSuspense(ProfileContainer);
 class App extends Component<MapPropsType & DispatchPropsType> {
    catchAllUnhandleErrors = (e: PromiseRejectionEvent) => {
       alert("some error occured");
-      // console.error(promiseRejectionEvent)
    }
    componentDidMount() {
       this.props.initializeApp();
