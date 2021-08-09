@@ -13,24 +13,27 @@ import { compose } from "redux";
 import { AppStateType } from "../../../Redux/redux-store";
 import { ProfileType } from "../../../types/Types";
 
-type MapStatePropsType = ReturnType<typeof mapStateToProps>
+type MapPropsType = ReturnType<typeof mapStateToProps>
 
-type MapDispatchPropsType = {
+type DispatchPropsType = {
    getUserProfile: (userId: number) => void
    getStatus: (userId: number) => void
    updateStatus: (status: string) => void
    savePhoto: (file: File) => void
-   saveProfile: (profile: ProfileType) => void
+   saveProfile: (profile: ProfileType) => Promise<any>
 }
 
 type PathParamsType = {
    userId: string
 }
 
-type PropsType = MapStatePropsType & MapDispatchPropsType & RouteComponentProps<PathParamsType>
+type PropsType = MapPropsType & DispatchPropsType & RouteComponentProps<PathParamsType>
 
 
 class ProfileContainer extends React.Component<PropsType> {
+   constructor(props: PropsType) {
+      super(props);
+   }
 
    refreshProfile() {
       let userId: number | null = +this.props.match.params.userId;
@@ -40,6 +43,7 @@ class ProfileContainer extends React.Component<PropsType> {
             this.props.history.push("/login");
          }
       }
+
       if(userId) {
          this.props.getUserProfile(userId);
          this.props.getStatus(userId);

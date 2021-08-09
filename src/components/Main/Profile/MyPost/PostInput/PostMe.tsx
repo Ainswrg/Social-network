@@ -2,24 +2,29 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import Loader from "react-loader-spinner";
 import FormikField from "../../../../shared/FormikField/FormikField";
-import { colors, StyledButton, TextArea } from "../../../../Styles";
+import { colors, StyledButton, TextArea } from "../../Styles";
+import { InitialValuesType } from "../MyPosts";
 
 const validationPost = Yup.object({
    newPost: Yup.string()
-      .max(15, "Must be 15 characters or less")
+      .max(200, "Must be 200 characters or less")
       .required("Required"),
 })
 
+interface PropsType {
+   initialValues: InitialValuesType
+   handleSubmit: any
+}
 
-const PostForm = (props) => {
+const PostForm:React.FC<PropsType> = ({initialValues, handleSubmit}) => {
    return (
       <>
          <h1>My Post</h1>
          <Formik
             enableReinitialize
-            initialValues={props.initialValues}
+            initialValues={initialValues}
             validationSchema={validationPost}
-            onSubmit={props.handleSubmit}
+            onSubmit={handleSubmit}
          >
             {({ isSubmitting }) => (
                <Form>
@@ -37,7 +42,7 @@ const PostForm = (props) => {
                   {!isSubmitting && (
                      <StyledButton 
                         type="submit"
-                        radius={"2px"}
+                        border={"2px"}
                         bgColor={colors && colors.blue4}
                         padding={"8px 25px"}
                      >

@@ -1,15 +1,19 @@
 import { Form, Formik } from "formik";
+import { ProfileType } from "../../../../types/Types";
 import FormikField from "../../../shared/FormikField/FormikField";
 import { CheckBox, colors, StyledContainer, StyledButton, StyledPreloader } from "../Styles";
 
 type PropsType = {
-   profile: any
-   handleSubmit: () => void
+   profile: ProfileType
+   handleSubmit: any
 }
 
-const ProfileDataForm: React.FC<PropsType> = ({ profile, handleSubmit }) => {
+const ProfileDataForm: React.FC< PropsType > = ({ profile, handleSubmit }) => {
    return (
-      <Formik onSubmit={handleSubmit} initialValues={profile}>
+      <Formik 
+         onSubmit={handleSubmit} 
+         initialValues={profile}
+      >
          {({ status, isSubmitting }) => (
             <Form>
                {!isSubmitting && (

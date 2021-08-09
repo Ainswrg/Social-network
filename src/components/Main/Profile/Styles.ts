@@ -248,3 +248,41 @@ export const StyledButton = styled(ButtonType)`
       transform: scale(1.05);
    }
 `;
+
+//! ProfilePage
+//?===========================================================================
+export const TextArea = styled.div`
+   &{
+      textarea {
+         font-size: 1rem;
+         resize: vertical;
+         border: 2px solid var(--gray-200);
+         width: 400px;
+
+         &:focus {
+            outline: none;
+            border: 2px solid var(--focus-ring-color);
+         }
+         &:invalid {
+            border: 2px solid #ff7d87;
+            box-shadow: none;
+         }
+      }
+   }
+`;
+
+//? Posts
+export const AvatarPost = styled.div`
+   ${tw`w-14 h-14 flex justify-center`}
+   &{
+      img{
+         ${tw`rounded w-14 h-auto`}
+      }
+   }
+`;
+export const MessagePost = styled.div`
+   ${tw`flex-grow  text-lg sm:pl-4`}
+`;
+export const LikePost = styled.div`
+   ${tw`w-20 flex text-sm items-end self-end font-medium`}
+`;

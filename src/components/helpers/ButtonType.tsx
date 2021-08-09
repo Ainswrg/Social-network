@@ -12,6 +12,7 @@ interface Props{
    onClick?: () => void
    user?: string | null;
    rgba?: string
+   type?: string
 }
 
 export const ButtonType:React.FC <Props> = ({className, children, onClick}) => {

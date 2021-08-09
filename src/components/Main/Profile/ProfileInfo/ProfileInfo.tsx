@@ -1,10 +1,33 @@
+import React from 'react'
 import Preloader from "../../../common/Preloader/Preloader";
 import Photo from "./Photo";
 import { ProfileContent, ProfileDescription, StyledButton, StyledContainer, colors, StyledProfileData, StyledContacts, Jumbotron} from "../Styles";
-import { useState } from "react";
+// import { useState } from "react";
 import ProfileDataForm from "./ProfileDataForm";
+import { ProfileType } from "../../../../types/Types";
+import { FormikHelpers } from 'formik';
+import { ContactsType } from '../../../../types/Types';
 
-const ProfileInfo = ({
+
+// const initialValues = {
+//    fullName: "",
+//    lookingForAJob: "",
+//    lookingForAJobDescription: "",
+//    aboutMe: "",
+//    contacts: "",
+// };
+
+type PropsType = {
+   profile: ProfileType | null
+   status: string
+   updateStatus: (status: string) => void
+   isOwner: boolean
+   savePhoto: (file: File) => void
+   saveProfile: (profile: ProfileType) => Promise<any>
+}
+// type InitialValuesType = typeof initialValues
+
+const ProfileInfo:React.FC<PropsType> = ({
    profile,
    status,
    updateStatus,
@@ -12,26 +35,20 @@ const ProfileInfo = ({
    savePhoto,
    saveProfile,
 }) => {
-   let [editMode, setEditMode] = useState(false);
+   let [editMode, setEditMode] = React.useState<boolean>(false);
 
    if (!profile) {
       return <Preloader/>;
    }
 
-   const handleSubmit = (values, actions) => {
+   const handleSubmit = (values: ProfileType, actions: FormikHelpers<{}>) => {
       actions.setStatus(undefined);
-      saveProfile(values, actions).then(() => {
+      saveProfile && saveProfile(values).then(() => {
          setEditMode(false);
       });
    };
 
-   const initialValues = {
-      fullName: "",
-      lookingForAJob: "",
-      lookingForAJobDescription: "",
-      aboutMe: "",
-      contacts: "",
-   };
+   
 
    return (
       <>
@@ -50,8 +67,8 @@ const ProfileInfo = ({
                   <ProfileDataForm
                      profile={profile}
                      handleSubmit={handleSubmit}
-                     initialValues={initialValues}
-                     setEditMode={setEditMode}
+                     // initialValues={initialValues}
+                     // setEditMode={setEditMode}
                   />
                ) : (
                   <ProfileData
@@ -68,7 +85,13 @@ const ProfileInfo = ({
    );
 };
 
-export const ProfileData = ({ profile, isOwner, goToEditMode }) => {
+type ProfileDataPropsType = {
+   profile: ProfileType
+   isOwner: boolean
+   goToEditMode: () => void
+}
+
+export const ProfileData:React.FC<ProfileDataPropsType> = ({ profile, isOwner, goToEditMode }) => {
    return (
       <StyledProfileData>
          {isOwner && (
@@ -93,13 +116,15 @@ export const ProfileData = ({ profile, isOwner, goToEditMode }) => {
          </div>
          <br/>
          <div>
-            <b>Contacts</b>:
-            {Object.keys(profile.contacts).map((key) => {
+            <b>Contacts</b>:{
+            Object
+               .keys(profile.contacts)
+               .map((key) => {
                return (
                   <Contact
                      key={key}
                      contactTitle={key}
-                     contactValue={profile.contacts[key]}
+                     contactValue={profile.contacts[key as keyof ContactsType]}
                   />
                );
             })}
@@ -108,7 +133,7 @@ export const ProfileData = ({ profile, isOwner, goToEditMode }) => {
    );
 };
 
-const Contact = ({ contactTitle, contactValue }) => {
+const Contact = ({ contactTitle, contactValue }: any) => {
    return (
       <StyledContacts>
          <b>{contactTitle}</b>: <span>{contactValue}</span>

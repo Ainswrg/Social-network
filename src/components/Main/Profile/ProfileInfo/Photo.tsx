@@ -1,11 +1,22 @@
 import avatar from '../../../../assets/img/avatar.png';
 import ProfileStatusWithHooks from './ProfileStatus/ProfileStatusWithHooks';
 import { AvatarContent, AvatarEdit, AvatarImg, AvatarPreview } from '../Styles';
+import { ProfileType } from '../../../../types/Types';
+import { ChangeEvent } from 'react';
 
-const Photo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
+type PropsType = {
+   profile: ProfileType | null
+   status: string
+   updateStatus: (status: string) => void
+   isOwner: boolean
+   savePhoto: (file: File) => void
+   saveProfile?: (profile: ProfileType) => Promise<any>
+}
 
-   const mainPhotoSelected = (e) => {
-      if(e.target.files.length) {
+const Photo:React.FC<PropsType> = ({profile, status, updateStatus, isOwner, savePhoto}) => {
+
+   const mainPhotoSelected = (e: ChangeEvent<HTMLInputElement>) => {
+      if(e?.target?.files?.length) {
          savePhoto( e.target.files[0]);
       }
    } 
