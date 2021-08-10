@@ -1,8 +1,8 @@
-import { StyledPreloader } from '../../Styles';
+import { StyledPreloader } from './Styles';
 
 const Preloader = () => {
    return (
-      <StyledPreloader center>
+      <StyledPreloader primary>
          <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
       </StyledPreloader>
    )
