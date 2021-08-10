@@ -1,7 +1,6 @@
 import { PageType } from "../../helpers/PageType";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import tw from "twin.macro";
-// import { styled } from '../../../styles/Theme'
 
 
 
