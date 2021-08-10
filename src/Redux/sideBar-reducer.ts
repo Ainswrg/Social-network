@@ -28,9 +28,10 @@ let initialState = {
    ] as Array<ImageType>,
 }
 
-export type InitialStateAction = typeof initialState
+export type InitialNavStateAction = typeof initialState
 
-const sideBarReducer = (state = initialState, action: any): InitialStateAction => {
+
+const sideBarReducer = (state = initialState, action: any): InitialNavStateAction => {
    switch(action.type) {
 
       default:

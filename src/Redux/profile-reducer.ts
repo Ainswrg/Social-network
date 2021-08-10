@@ -13,7 +13,7 @@ let initialState = {
    ] as Array<PostType>,
    profile: null as ProfileType | null,
    status: "",
-   newPostText: "",
+   // newPostText: "",
 };
 
 const profileReducer = (
@@ -23,7 +23,7 @@ const profileReducer = (
    switch (action.type) {
       case "SN/PROFILE/ADD_POST": {
          let newPost = {
-            id: 5,
+            id: 4,
             message: action.newPostText,
             likesCount: 0,
          };

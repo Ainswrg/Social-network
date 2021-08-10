@@ -10,7 +10,7 @@ interface MyFormValues {
   name: string;
   id?: string;
   placeholder?: string;
-  autocomplete?: string;
+  autoComplete?: string;
   required?: boolean;
   rows?: any;
 }

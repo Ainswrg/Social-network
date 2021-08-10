@@ -125,18 +125,18 @@ export const StyledContainer = styled(PageType)`
 `;
 
 export const ChatContainer = styled(PageType)`
-  flex-direction: ${({ user }) => user == "other" && `row-reverse`};
-  word-wrap: ${({ user }) => (user == "other" ? `break-word` : `break-word`)};
+  flex-direction: ${({ user }) => user === "other" && `row-reverse`};
+  word-wrap: ${({ user }) => (user === "other" ? `break-word` : `break-word`)};
   display: flex;
   justify-content: flex-end;
 `;
 
 export const ChatContent = styled(PageType)`
   background: ${({ user }) =>
-    user == "other" ? colors.blue500 : colors.primary};
-  color: ${({ user }) => (user == "other" ? colors.primary : colors.black1)};
+    user === "other" ? colors.blue500 : colors.primary};
+  color: ${({ user }) => (user === "other" ? colors.primary : colors.black1)};
   border-radius: ${({ user }) =>
-    user == "other"
+    user === "other"
       ? `0.75rem 0.75rem 0.75rem 0`
       : `0.75rem 0.75rem 0 0.75rem`};
   width: 10rem;
@@ -165,7 +165,7 @@ export const ChatSpan = styled(SpanType)`
   font-size: 0.75rem;
   user-select: none;
   color: ${({ user }) =>
-    user == "other" ? `rgba(37, 99, 235, 0.5);` : `rgba(107, 114, 128, 0.5); `};
+    user === "other" ? `rgba(37, 99, 235, 0.5);` : `rgba(107, 114, 128, 0.5); `};
 `;
 export const StyleNavLink = styled.div`
   ${tw`flex py-1 px-5`}

@@ -35,7 +35,7 @@ const LoginForm:React.FC<PropsType & OtherProps> = ({initialValues,onSubmit, cap
                         name="email" 
                         type="text"
                         statusLogin={status}
-                        autocomplete="off"
+                        autoComplete="off"
                         required
                      />
                   </div>
@@ -56,7 +56,7 @@ const LoginForm:React.FC<PropsType & OtherProps> = ({initialValues,onSubmit, cap
                      />
                   </CheckBox>
 
-                  {captchaUrl && <img src={captchaUrl} />}
+                  {captchaUrl && <img src={captchaUrl} alt="captcha"/>}
                   {captchaUrl && 
                   <div className={"user_box"}>
                      <FormikField   name="captcha" 
