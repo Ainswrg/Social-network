@@ -672,6 +672,10 @@ export const Text = styled.span`
    overflow: hidden;
    margin-left: ${(props) => (props.clicked ? "1.5rem" : "0")};
    transition: all 0.3s ease;
+   color: ${colors.dark3};
+   &:hover {
+      color: ${colors.primary};
+   }
 `;
 
 export const Profile = styled.div`
