@@ -1,20 +1,22 @@
-import React from 'react'
-// import { PhotosType } from '../../types/Types'
+import React from "react";
+import { ProfileType } from "../../types/Types";
 
-interface Props{
-   width?: string
-   margin?: string | null
-   className?: string
-   Avatar?: string
-   profile?: any
-   src?: string | undefined
-   alt?: string | undefined
-   onClick?: any
-   avatar?: string
+interface Props {
+  width?: string;
+  margin?: string | null;
+  className?: string;
+  Avatar?: string;
+  profile?: ProfileType | null;
+  src?: string | undefined;
+  alt: string | undefined;
+  onClick?: any;
+  avatar?: string;
 }
 
-export const ImageType:React.FC <Props> = ({ className, src, children }) => {
-   return (
-      <img src={src} className={className}>{children}</img>
-   )
-}
+export const ImageType: React.FC<Props> = ({ className, src, children }) => {
+  return (
+    <img src={src} alt={"alt"} className={className}>
+      {children}
+    </img>
+  );
+};

@@ -11,7 +11,7 @@ import {
 
 type PropsType = {
   profile: ProfileType;
-  handleSubmit: () => void;
+  handleSubmit: any;
 };
 
 const ProfileDataForm: React.FC<PropsType> = ({ profile, handleSubmit }) => {
