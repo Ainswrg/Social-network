@@ -1,38 +1,56 @@
-import React from "react";
-import { FilterType } from "../../../Redux/users-reducer";
-import { UserType } from "../../../types/Types";
-import Paginator from "../../common/Paginator/Paginator";
-import { StyledWrapper } from "../../Styles";
-import User from "./User";
-import UsersSearchForm from "./UsersSearchForm";
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-type MapPropsType = {
-  currentPage: number;
-  totalUsersCount: number;
-  pageSize: number;
-  users: Array<UserType>;
-  followingInProgress: Array<number>;
-};
-type DispatchPropsType = {
-  unfollow: (userId: number) => void;
-  follow: (userId: number) => void;
-  onFilterChanged: (filter: FilterType) => void
-};
-type OwnProps = {
-  onPageChanged: (pageNumber: number) => void;
+import { FilterType, requestUsers } from '../../../Redux/users-reducer';
+import {
+  getCurrentPage,
+  getFollowingInProgress,
+  getPageSize,
+  getTotalUsersCount,
+  getUsers,
+  getUsersFilter,
+} from '../../../Redux/users-selectors';
+import Paginator from '../../common/Paginator/Paginator';
+import { StyledWrapper } from '../../Styles';
+import User from './User';
+import UsersSearchForm from './UsersSearchForm';
+
+type PropsType = {
+  // unfollow: (userId: number) => void;
+  // follow: (userId: number) => void;
 };
 
-let Users: React.FC<MapPropsType & DispatchPropsType & OwnProps> = ({
-  currentPage,
-  totalUsersCount,
-  pageSize,
-  onPageChanged,
-  onFilterChanged,
-  users,
-  followingInProgress,
-  follow,
-  unfollow,
-}) => {
+
+export const Users: React.FC<PropsType> = () => {
+
+  const totalUsersCount = useSelector(getTotalUsersCount)
+  const currentPage = useSelector(getCurrentPage)
+  const pageSize = useSelector(getPageSize)
+  const users = useSelector(getUsers)
+  const followingInProgress = useSelector(getFollowingInProgress)
+  const filter = useSelector(getUsersFilter)
+  const follow = (userId: number) => {
+    dispatch(follow(userId))
+  }
+  const unfollow = (userId: number) => {
+    dispatch(unfollow(userId))
+  }
+
+  React.useEffect(() => {
+    dispatch(requestUsers(currentPage, pageSize, filter));
+  }, [])
+
+  const dispatch = useDispatch()
+
+  const onPageChanged = (pageNumber: number) => {
+    dispatch(requestUsers(pageNumber, pageSize, filter));
+  }
+
+  const onFilterChanged = (filter: FilterType) => {
+    dispatch(requestUsers(1, pageSize, filter));
+  }
+
+
   return (
     <StyledWrapper>
 
@@ -57,6 +75,3 @@ let Users: React.FC<MapPropsType & DispatchPropsType & OwnProps> = ({
     </StyledWrapper>
   );
 };
-
-
-export default Users;

@@ -1,25 +1,21 @@
-import React, { Component } from "react";
-import "./App.css";
-import Music from "./components/Main/Music/Music";
-import Settings from "./components/Main/Settings/Settings";
-import News from "./components/Main/News/News";
-import {
-  BrowserRouter,
-  Redirect,
-  Route,
-  Switch,
-  withRouter,
-} from "react-router-dom";
-import UsersContainer from "./components/Main/Users/UsersContainer";
-import HeaderContainer from "./components/Header/HeaderContainer";
-import Login from "./components/login/Login";
-import { connect, Provider } from "react-redux";
-import { compose } from "redux";
-import { initializeApp } from "./Redux/app-reducer";
-import Preloader from "./components/common/Preloader/Preloader";
-import store, { AppStateType } from "./Redux/redux-store";
-import { withSuspense } from "./hoc/withSuspense";
-import Navbar from "./components/Navbar/Navbar";
+import './App.css';
+
+import React, { Component } from 'react';
+import { connect, Provider } from 'react-redux';
+import { BrowserRouter, Redirect, Route, Switch, withRouter } from 'react-router-dom';
+import { compose } from 'redux';
+
+import Preloader from './components/common/Preloader/Preloader';
+import HeaderContainer from './components/Header/HeaderContainer';
+import Login from './components/login/Login';
+import Music from './components/Main/Music/Music';
+import News from './components/Main/News/News';
+import Settings from './components/Main/Settings/Settings';
+import { UsersPage } from './components/Main/Users/UsersContainer';
+import Navbar from './components/Navbar/Navbar';
+import { withSuspense } from './hoc/withSuspense';
+import { initializeApp } from './Redux/app-reducer';
+import store, { AppStateType } from './Redux/redux-store';
 
 const DialogsContainer = React.lazy(
   () => import("./components/Main/Dialogs/DialogsContainer")
@@ -77,7 +73,7 @@ class App extends Component<MapPropsType & DispatchPropsType> {
 
             <Route
               path='/users'
-              render={() => <UsersContainer pageTitle={"Samurai"} />}
+              render={() => <UsersPage pageTitle={"Samurai"} />}
             />
 
             <Route path='/login' render={() => <Login />} />
