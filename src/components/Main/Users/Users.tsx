@@ -1,8 +1,10 @@
 import React from "react";
+import { FilterType } from "../../../Redux/users-reducer";
 import { UserType } from "../../../types/Types";
 import Paginator from "../../common/Paginator/Paginator";
 import { StyledWrapper } from "../../Styles";
 import User from "./User";
+import UsersSearchForm from "./UsersSearchForm";
 
 type MapPropsType = {
   currentPage: number;
@@ -14,6 +16,7 @@ type MapPropsType = {
 type DispatchPropsType = {
   unfollow: (userId: number) => void;
   follow: (userId: number) => void;
+  onFilterChanged: (filter: FilterType) => void
 };
 type OwnProps = {
   onPageChanged: (pageNumber: number) => void;
@@ -24,6 +27,7 @@ let Users: React.FC<MapPropsType & DispatchPropsType & OwnProps> = ({
   totalUsersCount,
   pageSize,
   onPageChanged,
+  onFilterChanged,
   users,
   followingInProgress,
   follow,
@@ -31,6 +35,9 @@ let Users: React.FC<MapPropsType & DispatchPropsType & OwnProps> = ({
 }) => {
   return (
     <StyledWrapper>
+
+      <UsersSearchForm onFilterChanged={onFilterChanged}/>
+
       <Paginator
         currentPage={currentPage}
         onPageChanged={onPageChanged}
@@ -50,5 +57,6 @@ let Users: React.FC<MapPropsType & DispatchPropsType & OwnProps> = ({
     </StyledWrapper>
   );
 };
+
 
 export default Users;

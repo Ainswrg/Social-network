@@ -1,8 +1,10 @@
+import { Item } from "./../../Navbar/Styles";
 import styled, { css } from "styled-components";
 import tw from "twin.macro";
 import { NavLink } from "react-router-dom";
 import { PageType } from "../../helpers/PageType";
 import { ImageType } from "../../helpers/ImageType";
+import { ButtonType } from "../../helpers/ButtonType";
 
 export const colors = {
   primary: "#fff",
@@ -25,8 +27,86 @@ export const colors = {
   rgba: "rgba(0,0,0,.5)",
 };
 
-// //? Header
-// //?===========================================================================
+//?Prealoader
+//?==============================================================================
+export const StyledPreloader = styled(PageType)`
+  /* display: flex; */
+  ${({ primary }) =>
+    primary &&
+    css` */
+      ${tw`flex justify-center items-start h-full`}
+    `}
+  .lds-ellipsis {
+    ${tw`flex items-center relative h-10 w-20`}
+    div {
+      ${tw`absolute  h-4 w-4 rounded-full bg-blue3 shadow-cstblue1`}
+      animation-timing-function: cubic-bezier(0, 1, 1, 0);
+    }
+    div:nth-child(1) {
+      left: 12px;
+      animation: lds-ellipsis1 0.6s infinite;
+    }
+    div:nth-child(2) {
+      left: 12px;
+      animation: lds-ellipsis2 0.6s infinite;
+    }
+    div:nth-child(3) {
+      left: 36px;
+      animation: lds-ellipsis2 0.6s infinite;
+    }
+    div:nth-child(4) {
+      left: 60px;
+      animation: lds-ellipsis3 0.6s infinite;
+    }
+    @keyframes lds-ellipsis1 {
+      0% {
+        transform: scale(0);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    @keyframes lds-ellipsis3 {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(0);
+      }
+    }
+    @keyframes lds-ellipsis2 {
+      0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(24px, 0);
+      }
+    }
+  }
+`;
+
+//?Button
+export const StyledButton = styled(ButtonType)`
+  margin: 0 0 1rem 0;
+  background: ${({ bgColor }) => (bgColor ? bgColor : colors.blue3)};
+  border: ${({ border }) => (border ? border : "none")};
+  color: ${({ colorText }) => (colorText ? colorText : colors.blue3)};
+  border-radius: ${({ radius }) => (radius ? radius : "4px")};
+  padding: ${({ padding }) => (padding ? padding : "5px 20px")};
+  box-shadow: 0 0 10px ${colors.blue4};
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0 0 20px ${colors.blue4};
+    transform: scale(1.05);
+    color: ${colors.blue3};
+    border-color: ${colors.blue3};
+  }
+`;
+export const Container = styled.div`
+  ${tw`flex items-center justify-end bg-black1 p-2.5`}
+`;
+//? Header
+//?===========================================================================
 export const StyledContainer = styled(PageType)`
   background: ${({ bg }) => bg && bg};
   height: ${({ height }) => height && height};
@@ -99,4 +179,35 @@ export const Status = styled.div`
 `;
 export const UserLocation = styled.div`
   ${tw`py-1 text-gray1 text-sm`}
+`;
+
+// login
+export const StyledSearch = styled(PageType)`
+  /* ${tw`flex box-border transform -translate-x-2/4 -translate-y-2/4 shadow-cst1 rounded-xl bg-black1`} */
+  ${tw`flex pr-2 items-center`}
+  & {
+    .user_box {
+      ${tw`relative`}
+      .line {
+        height: 20px;
+        background-color: red;
+        box-shadow: 0 0 10px ${colors.blue4};
+      }
+      input {
+        ${tw`w-full pt-1 text-base text-white border-none outline-none bg-transparent border-white rounded-none pl-1`}
+        border-bottom: 1px solid;
+      }
+      label {
+        ${tw`absolute top-0 left-0 text-base text-white pointer-events-none duration-500`}
+      }
+      /* input[type="search"]:valid ~ label, */
+      input:focus ~ label {
+        ${tw`-top-5 left-0 text-xs text-blue3 `}
+      }
+      input:focus {
+        ${tw`outline-none shadow-none text-blue3 duration-300`}
+        background-size: 100% 100%, 100% 100%;
+      }
+    }
+  }
 `;

@@ -1,3 +1,4 @@
+import { FormikHelpers } from 'formik';
 import { ResultCodeEnum, ResultCodeForCaptchaEnum } from "../api/api";
 import { authAPI } from "../api/auth-api";
 import { securityAPI } from "../api/security-api";
@@ -67,7 +68,7 @@ export const login =
     password: string,
     rememberMe: boolean,
     captcha: string,
-    actions: any
+    {setStatus, setSubmitting}:FormikHelpers<{}>
   ): ThunkType =>
   async (dispatch) => {
     let data = await authAPI.login(email, password, rememberMe, captcha);
@@ -78,9 +79,9 @@ export const login =
         dispatch(getCaptchaUrl());
       }
       let message = data.messages.length > 0 ? data.messages[0] : "Some Error";
-      actions.setStatus(message);
+      setStatus(message);
     }
-    actions.setSubmitting(false);
+    setSubmitting(false);
   };
 
 export const getCaptchaUrl = (): ThunkType => async (dispatch) => {
