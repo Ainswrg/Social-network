@@ -14,6 +14,13 @@ interface Props {
   rgba?: string;
   type?: string;
   active?: boolean;
+  id?: string;
+  preventDefault?: boolean
+  return?: any
+  false?: boolean
+  onBlur?: (e: any) => void
+  onSubmit?: any
+  onKeyDown?: (e: any) => void
 }
 
 export const ButtonType: React.FC<Props> = ({

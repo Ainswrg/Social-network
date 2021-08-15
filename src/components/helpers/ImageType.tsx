@@ -11,6 +11,7 @@ interface Props {
   alt: string | undefined;
   onClick?: any;
   avatar?: string;
+  id?: string
 }
 
 export const ImageType: React.FC<Props> = ({ className, src, children }) => {
