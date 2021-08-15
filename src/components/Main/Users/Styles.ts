@@ -1,36 +1,39 @@
-import { Item } from "./../../Navbar/Styles";
 import styled, { css } from "styled-components";
 import tw from "twin.macro";
 import { NavLink } from "react-router-dom";
 import { PageType } from "../../helpers/PageType";
 import { ImageType } from "../../helpers/ImageType";
 import { ButtonType } from "../../helpers/ButtonType";
+import { FaSearch } from "react-icons/fa";
+import { CgPlayListSearch } from "react-icons/cg";
+import { VscSearch, VscSearchStop } from "react-icons/vsc";
+import { RiUserSearchFill } from "react-icons/ri";
 
 export const colors = {
   primary: "#fff",
-  theme: "#BE185D",
-  light: "#f6f7f9",
-  light1: "#F3F4F6",
-  light2: "#E5E7EB",
-  light3: "#f4f3f8",
-  dark1: "#1F2937",
-  dark2: "#4B5563",
   dark3: "#9CA3AF",
-  dark4: "#2D3748",
-  red: "#DC2626",
   blue1: "#4169E1",
-  blue2: "#ebe7fb",
   blue3: "#03e9f4",
   blue4: "#1b86f9",
-  blue500: "rgba(59, 130, 246, 1)",
   black1: "#151728",
   rgba: "rgba(0,0,0,.5)",
+  gray: "#bbb"
+  // theme: "#BE185D",
+  // light: "#f6f7f9",
+  // light1: "#F3F4F6",
+  // light2: "#E5E7EB",
+  // light3: "#f4f3f8",
+  // dark1: "#1F2937",
+  // dark2: "#4B5563",
+  // dark4: "#2D3748",
+  // red: "#DC2626",
+  // blue2: "#ebe7fb",
+  // blue500: "rgba(59, 130, 246, 1)",
 };
 
 //?Prealoader
 //?==============================================================================
 export const StyledPreloader = styled(PageType)`
-  /* display: flex; */
   ${({ primary }) =>
     primary &&
     css` */
@@ -85,26 +88,7 @@ export const StyledPreloader = styled(PageType)`
   }
 `;
 
-//?Button
-export const StyledButton = styled(ButtonType)`
-  margin: 0 0 1rem 0;
-  background: ${({ bgColor }) => (bgColor ? bgColor : colors.blue3)};
-  border: ${({ border }) => (border ? border : "none")};
-  color: ${({ colorText }) => (colorText ? colorText : colors.blue3)};
-  border-radius: ${({ radius }) => (radius ? radius : "4px")};
-  padding: ${({ padding }) => (padding ? padding : "5px 20px")};
-  box-shadow: 0 0 10px ${colors.blue4};
-  cursor: pointer;
-  &:hover {
-    box-shadow: 0 0 20px ${colors.blue4};
-    transform: scale(1.05);
-    color: ${colors.blue3};
-    border-color: ${colors.blue3};
-  }
-`;
-export const Container = styled.div`
-  ${tw`flex items-center justify-end bg-black1 p-2.5`}
-`;
+
 //? Header
 //?===========================================================================
 export const StyledContainer = styled(PageType)`
@@ -133,7 +117,9 @@ export const StyledContainer = styled(PageType)`
     props.active &&
     css`
       ${tw`sm:flex-row md:justify-around lg:justify-start`}
-    `}
+    `
+  }
+  
 `;
 export const StyledNavlink = styled(NavLink)`
   ${tw`text-white  no-underline`}
@@ -181,33 +167,83 @@ export const UserLocation = styled.div`
   ${tw`py-1 text-gray1 text-sm`}
 `;
 
-// login
 export const StyledSearch = styled(PageType)`
-  /* ${tw`flex box-border transform -translate-x-2/4 -translate-y-2/4 shadow-cst1 rounded-xl bg-black1`} */
-  ${tw`flex pr-2 items-center`}
-  & {
-    .user_box {
-      ${tw`relative`}
-      .line {
-        height: 20px;
-        background-color: red;
-        box-shadow: 0 0 10px ${colors.blue4};
-      }
-      input {
-        ${tw`w-full pt-1 text-base text-white border-none outline-none bg-transparent border-white rounded-none pl-1`}
-        border-bottom: 1px solid;
-      }
-      label {
-        ${tw`absolute top-0 left-0 text-base text-white pointer-events-none duration-500`}
-      }
-      /* input[type="search"]:valid ~ label, */
-      input:focus ~ label {
-        ${tw`-top-5 left-0 text-xs text-blue3 `}
-      }
-      input:focus {
-        ${tw`outline-none shadow-none text-blue3 duration-300`}
-        background-size: 100% 100%, 100% 100%;
-      }
+  ${tw`flex items-center justify-start p-0 m-0`}
+  input[type="search"] {
+    ${tw`text-3xl w-0 h-12 font-thin border-none outline-none text-white bg-transparent cursor-pointer`}
+    font-family: "Lato";
+    transition: width 0.4s cubic-bezier(0, 0.795, 0, 1);
+  }
+
+  input[type="search"]:focus:hover {
+    border-bottom: 1px solid ${colors.blue4};
+  }
+  ${({clicked}) => clicked && css`
+    input[type="search"] {
+      width: 24rem;
+      border-bottom: 1px solid ${colors.gray};
+      cursor: text;
+      background-color: transparent;
     }
+  `}
+`;
+
+//?Button
+export const StyledButton = styled(ButtonType)`
+  background: ${({ bgColor }) => (bgColor ? bgColor : colors.blue3)};
+  border: ${({ border }) => (border ? border : "none")};
+  color: ${({ colorText }) => (colorText ? colorText : colors.gray)};
+  padding: ${({ padding }) => (padding ? padding : "5px 10px")};
+  display: ${({clicked}) => clicked ? 'block' : 'none'};
+  border-bottom: 1px solid ${colors.gray};
+  font-family: "Lato";
+  ${tw`m-0 w-16 h-12 text-3xl cursor-pointer font-thin`}
+  &:hover {
+    box-shadow: 1 1px 10px ${colors.blue4};
+    border-color: ${colors.blue4};
+  }
+  
+`;
+export const Container = styled.div`
+  ${tw`flex items-center justify-end bg-black1 p-2.5`}
+`;
+
+export const ButtonSearch = styled(PageType)`
+  ${tw` bg-transparent border-0 shadow-none outline-none cursor-pointer px-3 m-0 rounded leading-9 transition ease-out  flex items-center justify-center`};
+    color: ${colors.gray};
+    
+  &:hover {
+    ${tw`transform scale-105`};
   }
 `;
+export const StyledIconSearch = styled(VscSearch)`
+  ${tw`text-5xl`}
+`;
+export const StyledIconSearchClose = styled(VscSearchStop)`
+  ${tw`text-5xl`}
+`;
+export const SearchUsers = styled(RiUserSearchFill)`
+  ${tw`text-4xl`}
+  &:hover{
+    color: ${colors.blue4};
+  }
+`;
+
+
+export const Select = styled(PageType)`
+display: ${({clicked}) => clicked ? 'block' : 'none'};
+  select{
+    ${tw`text-base w-28 h-12 p-1 bg-transparent border-none font-thin cursor-pointer `}
+    border-bottom: 1px solid ${colors.gray};
+    font-family: "Lato";
+    color: ${colors.gray};
+    &:hover {
+      border-bottom: 1px solid ${colors.blue4};
+    }
+    option {
+      font-size: 1rem;
+      background: transparent;
+      
+    }
+  }
+`

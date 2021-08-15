@@ -1,90 +1,112 @@
-import React from "react";
-import { Field, Form, Formik } from "formik";
-import FormikField from "../../shared/FormikField/FormikField";
-import { FilterType } from "../../../Redux/users-reducer";
+import { Field, Form, Formik } from 'formik';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { FilterType } from '../../../Redux/users-reducer';
+import { getUsersFilter } from '../../../Redux/users-selectors';
+import FormikField from '../../shared/FormikField/FormikField';
+import { colors } from '../../Styles';
 import {
+  ButtonSearch,
+  SearchUsers,
+  Select,
   StyledButton,
-  StyledPreloader,
   StyledContainer,
-  StyledSearch,
-} from "./Styles";
-import { colors } from "../../Styles";
+  StyledIconSearch,
+  StyledIconSearchClose,
+  StyledPreloader,
+  StyledSearch
+} from './Styles';
+
+
+const usersSearchFormValidate = (values: any) => {
+  const errors = {};
+  return errors;
+};
+
+type FriendFormType = "true" | "false" | "null";
+
+interface FormType {
+  term: string;
+  friend: "true" | "false" | "null";
+}
 
 interface IProps {
   onFilterChanged: (filter: FilterType) => void;
 }
 
-const initialValues = {
-  term: "",
-  friend: "null"
-} as FormType;
-
-type FormType = {
-  term: string
-  friend: 'true' | 'false' | 'null'
-}
-
-
 const UsersSearchForm: React.FC<IProps> = React.memo(({ onFilterChanged }) => {
-  
-  
+  const filter = useSelector(getUsersFilter);
+
+  const initialValues = {
+    term: filter.term,
+    friend: String(filter.friend) as FriendFormType,
+  };
+
   const submit = (
     values: FormType,
     { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
   ) => {
     const filter: FilterType = {
       term: values.term,
-      friend: values.friend === 'null' ? null : values.friend === "true" ? true : false
-    }
-
+      friend:
+        values.friend === "null"
+          ? null
+          : values.friend === "true"
+          ? true
+          : false,
+    };
     onFilterChanged(filter);
     setSubmitting(false);
-    console.log(values);
+    // values.term = ''
+  };
+  const [click, setClick] = React.useState(false);
+  const handleClick = (e: any) => {
+    e.preventDefault();
+    setClick(!click);
   };
 
   return (
-    <Formik
-      enableReinitialize
+    <Formik 
+      enableReinitialize 
       initialValues={initialValues}
       onSubmit={submit}
-      //  validationSchema={loginFormSchema}
     >
-      {({ isSubmitting, ...props }) => (
+      {({ isSubmitting }) => (
         <Form>
           <StyledContainer
             display='flex'
             items='center'
-            padding='0.3rem 1.3rem'
+            padding='0rem 1.3rem'
             justify='flex-start'
           >
-            <StyledSearch>
-              <div className='user_box'>
-                <FormikField
-                  label='Search'
-                  name='term'
-                  type='search'
-                  // required
-                />
-              </div>
+            <StyledSearch clicked={click}>
+              <ButtonSearch
+                onClick={(e: any) => handleClick(e)}
+                id='search_submit'
+              >
+                {click ? <StyledIconSearchClose /> : <StyledIconSearch />}
+              </ButtonSearch>
+              <FormikField
+                name='term'
+                type='search'
+                placeholder="What're we looking for ?"
+              />
             </StyledSearch>
-              <Field style={{width: "5rem", marginBottom:'0.5rem'}}
-                  // label='Friend'
-                  name='friend'
-                  type='select'
-                  as="select"
-                >
-                <option value="null">All</option>
-                <option value="true">Only followed</option>
-                <option value="false">Only unfollowed</option>
-                </Field>
-
+            <Select clicked={click}>
+              <Field name='friend' type='select' as='select'>
+                <option value='null'>All</option>
+                <option value='true'>Followed</option>
+                <option value='false'>Unfollowed</option>
+              </Field>
+            </Select>
             {!isSubmitting && (
               <StyledButton
+                clicked={click}
                 bgColor='transparent'
-                border={`1px solid ${colors.primary}`}
                 colorText={colors.primary}
+                type='submit'
               >
-                Find
+                <SearchUsers />
               </StyledButton>
             )}
             {isSubmitting && (
