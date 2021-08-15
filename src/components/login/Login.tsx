@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import LoginForm from "./LoginForm";
 import { Redirect } from "react-router";
 import { AppStateType } from "../../Redux/redux-store";
+import { FormikHelpers } from "formik";
 
 export type InitialStateType = {
    email: string 
@@ -15,8 +16,8 @@ export type InitialStateType = {
 const Login = () => {
    const state = useSelector((state: AppStateType) => state);
    const dispatch = useDispatch();
-   const loggingInThunk = (email: string, password: string, rememberMe: boolean, captcha: string, actions: boolean) =>
-      dispatch(login(email, password, rememberMe,captcha, actions));
+   const loggingInThunk = (email: string, password: string, rememberMe: boolean, captcha: string, actions: any ) =>
+      dispatch(login(email, password, rememberMe, captcha, actions));
 
    
 
@@ -24,9 +25,9 @@ const Login = () => {
    if (isAuth) {
       return <Redirect to="/profile" />;
    }
-   const onSubmit = (values: InitialStateType, actions: any): void => {
-      actions.setStatus(undefined);
-      loggingInThunk(values.email, values.password, values.rememberMe,values.captcha, actions);
+   const onSubmit = (values: InitialStateType, {setStatus, setSubmitting}: FormikHelpers<{}>): void => {
+      setStatus(undefined);
+      loggingInThunk(values.email, values.password, values.rememberMe,values.captcha, {setStatus, setSubmitting});
       state.auth.captchaUrl = null;
    };
 
