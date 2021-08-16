@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import * as queryString from "querystring";
 
-import { FilterType, requestUsers } from "../../../Redux/users-reducer";
+import { FilterType, follow, requestUsers, unfollow } from "../../../Redux/users-reducer";
 import {
   getCurrentPage,
   getFollowingInProgress,
@@ -91,10 +91,10 @@ export const Users: React.FC<PropsType> = () => {
     dispatch(requestUsers(1, pageSize, filter));
   };
 
-  const follow = (userId: number) => {
+  const followUser = (userId: number) => {
     dispatch(follow(userId));
   };
-  const unfollow = (userId: number) => {
+  const unfollowUser = (userId: number) => {
     dispatch(unfollow(userId));
   };
 
@@ -114,8 +114,8 @@ export const Users: React.FC<PropsType> = () => {
           user={u}
           key={u.id}
           followingInProgress={followingInProgress}
-          follow={follow}
-          unfollow={unfollow}
+          follow={followUser}
+          unfollow={unfollowUser}
         />
       ))}
     </StyledWrapper>
