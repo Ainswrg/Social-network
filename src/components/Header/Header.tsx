@@ -1,18 +1,26 @@
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../Redux/auth-reducer";
+import { getAuthUserId, getCurrentUserId } from "../../Redux/auth-selectors";
 import { colors, StyledButton, StyledContainer, StyledNavlink } from "./Styles";
 
 export type MapPropsType = {
-  isAuth?: boolean;
-  login?: string | null;
+  // isAuth?: boolean;
+  // login?: string | null;
 };
 export type DispatchPropsType = {
   logout?: () => void;
 };
 
-const Header: React.FC<MapPropsType & DispatchPropsType> = ({
-  isAuth,
-  login,
-  logout,
-}) => {
+const Header: React.FC<MapPropsType & DispatchPropsType> = () => {
+
+  const isAuth = useSelector(getAuthUserId)
+  const login = useSelector(getCurrentUserId)
+
+  const dispatch = useDispatch()
+  const logOut = () => {
+    dispatch(logout())
+  }
+
   return (
     <StyledContainer
       display='flex'
@@ -30,7 +38,7 @@ const Header: React.FC<MapPropsType & DispatchPropsType> = ({
             bgColor='transparent'
             padding='0.125rem 0.625rem'
             colorText={colors && colors.dark3}
-            onClick={logout}
+            onClick={logOut}
           >
             log&nbsp;out
           </StyledButton>
